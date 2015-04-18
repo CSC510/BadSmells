@@ -13,7 +13,7 @@ Here is how you do it.
 
 1) In terminal run the following command
 
-curl -i -u jessexu20 -d '{"scopes": ["repo", "user"], "note": "OpenSciences"}' https://api.github.com/authorizations
+curl -i -u <github username> -d '{"scopes": ["repo", "user"], "note": "OpenSciences"}' https://api.github.com/authorizations
 
 2) Enter ur password on prompt. You will get a JSON response. 
 In that response there will be a key called "token" . 
@@ -53,7 +53,7 @@ def secs(d0):
   return delta.total_seconds()
  
 def dump1(u,issues):
-  token = "bb84cd45d23e1647dbf38ad65a5426fe7a507a07"
+  token = "token"//token here
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
