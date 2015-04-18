@@ -53,7 +53,7 @@ def secs(d0):
   return delta.total_seconds()
  
 def dump1(u,issues):
-  token = "bb84cd45d23e1647dbf38ad65a5426fe7a507a07"
+  token = "94c0e1f374e38bc8049de2d1978bb94311cc6baa"
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
@@ -90,7 +90,7 @@ def launchDump():
   page = 1
   issues = dict()
   while(True):
-    doNext = dump('https://api.github.com/repos/CSC510/SQLvsNOSQL/issues/events?page=' + str(page), issues)
+    doNext = dump('https://api.github.com/repos/smartSE/constraintAnalysis/issues/events?page=' + str(page), issues)
     print("page "+ str(page))
     page += 1
     if not doNext : break
