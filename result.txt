@@ -1,0 +1,340 @@
+page 1
+page 2
+page 3
+page 4
+page 5
+page 6
+page 7
+page 8
+page 9
+page 10
+page 11
+<urlopen error [Errno 60] Operation timed out>
+Contact TA
+page 12
+ISSUE 71
+action : unlabeled,	what : Example,	when : 1428087071.0,	user : CarterPape
+action : unlabeled,	what : 4b. Need to email authors,	when : 1428086992.0,	user : timm
+action : labeled,	what : 5. Summarized,	when : 1428086992.0,	user : timm
+
+ISSUE 81
+action : unlabeled,	what : 4a. Target paper,	when : 1428087730.0,	user : vivekaxl
+action : labeled,	what : 4f. No data,	when : 1428087730.0,	user : vivekaxl
+
+ISSUE 108
+action : unlabeled,	what : 4c. Maybe too big > 100MB,	when : 1428086910.0,	user : CarterPape
+action : unlabeled,	what : 3. Maybe has data,	when : 1428086910.0,	user : CarterPape
+
+ISSUE 113
+action : unlabeled,	what : 5. Summarized,	when : 1428542781.0,	user : reesjones
+action : unlabeled,	what : 4d. Definitely too big > 500MB,	when : 1428086984.0,	user : CarterPape
+
+ISSUE 117
+action : unlabeled,	what : 5. Summarized,	when : 1428089680.0,	user : rahlk
+action : labeled,	what : 6. Submitted,	when : 1428089680.0,	user : rahlk
+
+ISSUE 123
+action : unlabeled,	what : 5. Summarized,	when : 1428086963.0,	user : CarterPape
+action : labeled,	what : 6. Submitted,	when : 1428086963.0,	user : CarterPape
+
+ISSUE 147
+action : unlabeled,	what : 5. Summarized,	when : 1428086721.0,	user : reesjones
+action : labeled,	what : 6. Submitted,	when : 1428086721.0,	user : reesjones
+
+ISSUE 166
+action : unlabeled,	what : 4a. Target paper,	when : 1428091534.0,	user : vivekaxl
+action : labeled,	what : 5. Summarized,	when : 1428091534.0,	user : vivekaxl
+
+ISSUE 173
+action : unlabeled,	what : Example,	when : 1428087300.0,	user : CarterPape
+
+ISSUE 208
+action : labeled,	what : 4f. No data,	when : 1428089868.0,	user : Amoula1
+
+ISSUE 211
+action : labeled,	what : 4f. No data,	when : 1428086750.0,	user : WeiFoo
+
+ISSUE 213
+action : labeled,	what : 4f. No data,	when : 1428086931.0,	user : WeiFoo
+action : unlabeled,	what : 3. Maybe has data,	when : 1428086896.0,	user : WeiFoo
+
+ISSUE 215
+action : unlabeled,	what : 3. Maybe has data,	when : 1428086640.0,	user : rahulpandita
+action : labeled,	what : 4f. No data,	when : 1428086640.0,	user : rahulpandita
+
+ISSUE 216
+action : labeled,	what : 4f. No data,	when : 1428087914.0,	user : WeiFoo
+
+ISSUE 219
+action : unlabeled,	what : 3. Maybe has data,	when : 1428087568.0,	user : bigfatnoob
+action : labeled,	what : 4f. No data,	when : 1428087568.0,	user : bigfatnoob
+
+ISSUE 220
+action : labeled,	what : 4a. Target paper,	when : 1428596129.0,	user : reesjones
+
+ISSUE 221
+action : labeled,	what : 4f. No data,	when : 1428088827.0,	user : WeiFoo
+
+ISSUE 222
+action : unlabeled,	what : 5. Summarized,	when : 1428087437.0,	user : reesjones
+action : labeled,	what : 6. Submitted,	when : 1428087437.0,	user : reesjones
+
+ISSUE 223
+action : labeled,	what : 4f. No data,	when : 1428089809.0,	user : WeiFoo
+
+ISSUE 224
+action : unlabeled,	what : 5. Summarized,	when : 1429154248.0,	user : reesjones
+action : labeled,	what : 6. Submitted,	when : 1429154248.0,	user : reesjones
+action : unlabeled,	what : 3. Maybe has data,	when : 1428089541.0,	user : rahulpandita
+action : labeled,	what : 5. Summarized,	when : 1428089541.0,	user : rahulpandita
+
+ISSUE 229
+action : unlabeled,	what : 3. Maybe has data,	when : 1428089052.0,	user : Amoula1
+action : labeled,	what : 4f. No data,	when : 1428089052.0,	user : Amoula1
+
+ISSUE 230
+action : labeled,	what : 4f. No data,	when : 1428089425.0,	user : WeiFoo
+
+ISSUE 231
+action : unlabeled,	what : 3. Maybe has data,	when : 1428086734.0,	user : bigfatnoob
+action : labeled,	what : 4f. No data,	when : 1428086734.0,	user : bigfatnoob
+
+ISSUE 232
+action : unlabeled,	what : 3. Maybe has data,	when : 1428089093.0,	user : bigfatnoob
+action : labeled,	what : 4f. No data,	when : 1428089093.0,	user : bigfatnoob
+
+ISSUE 234
+action : unlabeled,	what : 4a. Target paper,	when : 1428088490.0,	user : CarterPape
+action : labeled,	what : 4a. Target paper,	when : 1428087987.0,	user : Amoula1
+action : unlabeled,	what : 3. Maybe has data,	when : 1428087904.0,	user : rahulpandita
+action : labeled,	what : 5. Summarized,	when : 1428087904.0,	user : rahulpandita
+
+ISSUE 235
+action : unlabeled,	what : 3. Maybe has data,	when : 1428086312.0,	user : Amoula1
+action : labeled,	what : 4f. No data,	when : 1428086312.0,	user : Amoula1
+
+ISSUE 238
+action : unlabeled,	what : 4a. Target paper,	when : 1428087862.0,	user : BenProvince
+action : labeled,	what : 5. Summarized,	when : 1428087862.0,	user : BenProvince
+
+ISSUE 239
+action : unlabeled,	what : 3. Maybe has data,	when : 1428087016.0,	user : bigfatnoob
+action : labeled,	what : 4f. No data,	when : 1428087016.0,	user : bigfatnoob
+
+ISSUE 240
+action : unlabeled,	what : 4a. Target paper,	when : 1428087715.0,	user : timm
+action : labeled,	what : 5. Summarized,	when : 1428087715.0,	user : timm
+
+ISSUE 241
+action : unlabeled,	what : 6. Submitted,	when : 1428599012.0,	user : CarterPape
+action : labeled,	what : 5. Summarized,	when : 1428599012.0,	user : CarterPape
+action : unlabeled,	what : 5. Summarized,	when : 1428089585.0,	user : reesjones
+action : labeled,	what : 6. Submitted,	when : 1428089585.0,	user : reesjones
+action : labeled,	what : 5. Summarized,	when : 1428087759.0,	user : timm
+
+ISSUE 242
+action : labeled,	what : 3. Maybe has data,	when : 1428087201.0,	user : CarterPape
+action : labeled,	what : Example,	when : 1428087201.0,	user : CarterPape
+
+ISSUE 243
+action : labeled,	what : System,	when : 1428087636.0,	user : timm
+
+ISSUE 244
+action : unlabeled,	what : 3. Maybe has data,	when : 1428089673.0,	user : bigfatnoob
+action : labeled,	what : 4f. No data,	when : 1428089673.0,	user : bigfatnoob
+action : labeled,	what : 3. Maybe has data,	when : 1428089243.0,	user : CarterPape
+
+ISSUE 245
+action : unlabeled,	what : 5. Summarized,	when : 1428549434.0,	user : reesjones
+action : labeled,	what : 4a. Target paper,	when : 1428549434.0,	user : reesjones
+action : unlabeled,	what : 3. Maybe has data,	when : 1428091006.0,	user : bigfatnoob
+action : labeled,	what : 5. Summarized,	when : 1428091006.0,	user : bigfatnoob
+action : labeled,	what : 4d. Definitely too big > 500MB,	when : 1428091006.0,	user : bigfatnoob
+action : labeled,	what : 3. Maybe has data,	when : 1428089287.0,	user : CarterPape
+
+ISSUE 246
+action : labeled,	what : 4f. No data,	when : 1428090297.0,	user : WeiFoo
+action : labeled,	what : 3. Maybe has data,	when : 1428089341.0,	user : CarterPape
+
+ISSUE 247
+action : labeled,	what : 3. Maybe has data,	when : 1428089365.0,	user : CarterPape
+
+ISSUE 248
+action : labeled,	what : 3. Maybe has data,	when : 1428089384.0,	user : CarterPape
+
+ISSUE 249
+action : labeled,	what : 3. Maybe has data,	when : 1428089407.0,	user : CarterPape
+
+ISSUE 250
+action : labeled,	what : 3. Maybe has data,	when : 1428089431.0,	user : CarterPape
+
+ISSUE 251
+action : labeled,	what : 3. Maybe has data,	when : 1428089466.0,	user : CarterPape
+
+ISSUE 252
+action : labeled,	what : 3. Maybe has data,	when : 1428089486.0,	user : CarterPape
+
+ISSUE 253
+action : labeled,	what : 3. Maybe has data,	when : 1428089515.0,	user : CarterPape
+
+ISSUE 254
+action : labeled,	what : 3. Maybe has data,	when : 1428089537.0,	user : CarterPape
+
+ISSUE 255
+action : labeled,	what : 3. Maybe has data,	when : 1428089556.0,	user : CarterPape
+
+ISSUE 256
+action : unlabeled,	what : 3. Maybe has data,	when : 1428089790.0,	user : rahulpandita
+action : labeled,	what : 4f. No data,	when : 1428089744.0,	user : rahulpandita
+action : labeled,	what : 3. Maybe has data,	when : 1428089577.0,	user : CarterPape
+
+ISSUE 257
+action : labeled,	what : 3. Maybe has data,	when : 1428089594.0,	user : CarterPape
+
+ISSUE 258
+action : labeled,	what : 3. Maybe has data,	when : 1428089614.0,	user : CarterPape
+
+ISSUE 259
+action : unlabeled,	what : 3. Maybe has data,	when : 1428089942.0,	user : rahulpandita
+action : labeled,	what : 4f. No data,	when : 1428089924.0,	user : rahulpandita
+action : labeled,	what : 3. Maybe has data,	when : 1428089636.0,	user : CarterPape
+
+ISSUE 260
+action : labeled,	what : 3. Maybe has data,	when : 1428089655.0,	user : CarterPape
+
+ISSUE 261
+action : labeled,	what : 3. Maybe has data,	when : 1428089681.0,	user : CarterPape
+
+ISSUE 262
+action : labeled,	what : 3. Maybe has data,	when : 1428089750.0,	user : CarterPape
+
+ISSUE 263
+action : labeled,	what : 3. Maybe has data,	when : 1428089769.0,	user : CarterPape
+
+ISSUE 264
+action : labeled,	what : 5. Summarized,	when : 1428090008.0,	user : BenProvince
+
+ISSUE 265
+action : labeled,	what : 3. Maybe has data,	when : 1428089790.0,	user : CarterPape
+
+ISSUE 266
+action : unlabeled,	what : 3. Maybe has data,	when : 1428090385.0,	user : rahulpandita
+action : labeled,	what : 5. Summarized,	when : 1428090385.0,	user : rahulpandita
+action : labeled,	what : 3. Maybe has data,	when : 1428089829.0,	user : CarterPape
+
+ISSUE 267
+action : unlabeled,	what : 3. Maybe has data,	when : 1428093455.0,	user : Amoula1
+action : labeled,	what : 4f. No data,	when : 1428093455.0,	user : Amoula1
+action : labeled,	what : 3. Maybe has data,	when : 1428089864.0,	user : CarterPape
+
+ISSUE 268
+action : labeled,	what : 4e. Already have dataset,	when : 1428090691.0,	user : WeiFoo
+action : labeled,	what : 3. Maybe has data,	when : 1428089883.0,	user : CarterPape
+
+ISSUE 269
+action : labeled,	what : 3. Maybe has data,	when : 1428089925.0,	user : CarterPape
+
+ISSUE 270
+action : labeled,	what : 3. Maybe has data,	when : 1428089952.0,	user : CarterPape
+
+ISSUE 271
+action : labeled,	what : 3. Maybe has data,	when : 1428089982.0,	user : CarterPape
+
+ISSUE 272
+action : labeled,	what : 3. Maybe has data,	when : 1428090016.0,	user : CarterPape
+
+ISSUE 273
+action : labeled,	what : 3. Maybe has data,	when : 1428090201.0,	user : CarterPape
+
+ISSUE 274
+action : labeled,	what : 3. Maybe has data,	when : 1428090228.0,	user : CarterPape
+
+ISSUE 275
+action : labeled,	what : 3. Maybe has data,	when : 1428090264.0,	user : CarterPape
+
+ISSUE 276
+action : labeled,	what : 3. Maybe has data,	when : 1428090325.0,	user : CarterPape
+
+ISSUE 277
+action : labeled,	what : 3. Maybe has data,	when : 1428090510.0,	user : reesjones
+
+ISSUE 278
+action : labeled,	what : 3. Maybe has data,	when : 1428090513.0,	user : CarterPape
+
+ISSUE 279
+action : labeled,	what : 3. Maybe has data,	when : 1428090558.0,	user : reesjones
+
+ISSUE 280
+action : labeled,	what : 3. Maybe has data,	when : 1428090559.0,	user : CarterPape
+
+ISSUE 281
+action : labeled,	what : 3. Maybe has data,	when : 1428629371.0,	user : CarterPape
+
+ISSUE 282
+action : labeled,	what : 3. Maybe has data,	when : 1428090577.0,	user : CarterPape
+
+ISSUE 283
+action : labeled,	what : 3. Maybe has data,	when : 1428090610.0,	user : CarterPape
+
+ISSUE 284
+action : labeled,	what : 4f. No data,	when : 1428090892.0,	user : WeiFoo
+action : labeled,	what : 3. Maybe has data,	when : 1428090614.0,	user : reesjones
+
+ISSUE 285
+action : unlabeled,	what : 3. Maybe has data,	when : 1428096884.0,	user : bigfatnoob
+action : labeled,	what : 4f. No data,	when : 1428096884.0,	user : bigfatnoob
+action : labeled,	what : 3. Maybe has data,	when : 1428090632.0,	user : CarterPape
+
+ISSUE 286
+action : unlabeled,	what : 3. Maybe has data,	when : 1428092282.0,	user : bigfatnoob
+action : labeled,	what : 4f. No data,	when : 1428092282.0,	user : bigfatnoob
+action : labeled,	what : 3. Maybe has data,	when : 1428090645.0,	user : reesjones
+
+ISSUE 287
+action : unlabeled,	what : 3. Maybe has data,	when : 1428092245.0,	user : Amoula1
+action : labeled,	what : 4f. No data,	when : 1428092245.0,	user : Amoula1
+action : labeled,	what : 3. Maybe has data,	when : 1428090650.0,	user : CarterPape
+
+ISSUE 288
+action : labeled,	what : 4f. No data,	when : 1428092637.0,	user : WeiFoo
+action : labeled,	what : 3. Maybe has data,	when : 1428090703.0,	user : CarterPape
+
+ISSUE 289
+action : unlabeled,	what : 3. Maybe has data,	when : 1428092704.0,	user : bigfatnoob
+action : labeled,	what : 4f. No data,	when : 1428092704.0,	user : bigfatnoob
+action : labeled,	what : 3. Maybe has data,	when : 1428090799.0,	user : CarterPape
+
+ISSUE 290
+action : labeled,	what : 4f. No data,	when : 1428092580.0,	user : WeiFoo
+action : labeled,	what : 3. Maybe has data,	when : 1428090826.0,	user : CarterPape
+
+ISSUE 291
+action : labeled,	what : 3. Maybe has data,	when : 1428090851.0,	user : CarterPape
+
+ISSUE 292
+action : labeled,	what : 5. Summarized,	when : 1428091044.0,	user : BenProvince
+
+ISSUE 293
+action : labeled,	what : 5. Summarized,	when : 1428091591.0,	user : BenProvince
+
+ISSUE 294
+action : labeled,	what : 5. Summarized,	when : 1428092324.0,	user : BenProvince
+
+ISSUE 295
+action : labeled,	what : System,	when : 1428429502.0,	user : CarterPape
+
+ISSUE 296
+action : labeled,	what : System,	when : 1428629385.0,	user : CarterPape
+
+ISSUE 297
+action : labeled,	what : System,	when : 1428435160.0,	user : timm
+
+ISSUE 298
+action : labeled,	what : 4a. Target paper,	when : 1428545672.0,	user : timm
+
+ISSUE 299
+action : labeled,	what : System,	when : 1428599217.0,	user : CarterPape
+
+ISSUE 300
+action : labeled,	what : System,	when : 1428863833.0,	user : reesjones
+
