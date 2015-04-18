@@ -53,7 +53,7 @@ def secs(d0):
   return delta.total_seconds()
  
 def dump1(u,issues):
-  token = "token"//token here
+  token = "a074b458a93be17097a04e8c04ac4a4ec3995686"//token here
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
@@ -90,7 +90,7 @@ def launchDump():
   page = 1
   issues = dict()
   while(True):
-    doNext = dump('https://api.github.com/repos/CSC510/SQLvsNOSQL/issues/events?page=' + str(page), issues)
+    doNext = dump('https://api.github.com/repos/bighero4/MarkParser/issues/events?page=' + str(page), issues)
     print("page "+ str(page))
     page += 1
     if not doNext : break
