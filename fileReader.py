@@ -1,3 +1,6 @@
+# Call it from terminal by running 
+# python fileReader.py inputfile outputfile
+
 from datetime import timedelta
 from datetime import datetime
 from datetime import date
