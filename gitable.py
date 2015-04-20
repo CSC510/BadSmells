@@ -78,7 +78,7 @@ def dump1(u,issues):
       issue = event['issue']
       issueObj = L( state = issue['state'],
                     user =  issue['user']['login'],
-                    comments =issue['comments']
+                    comments =issue['comments'],
                      #add more attributes here: attr_name = issue['attr'] , json response described here:https://developer.github.com/v3/issues/events/
                     created_at = secs(issue['created_at']),
                     closed_at = secs(issue['closed_at'])
