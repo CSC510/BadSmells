@@ -41,11 +41,11 @@ def reader(inputFile,outputFile):
     tarArray.append(durationArray[int(len(durationArray)*0.5)]);
     tarArray.append(durationArray[int(len(durationArray)*0.9)]);
     print tarArray;
-    plt.plot(durationArray)
-    plt.show()
+    # plt.plot(durationArray)
+    # plt.show()
     w.closed
     f.closed
-# if __name__ == '__main__':
-#     import sys
-#     reader(sys.argv[1],sys.argv[2])
-reader("group8.txt","output8.txt")
+if __name__ == '__main__':
+    import sys
+    reader(sys.argv[1],sys.argv[2])
+# reader("group8.txt","output8.txt")

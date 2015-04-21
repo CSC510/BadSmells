@@ -51,9 +51,39 @@ def secs(d0):
   epoch = datetime.datetime.utcfromtimestamp(0)
   delta = d - epoch
   return delta.total_seconds()
- 
+
+
+
+def dump2(u, commits):
+  token = "INSERT TOKEN HERE" # <===
+  request = urllib2.Request(u, headers={"Authorization" : "token "+token})
+  v = urllib2.urlopen(request).read()
+  w = json.loads(v)
+  if not w: return False
+  for commit in w:
+    author = commit['author']['login']
+    message = commit['commit']['message']
+    created_at = commit['commit']['committer']['date']
+    commitObj = L( what = repr(message),
+                   when = secs(created_at)
+                      )
+    all_commits =  commits.get(author)
+    if not all_commits:
+        all_commits = []
+    all_commits.append(commitObj)
+    commits[author] = all_commits
+  return True
+
+def dumpC(u,commits):
+    try:
+       return  dump2(u, commits)
+    except Exception as e:
+        print("problem when dump commits")
+        print(e)
+        return False
+        
 def dump1(u,issues):
-  token = "INSERT YOUR TOKEN HERE" # <===
+  token = "INSERT TOKEN HERE" 
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
@@ -78,7 +108,7 @@ def dump1(u,issues):
       issue = event['issue']
       issueObj = L( state = issue['state'],
                     user =  issue['user']['login'],
-                    comments =issue['comments']
+                    comments =issue['comments'],
                      #add more attributes here: attr_name = issue['attr'] , json response described here:https://developer.github.com/v3/issues/events/
                     created_at = secs(issue['created_at']),
                     closed_at = secs(issue['closed_at'])
@@ -109,8 +139,28 @@ def launchDump():
     print("ISSUE " + str(issue))
     for event in events: print(event.show())
     print('')
+
+def dumpCommits():
+    page = 1
+    commits= dict()
     
-launchDump()
+    while(True):
+       doNext =  dumpC('https://api.github.com/repos/CSC510/SQLvsNOSQL/commits?page='+str(page), commits)
+       print("page "+str(page))
+       page += 1
+       if not doNext : break
+    for author, commits in commits.iteritems():
+        print("AUTHOR "+ author)
+        # print(len(commits))
+        for commit in commits: print(commit.show())
+        print('')
+
+dumpCommits()
+#launchDump()
+
+  
+   
+ 
 
 
   
