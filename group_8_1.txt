@@ -1,0 +1,37 @@
+pull request
+changed_files : 8,	process_duration : 5829.0
+changed_files : 16,	process_duration : 49135.0
+changed_files : 1,	process_duration : 61902.0
+changed_files : 6,	process_duration : 49.0
+changed_files : 9,	process_duration : 64967.0
+changed_files : 4,	process_duration : 5.0
+changed_files : 3,	process_duration : 13.0
+changed_files : 19,	process_duration : 3218.0
+changed_files : 30,	process_duration : 250.0
+changed_files : 44,	process_duration : 355.0
+changed_files : 3117,	mergeable : False,	process_duration : 3418.0
+changed_files : 94,	mergeable : False,	process_duration : 233360.0
+changed_files : 1,	process_duration : 30.0
+milestone
+problem when dump milestones
+HTTP Error 404: Not Found
+late : False,	total_issues : 0,	duration : inf,	open_issues : 0,	closed_issues : 0
+
+late : True,	total_issues : 23,	duration : inf,	open_issues : 0,	closed_issues : 23
+
+late : False,	total_issues : 4,	duration : 987.67,	open_issues : 0,	closed_issues : 4
+
+late : False,	total_issues : 23,	duration : 876.858055556,	open_issues : 0,	closed_issues : 23
+
+late : False,	total_issues : 14,	duration : 987.435555556,	open_issues : 0,	closed_issues : 14
+
+commit
+start week 2015-02-02 00:05:25
+total Num 182
+[27, 2, 42, 4, 17, 3, 2, 8, 15, 62]
+issues
+labels used Times {u'Test Problem': 23, u'info!': 33, u'Configure Problem': 3, u'help wanted': 9, u'wontfix': 1, u'bug': 6, u'Design Problem': 10}
+duration in hours [0, 122, 279, 16, 268, 6, 1, 1, 277, 16, 16, 17, 17, 18, 18, 18, 18, 17, 17, 280, 3, 0, 18, 26, 48, 26, 29, 47, 11, 39, 49, 41, 41, 41, 41, 41, 3, 83, 12, 65, 358, 740, 934, 156, 158, 937, 169, 0, 182, 202, 0, 235, 61, 263, 54, 1058, 1110, 72, 0, 32, 192, 400, 372, 1, 91, 372, 0, 125]
+start week 2015-02-09 22:39:59
+total Num 68
+Issue created by weeks [10, 9, 7, 1, 1, 1, 1, 18, 20]

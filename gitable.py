@@ -30,7 +30,13 @@ import urllib2
 import json
 import re,datetime
 import sys
+from datetime import timedelta
+from datetime import date
 
+
+# project="SuperCh-SE-NCSU/ProjectScraping"
+# project="CSC510/SQLvsNOSQL"
+project ="bighero4/MarkParser"
 class L():
   "Anonymous container"
   def __init__(i,**fields) : 
@@ -90,15 +96,20 @@ def dump3(u, milestones):
     if closed_at != None:
         duration=secs(closed_at)-secs(created_at)
     else:
-         duration = inf
+         duration = float("inf")
     due_on = milestone['due_on']
-    milestoneObj = L( what = title,
+    if due_on>closed_at:
+        late=True
+    else:
+        late=False
+    milestoneObj = L( # what = title,
                    open_issues= open_issues,
                    closed_issues =closed_issues,
-                   created_at = secs(created_at),
-                   closed_at = secs(closed_at),
+                   # created_at = secs(created_at),
+                   # closed_at = secs(closed_at),
                    duration = duration/3600,
-                   due_on = secs(due_on),
+                   # due_on = secs(due_on),
+                   late= late,
                    total_issues= int(closed_issues)+int(open_issues)
                       )
     all_milestones =  milestones.get(title)
@@ -130,10 +141,10 @@ def dump4(u, pulls):
     w2 = json.loads(v2)
     mergeable = w2['mergeable']
     changed_files= w2['changed_files']
-    pullObj = L( what = title,
-                 created_at = secs(created_at),
-                 closed_at = secs(closed_at),
-                 merged_at =secs(merged_at),
+    pullObj = L( # what = title,
+                 # created_at = secs(created_at),
+                 # closed_at = secs(closed_at),
+                 # merged_at =secs(merged_at),
                  mergeable =mergeable,
                  process_duration = process_duration,
                  changed_files=changed_files
@@ -166,7 +177,7 @@ def dumpP(u,pulls):
         print("problem when dump pull requests")
         print(e)
         return False;
-def dump1(u,issues):
+def dump1(u,issues,labels,dur,create):
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
@@ -185,26 +196,39 @@ def dump1(u,issues):
                  what = label_name,
                  user = user,
                  milestone = milestone)
+    if labels.has_key(label_name) and action==("labeled"):
+        labels[label_name]+=1
+    else:
+        labels[label_name]=1
     all_events = issues.get(issue_id)
     if not all_events: 
       all_events = []
       issue = event['issue']
+      created_at = secs(issue['created_at'])
+      closed_at = secs(issue['closed_at'])
+      if closed_at!=None:
+          duration = secs(issue['closed_at'])-secs(issue['created_at'])
+      else:
+          duration = float("inf")
       issueObj = L( state = issue['state'],
                     user =  issue['user']['login'],
                     comments =issue['comments'],
                      #add more attributes here: attr_name = issue['attr'] , json response described here:https://developer.github.com/v3/issues/events/
                     created_at = secs(issue['created_at']),
                     closed_at = secs(issue['closed_at']),
+                    duration =duration
                     #duration = closed_at- created_at
                    )
-      all_events.append(issueObj)          
+      all_events.append(issueObj)
+      dur.append(int(duration/3600))        
+      create.append(created_at)
     all_events.append(eventObj)
     issues[issue_id] = all_events
   return True
 
-def dump(u,issues):
+def dump(u,issues,labels,duration,create):
   try:
-    return dump1(u, issues)
+    return dump1(u, issues,labels,duration,create)
   except Exception as e: 
     print(e)
     print("Contact TA")
@@ -213,35 +237,46 @@ def dump(u,issues):
 def launchDump():
   page = 1
   issues = dict()
+  labels={}
+  duration=[]
+  create=[]
   while(True):
-    doNext = dump('https://api.github.com/repos/CSC510/SQLvsNOSQL/issues/events?page=' + str(page), issues)
-    print("page "+ str(page))
+    doNext = dump('https://api.github.com/repos/'+project+'/issues/events?page=' + str(page), issues,labels,duration,create)
+    # print("page "+ str(page))
     page += 1
     if not doNext : break
-  for issue, events in issues.iteritems():
-    print("ISSUE " + str(issue))
-    for event in events: print(event.show())
-    print('')
+  # for issue, events in issues.iteritems():
+  #   print("ISSUE " + str(issue))
+  #   for event in events: print(event.show())
+  #   print('')
+  
+  print ("labels used Times",labels)
+  print ("duration in hours",duration)
+  print ("Issue created by weeks",divideByTime(create))
 
 def dumpCommits():
     page = 1
     commits= dict()
     time=[];
     while(True):
-       doNext =  dumpC('https://api.github.com/repos/CSC510/SQLvsNOSQL/commits?page='+str(page), commits,time)
-       print("page "+str(page))
+       doNext =  dumpC('https://api.github.com/repos/'+project+'/commits?page='+str(page), commits,time)
+       # print("page "+str(page))
        page += 1
        if not doNext : break
-    for author,commits in commits.iteritems():
-        print("AUTHOR "+ author)
-        # print(len(commits))
-        for commit in commits:
-            print(commit.show())
-        print('')
+    # for author,commits in commits.iteritems():
+#         print("AUTHOR "+ author)
+#         # print(len(commits))
+#         for commit in commits:
+#             print(commit.show())
+#         print('')
     print (divideByTime(time))
 def divideByTime(time):
     time.sort();
-    std=time[0];
+    newDate= datetime.datetime.utcfromtimestamp(0)+timedelta(seconds=time[0])
+    weekday=newDate.weekday()
+    start=newDate-datetime.timedelta(days=weekday,weeks=0)
+    print ("start week",start)
+    std=secs(str(start))
     count=0;
     countTime=[]
     for i in time:
@@ -260,7 +295,7 @@ def dumpCommitsNum():  # count each user's commits numbers
     commits= dict()
     userCount = 0
     while(True):
-       doNext =  dumpC('https://api.github.com/repos/CSC510/SQLvsNOSQL/commits?page='+str(page), commits)
+       doNext =  dumpC('https://api.github.com/repos/'+project+'/commits?page='+str(page), commits)
        print("page "+str(page))
        page += 1
        if not doNext : break
@@ -274,8 +309,8 @@ def dumpMilestones():
     page=1
     milestones=dict()
     while(True):
-        doNext=dumpM('https://api.github.com/repos/CSC510/SQLvsNOSQL/milestones/'+str(page), milestones)
-        print("page "+str(page))
+        doNext=dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page), milestones)
+        # print("page "+str(page))
         page+=1
         if not doNext :break
     for title,milestone in milestones.iteritems():
@@ -286,17 +321,21 @@ def dumpMilestones():
 def dumpPulls():
     page=1
     pulls=dict()
-    doNext=dumpP('https://api.github.com/repos/CSC510/SQLvsNOSQL/pulls?state=all', pulls)
+    doNext=dumpP('https://api.github.com/repos/'+project+'/pulls?state=closed', pulls)
     # for author, pulls in pulls.iteritems():
     #     print("AUTHOR "+ author)
     #     # print(len(commits))
     #     # for commit in commits: print(commit.show())
     #     print('')
-# dumpPulls()
-# dumpMilestones();
+print ("pull request")
+dumpPulls()
+print ("milestone")
+dumpMilestones();
+print ("commit")
 dumpCommits()
 # dumpCommitsNum()
-#launchDump()
+print ("issues")
+launchDump()
 
   
    
