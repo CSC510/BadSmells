@@ -30,7 +30,6 @@ import urllib2
 import json
 import re,datetime
 import sys
- 
 class L():
   "Anonymous container"
   def __init__(i,**fields) : 
@@ -57,7 +56,6 @@ def secs(d0):
 
 
 def dump2(u, commits,time):
-  token = "INSERT TOKEN HERE" # <===
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
@@ -78,7 +76,6 @@ def dump2(u, commits,time):
   return True
 
 def dump3(u, milestones):
-    token = "INSERT TOKEN HERE" # <===
     request = urllib2.Request(u, headers={"Authorization" : "token "+token})
     v = urllib2.urlopen(request).read()
     milestone = json.loads(v)
@@ -111,7 +108,6 @@ def dump3(u, milestones):
     return True
     
 def dump4(u, pulls):
-  token = "INSERT TOKEN HERE" # <===
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
@@ -170,7 +166,6 @@ def dumpP(u,pulls):
         print(e)
         return False;
 def dump1(u,issues):
-  token = "INSERT TOKEN HERE" 
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
@@ -242,7 +237,19 @@ def dumpCommits():
         for commit in commits:
             print(commit.show())
         print('')
-    print (time)
+    time.sort();
+    std=time[0];
+    count=0;
+    countTime=[]
+    for i in time:
+        if i <= std+604800:
+            count+=1
+        else:
+            countTime.append(count)
+            count=1
+            std+=604800
+    countTime.append(count)
+    print (countTime)
     
 def dumpMilestones():
     page=1
@@ -266,9 +273,9 @@ def dumpPulls():
     #     # print(len(commits))
     #     # for commit in commits: print(commit.show())
     #     print('')
-# dumpPulls()
+dumpPulls()
 # dumpMilestones();
-dumpCommits()
+# dumpCommits()
 #launchDump()
 
   
