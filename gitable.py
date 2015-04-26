@@ -243,6 +243,20 @@ def dumpCommits():
             print(commit.show())
         print('')
     print (time)
+
+def dumpCommitsNum():  # count each user's commits numbers
+    page = 1
+    commits= dict()
+    userCount = 0
+    while(True):
+       doNext =  dumpC('https://api.github.com/repos/CSC510/SQLvsNOSQL/commits?page='+str(page), commits)
+       print("page "+str(page))
+       page += 1
+       if not doNext : break
+    for author, commits in commits.iteritems():	
+        print("user"+ str(userCount) + ": " + str(len(commits)))
+	userCount += 1
+        print('')
     
 def dumpMilestones():
     page=1
@@ -269,6 +283,7 @@ def dumpPulls():
 # dumpPulls()
 # dumpMilestones();
 dumpCommits()
+# dumpCommitsNum()
 #launchDump()
 
   
