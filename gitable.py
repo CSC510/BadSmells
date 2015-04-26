@@ -30,6 +30,7 @@ import urllib2
 import json
 import re,datetime
 import sys
+
 class L():
   "Anonymous container"
   def __init__(i,**fields) : 
@@ -237,6 +238,8 @@ def dumpCommits():
         for commit in commits:
             print(commit.show())
         print('')
+    print (divideByTime(time))
+def divideByTime(time):
     time.sort();
     std=time[0];
     count=0;
@@ -249,8 +252,9 @@ def dumpCommits():
             count=1
             std+=604800
     countTime.append(count)
-    print (countTime)
-
+    print ("total Num",sum(countTime))
+    return countTime
+    
 def dumpCommitsNum():  # count each user's commits numbers
     page = 1
     commits= dict()
@@ -288,9 +292,8 @@ def dumpPulls():
     #     # print(len(commits))
     #     # for commit in commits: print(commit.show())
     #     print('')
-dumpPulls()
+# dumpPulls()
 # dumpMilestones();
-
 dumpCommits()
 # dumpCommitsNum()
 #launchDump()
