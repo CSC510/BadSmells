@@ -1,0 +1,211 @@
+ISSUE 64
+closed_at : 1428367982.0,	created_at : 1428353839.0,	user : jessexu20,	comments : 2,	state : closed
+
+ISSUE 2
+closed_at : 1424060565.0,	created_at : 1423607999.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 3
+closed_at : 1423948123.0,	created_at : 1423946006.0,	user : Hongyi23,	comments : 4,	state : closed
+
+ISSUE 4
+closed_at : 1424065750.0,	created_at : 1423947438.0,	user : Hongyi23,	comments : 0,	state : closed
+
+ISSUE 5
+closed_at : 1424640885.0,	created_at : 1423948496.0,	user : Hongyi23,	comments : 0,	state : closed
+
+ISSUE 6
+closed_at : 1425393538.0,	created_at : 1423950049.0,	user : jentle,	comments : 1,	state : closed
+
+ISSUE 8
+closed_at : 1425393555.0,	created_at : 1424053116.0,	user : jessexu20,	comments : 5,	state : closed
+
+ISSUE 9
+closed_at : 1425393503.0,	created_at : 1424053611.0,	user : jessexu20,	comments : 5,	state : closed
+
+ISSUE 10
+closed_at : 1424060538.0,	created_at : 1424055638.0,	user : jessexu20,	comments : 1,	state : closed
+
+ISSUE 11
+closed_at : 1424386447.0,	created_at : 1424055792.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 12
+closed_at : 1424057528.0,	created_at : 1424056288.0,	user : maxlpy,	comments : 3,	state : closed
+
+ISSUE 13
+closed_at : 1424640840.0,	created_at : 1424379548.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 14
+closed_at : 1428378593.0,	created_at : 1424379640.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 15
+closed_at : 1428195921.0,	created_at : 1424384408.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 16
+closed_at : 1424640587.0,	created_at : 1424445532.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 17
+closed_at : 1425393572.0,	created_at : 1424445643.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 18
+closed_at : 1424665870.0,	created_at : 1424445710.0,	user : jessexu20,	comments : 3,	state : closed
+
+ISSUE 19
+closed_at : 1425393441.0,	created_at : 1424546242.0,	user : jessexu20,	comments : 9,	state : closed
+
+ISSUE 20
+closed_at : 1424641079.0,	created_at : 1424641022.0,	user : maxlpy,	comments : 0,	state : closed
+
+ISSUE 21
+closed_at : 1425393562.0,	created_at : 1424665963.0,	user : jessexu20,	comments : 3,	state : closed
+
+ISSUE 23
+closed_at : 1424736582.0,	created_at : 1424736322.0,	user : jentle,	comments : 0,	state : closed
+
+ISSUE 24
+closed_at : 1425393433.0,	created_at : 1424736463.0,	user : maxlpy,	comments : 0,	state : closed
+
+ISSUE 25
+closed_at : 1425419955.0,	created_at : 1424810176.0,	user : Hongyi23,	comments : 0,	state : closed
+
+ISSUE 26
+closed_at : 1428195938.0,	created_at : 1424820735.0,	user : jessexu20,	comments : 2,	state : closed
+
+ISSUE 27
+closed_at : 1425393451.0,	created_at : 1424821078.0,	user : jessexu20,	comments : 1,	state : closed
+
+ISSUE 28
+closed_at : 1425393420.0,	created_at : 1424829505.0,	user : maxlpy,	comments : 0,	state : closed
+
+ISSUE 29
+closed_at : 1428195890.0,	created_at : 1424829936.0,	user : maxlpy,	comments : 2,	state : closed
+
+ISSUE 31
+closed_at : 1428345789.0,	created_at : 1425679835.0,	user : maxlpy,	comments : 0,	state : closed
+
+ISSUE 32
+closed_at : 1428378599.0,	created_at : 1427089033.0,	user : jentle,	comments : 3,	state : closed
+
+ISSUE 33
+closed_at : 1427837142.0,	created_at : 1427601942.0,	user : jessexu20,	comments : 1,	state : closed
+
+ISSUE 35
+closed_at : 1428073615.0,	created_at : 1428029048.0,	user : maxlpy,	comments : 1,	state : closed
+
+ISSUE 36
+closed_at : 1428375185.0,	created_at : 1428074897.0,	user : jessexu20,	comments : 1,	state : closed
+
+ISSUE 41
+closed_at : 1428208216.0,	created_at : 1428195853.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 45
+closed_at : 1428345553.0,	created_at : 1428196564.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 46
+closed_at : 1428345548.0,	created_at : 1428196619.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 47
+closed_at : 1428345592.0,	created_at : 1428196714.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 48
+closed_at : 1428345597.0,	created_at : 1428196726.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 49
+closed_at : 1428345544.0,	created_at : 1428196759.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 50
+closed_at : 1428375196.0,	created_at : 1428196830.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 51
+closed_at : 1428345854.0,	created_at : 1428204293.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 52
+closed_at : 1428375173.0,	created_at : 1428205508.0,	user : jessexu20,	comments : 1,	state : closed
+
+ISSUE 53
+closed_at : 1428251257.0,	created_at : 1428208401.0,	user : jessexu20,	comments : 1,	state : closed
+
+ISSUE 54
+closed_at : 1428345567.0,	created_at : 1428239404.0,	user : maxlpy,	comments : 1,	state : closed
+
+ISSUE 56
+closed_at : 1428345575.0,	created_at : 1428251235.0,	user : jessexu20,	comments : 2,	state : closed
+
+ISSUE 57
+closed_at : 1428439220.0,	created_at : 1428262905.0,	user : jessexu20,	comments : 4,	state : closed
+
+ISSUE 59
+closed_at : 1428345624.0,	created_at : 1428278271.0,	user : maxlpy,	comments : 0,	state : closed
+
+ISSUE 62
+closed_at : 1428442705.0,	created_at : 1428345517.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 63
+closed_at : 1428350790.0,	created_at : 1428349938.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 67
+closed_at : 1428442398.0,	created_at : 1428375158.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 69
+closed_at : 1429385036.0,	created_at : 1428376333.0,	user : maxlpy,	comments : 0,	state : closed
+
+ISSUE 70
+closed_at : 1428442410.0,	created_at : 1428376627.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 71
+closed_at : 1428442427.0,	created_at : 1428376882.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 72
+closed_at : 1428439193.0,	created_at : 1428377149.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 73
+closed_at : 1428439175.0,	created_at : 1428377262.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 74
+closed_at : 1428442696.0,	created_at : 1428377599.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 75
+closed_at : 1428442481.0,	created_at : 1428378569.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 77
+closed_at : 1428442418.0,	created_at : 1428379326.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 78
+closed_at : 1429385036.0,	created_at : 1428379541.0,	user : maxlpy,	comments : 0,	state : closed
+
+ISSUE 79
+closed_at : 1428439082.0,	created_at : 1428379827.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 82
+closed_at : 1428442508.0,	created_at : 1428382996.0,	user : maxlpy,	comments : 1,	state : closed
+
+ISSUE 83
+closed_at : 1428442529.0,	created_at : 1428384161.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 84
+closed_at : 1429385001.0,	created_at : 1428384701.0,	user : jessexu20,	comments : 1,	state : closed
+
+ISSUE 85
+closed_at : 1428418411.0,	created_at : 1428413114.0,	user : Hongyi23,	comments : 1,	state : closed
+
+ISSUE 86
+closed_at : 1428418398.0,	created_at : 1428414661.0,	user : Hongyi23,	comments : 6,	state : closed
+
+ISSUE 88
+closed_at : 1428442544.0,	created_at : 1428419596.0,	user : jessexu20,	comments : 1,	state : closed
+
+ISSUE 89
+closed_at : 1429385037.0,	created_at : 1428419717.0,	user : jessexu20,	comments : 0,	state : closed
+
+ISSUE 91
+closed_at : 1428888122.0,	created_at : 1428445668.0,	user : maxlpy,	comments : 0,	state : closed
+
+ISSUE 93
+closed_at : 1428615396.0,	created_at : 1428613167.0,	user : jentle,	comments : 0,	state : closed
+
+week: 2015-02-09 00:00:00 , number: 5
+week: 2015-02-16 00:00:00 , number: 13
+week: 2015-02-23 00:00:00 , number: 8
+week: 2015-03-02 00:00:00 , number: 1
+week: 2015-03-23 00:00:00 , number: 2
+week: 2015-03-30 00:00:00 , number: 16
+week: 2015-04-06 00:00:00 , number: 23

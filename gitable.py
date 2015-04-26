@@ -54,10 +54,10 @@ def secs(d0):
   delta = d - epoch
   return delta.total_seconds()
 
+token = "b535b045f0d8d009e36e981c43653bce28c329de" 
 
 
 def dump2(u, commits,time):
-  token = "INSERT TOKEN HERE" # <===
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
@@ -73,9 +73,22 @@ def dump2(u, commits,time):
     all_commits =  commits.get(author)
     if not all_commits:
         all_commits = []
-    all_commits.append(commitObj)
+        weekly_count = dict()
+        all_commits.append(weekly_count) 
+    all_commits.append(commitObj) 
+    date = datetime.datetime(*map(int, re.split('[^\d]', created_at)[:3]))
+    all_commits[0] = weekCount(all_commits[0], date)
     commits[author] = all_commits
   return True
+
+def weekCount(weekly_count,date):
+   weekday = date.weekday()
+   start = date - datetime.timedelta(days=weekday, weeks = 0)
+   if not weekly_count.get(start):
+       weekly_count[start] = 0
+   weekly_count[start] += 1
+   return weekly_count 
+
 
 def dump3(u, milestones):
     token = "INSERT TOKEN HERE" # <===
@@ -148,6 +161,8 @@ def dump4(u, pulls):
     all_pulls.append(pullObj)
     pulls[title] = all_pulls
   return True
+
+
 def dumpC(u,commits,time):
     try:
        return  dump2(u, commits,time)
@@ -155,6 +170,8 @@ def dumpC(u,commits,time):
         print("problem when dump commits")
         print(e)
         return False
+
+
 def dumpM(u,milestones):
     try:
         return dump3(u,milestones)
@@ -169,12 +186,15 @@ def dumpP(u,pulls):
         print("problem when dump pull requests")
         print(e)
         return False;
+
 def dump1(u,issues):
-  token = "INSERT TOKEN HERE" 
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
   if not w: return False
+  if not issues.get('week'):
+     issues['week']= dict()
+     
   for event in w:
     issue_id = event['issue']['number']
     if not event.get('label'): continue
@@ -201,7 +221,9 @@ def dump1(u,issues):
                     closed_at = secs(issue['closed_at']),
                     #duration = closed_at- created_at
                    )
-      all_events.append(issueObj)          
+      all_events.append(issueObj)  
+      date = datetime.datetime(*map(int, re.split('[^\d]', issue['created_at'])[:3])) 
+      issues['week'] = weekCount(issues.get('week'), date)
     all_events.append(eventObj)
     issues[issue_id] = all_events
   return True
@@ -219,13 +241,17 @@ def launchDump():
   issues = dict()
   while(True):
     doNext = dump('https://api.github.com/repos/CSC510/SQLvsNOSQL/issues/events?page=' + str(page), issues)
-    print("page "+ str(page))
+    #print("page "+ str(page))
     page += 1
     if not doNext : break
+  weekly = issues.get('week')  
+  del issues['week']
   for issue, events in issues.iteritems():
     print("ISSUE " + str(issue))
-    for event in events: print(event.show())
+    print(events[0].show())
     print('')
+
+  analyzePerweek(weekly)
 
 def dumpCommits():
     page = 1
@@ -239,11 +265,19 @@ def dumpCommits():
     for author,commits in commits.iteritems():
         print("AUTHOR "+ author)
         # print(len(commits))
-        for commit in commits:
-            print(commit.show())
+        analyzePerweek(commits[0])
+        del commits[0]
+        #for commit in commits:
+          #  print(commit.show())
         print('')
-    print (time)
+    #print (time)
 
+def analyzePerweek(weekly):
+    weeks = weekly.keys()
+    weeks.sort()
+    for week in weeks:
+        print("week: %s , number: %d" %(week, weekly[week]) )
+    
 def dumpCommitsNum():  # count each user's commits numbers
     page = 1
     commits= dict()
@@ -282,9 +316,9 @@ def dumpPulls():
     #     print('')
 # dumpPulls()
 # dumpMilestones();
-dumpCommits()
+#dumpCommits()
 # dumpCommitsNum()
-#launchDump()
+launchDump()
 
   
    
