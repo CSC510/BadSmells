@@ -56,7 +56,7 @@ def secs(d0):
 
 
 
-def dump2(u, commits):
+def dump2(u, commits,time):
   token = "INSERT TOKEN HERE" # <===
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
@@ -66,6 +66,7 @@ def dump2(u, commits):
     author = commit['author']['login']
     message = commit['commit']['message']
     created_at = commit['commit']['committer']['date']
+    time.append(secs(created_at))
     commitObj = L( what = repr(message),
                    when = secs(created_at)
                       )
@@ -147,9 +148,9 @@ def dump4(u, pulls):
     all_pulls.append(pullObj)
     pulls[title] = all_pulls
   return True
-def dumpC(u,commits):
+def dumpC(u,commits,time):
     try:
-       return  dump2(u, commits)
+       return  dump2(u, commits,time)
     except Exception as e:
         print("problem when dump commits")
         print(e)
@@ -229,18 +230,20 @@ def launchDump():
 def dumpCommits():
     page = 1
     commits= dict()
-    
+    time=[];
     while(True):
-       doNext =  dumpC('https://api.github.com/repos/CSC510/SQLvsNOSQL/commits?page='+str(page), commits)
+       doNext =  dumpC('https://api.github.com/repos/CSC510/SQLvsNOSQL/commits?page='+str(page), commits,time)
        print("page "+str(page))
        page += 1
        if not doNext : break
-    for author, commits in commits.iteritems():
+    for author,commits in commits.iteritems():
         print("AUTHOR "+ author)
         # print(len(commits))
-        for commit in commits: print(commit.show())
+        for commit in commits:
+            print(commit.show())
         print('')
-
+    print (time)
+    
 def dumpMilestones():
     page=1
     milestones=dict()
@@ -263,9 +266,9 @@ def dumpPulls():
     #     # print(len(commits))
     #     # for commit in commits: print(commit.show())
     #     print('')
-dumpPulls()
+# dumpPulls()
 # dumpMilestones();
-# dumpCommits()
+dumpCommits()
 #launchDump()
 
   
