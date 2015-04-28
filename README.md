@@ -338,6 +338,10 @@ Different labels in a project reflect different small topics, or different stage
 
 ####Result
 
+###Issue By Week Smell Detector
+
+####Result
+
 
 ###Commit per Person Smell Detector
 
@@ -350,7 +354,7 @@ Different labels in a project reflect different small topics, or different stage
 
 
 ###Milestone Smell Detector
-
+According to milestone features memtioned above, we have collected milestone duration time and issues number in each milestone from three projects. We can see lots of projects' milestone duration time and issues number exist some extremely values. We have used the method of analyzing the mean and standard 
 ####Result
 
 
