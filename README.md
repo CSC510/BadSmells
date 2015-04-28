@@ -246,7 +246,7 @@ We sorted issues by user and generated the graph as follows:
 *Project 3*
     ![](./imgs/project_3_issues_person.png)<br>
     
-In order to extract the extra large number of issues post by a single user,we used the criteria in 
+In order to extract the extra large number of issues post by a single user,we used the criteria in [issuesPersondector](/detector/issuesPersonDetector.py)
        
       issues_perosn >= mean + delta*standard_deviation    delta = 1
 
@@ -262,7 +262,7 @@ In order to extract the extra large number of issues post by a single user,we us
 
 
 ####8. Small number of issues posted by a single user
-Using the above data collected, we also detected extra small number of issues by single user 
+Using the above data collected, we also detected extra small number of issues by single user[issuesPersondector](/detector/issuesPersonDetector.py)
        
       issues_person <= mean - delta*standard_deviation    delta = 1
 
@@ -280,7 +280,7 @@ Using the above data collected, we also detected extra small number of issues by
           
 ####9. Number of users involved in an issue
 We sorted the issues number according to the comments number. 
-We also sorted the issues number according to the events number in this issue:
+We also sorted the issues number according to the events number in this issue [issuesCommentsAndEventsDetector](/detector/issuesCommentsAndEventsDetector.py):
 
 *Project 1*
     ![](./imgs/project_1_comments_issues.png)  
@@ -312,7 +312,7 @@ We also sorted the issues number according to the events number in this issue:
 
 
 ####10. Unusual commits number in a specific time
-We group the commits number in a week order and generated the graph as follows:
+We group the commits number in a week order and generated the graph as follows :[commitsPersondector](/detector/commitsPersonDetector.py)
 
 *Project 1*
     ![](./imgs/project_1_commits_per_week.png)  
@@ -339,7 +339,7 @@ We group the commits number in a week order and generated the graph as follows:
 
 
 ####11. Commits by a single user
-We analyze the commits number commited by a single user and generate the graph as follows:
+We analyze the commits number commited by a single user and generate the graph as follows:[commitsWeekdector](/detector/commitsWeekDetector.py)
 
 *Project 1*
     ![](./imgs/project_1_commits_person.png)  
