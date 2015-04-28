@@ -363,17 +363,21 @@ def dumpPulls():
     pull['changedfiles']=changedfiles
     return pull
 
-       
-print ("pull request")
-dumpPulls()
-print ("milestone")
-dumpMilestones()
-print ("commit")
-dumpCommits()
-dumpCommitsNum()
-print ("issues")
 
-launchDump()
+
+
+
+
+# print ("pull request")
+# dumpPulls()
+# print ("milestone")
+# dumpMilestones()
+# print ("commit")
+# dumpCommits()
+# dumpCommitsNum()
+# print ("issues")
+#
+# launchDump()
 
 
    
