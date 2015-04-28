@@ -306,9 +306,9 @@ We also sorted the issues number according to the events number in this issue:
     ![](./imgs/project_3_events_issues.png) <br> 
     
     1.large issues number  with same comments:
-        comments: 0, issues: 29 , percentage: 60.3%
+        comments: 0, issues: 41 , percentage: 60.3%
     2.large issues number with same events:
-        events: 1, issues: 25, percentage: 60.3%
+        events: 1, issues: 41, percentage: 60.3%
 
 
 ####10. Unusual commits number in a specific time
