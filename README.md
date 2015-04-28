@@ -83,6 +83,30 @@
 [project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/MileStone_2.txt)
 [project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/MileStone_3.txt)
 
+###Commit Info
+<table>
+<thead>
+<tr>
+<th>Commiter</th>
+<th>Created Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_0</td>
+<td>1474778.0</td>
+</tr>
+<tr>
+<td>user_1</td>
+<td>1423456.0</td>
+</tr>
+</tbody>
+</table>
+
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/project1_commits.csv)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/project2_commits.csv)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/project3_commits.csv)
+
 ##  Data
 
 [project1] (https://github.com/CSC510/BadSmells/tree/master/data/group1)
@@ -90,6 +114,28 @@
 [project2] (https://github.com/CSC510/BadSmells/tree/master/data/group2)
 
 [project3] (https://github.com/CSC510/BadSmells/tree/master/data/group3)
+
+
+###C
+<table>
+<thead>
+<tr>
+<th>Start week</th>
+<th>Commit Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2015-04-03 00:00:00</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/project1_commits_week.csv)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/project2_commits_week.csv)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/project3_commits_week.csv)
+
 
 ### Data samples
 
