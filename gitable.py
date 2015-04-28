@@ -30,12 +30,13 @@ import urllib2
 import json
 import re,datetime
 import sys
+import math
 from datetime import timedelta
 from datetime import date
 
-
-# project="SuperCh-SE-NCSU/ProjectScraping"
-# project="CSC510/SQLvsNOSQL"
+token="5f1dcfbcc9c3b7a61f49a7225990bc7f2eccf029"
+#project="SuperCh-SE-NCSU/ProjectScraping"
+#project="CSC510/SQLvsNOSQL"
 project ="bighero4/MarkParser"
 
 
@@ -99,7 +100,7 @@ def weekCount(weekly_count,date):
    return weekly_count 
 
 
-def dump3(u, milestones):
+def dump3(u, milestones,  dtime,  issues):  # add dtime and issues
     request = urllib2.Request(u, headers={"Authorization" : "token "+token})
     v = urllib2.urlopen(request).read()
     milestone = json.loads(v)
@@ -110,10 +111,14 @@ def dump3(u, milestones):
     created_at = milestone['created_at']
     updated_at = milestone['updated_at']
     closed_at = milestone['closed_at']
+    issues_num = open_issues + closed_issues
+    issues.append(issues_num)
     if closed_at != None:
         duration=secs(closed_at)-secs(created_at)
+        dtime.append(duration/3600)
     else:
          duration = float("inf")
+    
     due_on = milestone['due_on']
     if due_on>closed_at:
         late=True
@@ -183,10 +188,9 @@ def dumpC(u,commits,time):
         print(e)
         return False
 
-
-def dumpM(u,milestones):
+def dumpM(u,milestones,  dtime,  issues):
     try:
-        return dump3(u,milestones)
+        return dump3(u,milestones,  dtime,  issues)
     except Exception as e:
         print("problem when dump milestones")
         print(e)
@@ -338,23 +342,26 @@ def analyzePerweek(weekly):
 def dumpCommitsNum():  # count each user's commits numbers
     page = 1
     commits= dict()
-    userCount = 0
+    times=[]
+    user_count = 0
     while(True):
-       doNext =  dumpC('https://api.github.com/repos/'+project+'/commits?page='+str(page), commits)
+       doNext =  dumpC('https://api.github.com/repos/'+project+'/commits?page='+str(page), commits,  times)
        print("page "+str(page))
        page += 1
        if not doNext : break
     for author, commits in commits.iteritems():	
-        print("user"+ str(userCount) + ": " + str(len(commits)))
-	userCount += 1
+        print("user"+ str(user_count) + ": " + str(len(commits)))
+        user_count += 1
         print('')
 
     
 def dumpMilestones():
     page=1
+    dtime=[]
+    issues=[]
     milestones=dict()
     while(True):
-        doNext=dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page), milestones)
+        doNext=dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page),  milestones,  dtime,  issues)
         # print("page "+str(page))
         page+=1
         if not doNext :break
@@ -372,19 +379,132 @@ def dumpPulls():
     #     # print(len(commits))
     #     # for commit in commits: print(commit.show())
     #     print('')
+
+#avg  threshold
+#g1[19, 9, 6, 4, 6, 1, 5, 13]=7, 5.41987084717
+#g6[3, 19, 4, 5, 1, 1, 1, 14]=6, 6.34428877022
+#g8[10, 9, 7, 1, 1, 1, 1, 18, 20]=7, 7.04745817062
+def avg(data):
+    sum = 0
+    length = len(data)
+    for x in data:
+        sum += x
+    avg = sum / length
+    return avg
+def stdDeviation(data):
+    avg_val = avg(data)
+   # print (avg_val)
+    total = 0
+    length = len(data)
+    for x in data:
+        temp = math.fabs(x - avg_val)
+        total += math.pow(temp,  2)
+    std_dev = math.sqrt(total/length)
+   # print (std_dev)
+    return std_dev
+def issuesDetect(issues):
+    avg_val = avg(issues) 
+    std_dev = stdDeviation(issues)
+    val = 2*std_dev
+    for x in issues:
+        res = cmp(x,  avg_val+val)    # when isssues number is greater than avg + 2 * stand deviation or less than avg - 2 * stand deviation
+        res2 = cmp(x,  avg_val - val)
+        if res > 0:
+            print ('Badsmells: This week has too many issues.')
+        elif res2 < 0:
+            print ('Badsmells: This week has too less issues.')
+        else:
+            print ('Issues numbers are normal')
+
+    
+def issuesByWeekDetector():
+  page = 1
+  issues = dict()
+  labels={}
+  duration=[]
+  create=[]
+  issues_nums=[]
+  while(True):
+    doNext = dump('https://api.github.com/repos/'+project+'/issues/events?page=' + str(page), issues,labels,duration,create)
+    page += 1
+    if not doNext : break
+  issues_nums = divideByTime(create)
+  issuesDetect(issues_nums)
+
+# g1[65.42333333333333, 1069.7225, 1310.9583333333333, 304.98833333333334, 1310.2811111111112] avg=812.274722222, std=524.995531997
+# g6 [186.93472222222223, 596.8102777777777, 652.6475, 620.1069444444445, 264.0052777777778] avg=464.100944444, std=197.159241914
+# g8 [876.8580555555556, 987.67, 987.4355555555555] avg=950.654537037, std=52.1820802596
+def milestoneDurationDetector():
+    page = 1
+    dtime=[]
+    issues=[]
+    milestones=dict()
+    while(True):
+        doNext=dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page), milestones,  dtime,  issues)
+        page += 1
+        if not doNext :break
+    milestoneDurationDetect(dtime)
+    #print(issues)
+
+def milestoneDurationDetect(dtime):
+    avg_val = avg(dtime)
+    std_dev = stdDeviation(dtime)
+    val = std_dev
+    for x in dtime:
+        res = cmp(x,  avg_val + val)    # when isssues number is greater than avg + 2 * stand deviation or less than avg - 2 * stand deviation
+        res2 = cmp(x,  avg_val - val)
+        if res > 0:
+            print ('Badsmell: This milestone has Xlong time.')
+        elif res2 < 0:
+            print ('Badsmell: This milestone has Xsmall time.')
+        else:
+            print ('Milestone time is normal')
+
+# g1[1, 13, 6, 13, 6] avg=7, std=4.69041575982
+# g6 [14, 19, 8, 7, 8] avg=11, std=4.62601340249
+# g8 [23, 4, 14, 23, 0] avg=12, std=9.52890339966
+def milestoneIssuesDetector():
+    page = 1
+    dtime=[]
+    issues=[]
+    milestones=dict()
+    while(True):
+        doNext=dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page), milestones,  dtime,  issues)
+        page += 1
+        if not doNext :break
+    milestoneIssuesDetect(issues)
+    #print(issues)
+
+def milestoneIssuesDetect(issues):
+    avg_val = avg(issues)
+    std_dev = stdDeviation(issues)
+#    print (avg_val)
+#    print (std_dev)
+    val = std_dev
+    for x in issues:
+        res = cmp(x,  avg_val + val)    # when isssues number is greater than avg + 2 * stand deviation or less than avg - 2 * stand deviation
+        res2 = cmp(x,  avg_val - val)
+        if res > 0:
+            print ('Badsmell: This milestone has too many issues.')
+        elif res2 < 0:
+            print ('Badsmell: This milestone has too less issues.')
+        else:
+            print ('Issue number in this milestone is normal')
+    
 print ("pull request")
 dumpPulls()
 print ("milestone")
-dumpMilestones();
+dumpMilestones()
 print ("commit")
 dumpCommits()
-# dumpCommitsNum()
+dumpCommitsNum()
 print ("issues")
-# dumpPulls()
-# dumpMilestones();
-#dumpCommits()
-# dumpCommitsNum()
+
 launchDump()
+
+issuesByWeekDetector()
+milestoneDurationDetector()
+milestoneIssuesDetector()
 
   
    
