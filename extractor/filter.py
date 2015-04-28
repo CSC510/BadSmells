@@ -1,12 +1,14 @@
 import sys
 import json
 import operator
+import numpy as np
 
 class filter(object):
     def __init__(self,data={}):
         self.__data = data
         self.__sum = self.sum()
         self.__avrg = self.average()
+        self.__std = np.std(data.values())
 
     def sum(self):
         accumulate = 0.0
@@ -19,20 +21,20 @@ class filter(object):
         if count==0 : return 0
         return self.sum()/count
 
-    def large(self, bound, percent = False):
+    def large(self, delta=1, percent = False):
         result_set = dict()
         for key, value in self.__data.iteritems():
             if percent:
                 value = value/ self.__sum
-            if ( value >= bound):
+            if ( value >= (delta*self.__std+self.__avrg)):
                 result_set[key] = value
         return result_set
 
-    def small(self, bound, percent = True):
+    def small(self, delta=1, percent = False):
         result_set = dict()
         for key, value in self.__data.iteritems():
             if percent:
                 value = value/ self.__sum
-            if ( value<= bound):
+            if ( value<= (self.__avrg - delta*self.__std)):
                 result_set[key] = value
         return result_set
