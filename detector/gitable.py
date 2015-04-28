@@ -36,12 +36,12 @@ from datetime import date
 import matplotlib.pyplot as plt
 
 
-token = "88fbc075240ac6b8e14effa09692dabe77ee6710"
 
 
+
+#project ="bighero4/MarkParser"
 #project="SuperCh-SE-NCSU/ProjectScraping"
 project="CSC510/SQLvsNOSQL"
-#project ="bighero4/MarkParser"
 # project="CSC510-2015-Axitron/maze"
 # project ="UniHousing/UnivHousing"
 

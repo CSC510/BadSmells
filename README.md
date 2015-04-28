@@ -209,17 +209,40 @@ If one issue last extremely short, nearly no time, then the issue might be creat
 
 
 
-####3. Unusually long time spent in a specific milestone
-When open a milestone, it means that the team is facing a difficult subject, or having a relatively high goal. If one milestone consumed too much time, then we might regard it as problematic, because the tasks might be too complex, or the goal might be too high to meet.
+####3. Milestone duration time
+In this part, we detected each milestone's duration time and aimed to find abnormal time schedule during the whole project. The code for collecting milestone duration time data can be found here (gittable).
 
-#####Result
+Data results:
+Project1:
 
+[65.42333333333333, 1069.7225, 1310.9583333333333, 304.98833333333334, 1310.2811111111112]
+Badsmell: This milestone has Xsmall time.
+Milestone time is normal
+Milestone time is normal
+Milestone time is normal
+Milestone time is normal
 
-####4. Time spent in a milestone is unusually short
-When a milestone lasted extremely short, we can also say that it is not reasonable, because it might probably be reduced into one or two issues.
+![Alt text](http://full/path/to/img.jpg "Optional title")
 
-#####Result
+Project2:
 
+[186.93472222222223, 596.8102777777777, 652.6475, 620.1069444444445, 264.0052777777778]
+Badsmell: This milestone has Xsmall time.
+Milestone time is normal
+Milestone time is normal
+Milestone time is normal
+Badsmell: This milestone has Xsmall time.
+
+![Alt text](http://full/path/to/img.jpg "Optional title")
+
+Project3:
+
+[876.8580555555556, 987.67, 987.4355555555555]
+Badsmell: This milestone has Xsmall time.
+Milestone time is normal
+Milestone time is normal
+
+![Alt text](http://full/path/to/img.jpg "Optional title")
 
 ####5. Large number of issues in a specific milestone
 If there are large number of issues created in a milestone, it might be the case that the milestone is too complex to achieve. It may probably be more efficient to divide the complex milestone into two or more small and relatively easy milestones.
