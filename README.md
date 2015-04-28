@@ -361,9 +361,27 @@ We analyze the commits number commited by a single user and generate the graph a
 
 ##  Bad smells detector & Result
 
-###Issue per Person Smell Detector
+###Uneven Contribution Smell Detector
+In a project, someone may leading the project and someone could be a passenger with much less contribution to the group.
+It may reflect on the issues and commits numbers by user. We conbine the commits and issues detector [unevenContributionDetector](./detector/unevenContributionDetectro.py)
+         
+         leader: made both extra large issues and commits
+         passenger: made both extra small large issues and commits 
+         project is uneven contributed:  has both uneven issues and commits 
+       
 
 ####Result
+*Project1*
+    Badsmells: None
+    
+*Project2*
+    Badsmells:
+       Project might be unevenly contributed
+    
+*Project3*
+    Badsmells:
+       Project is leading by someone
+       Project is unevenly contributed
 
 ###Issue Duration Smell Detector
 
