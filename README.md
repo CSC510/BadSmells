@@ -1,32 +1,24 @@
 # Bad Smells Detector
-In this file we will introduce the methods we used to detect bad smells, and the resutls we got.
-
-The projects we choose:
-- CSC510/SQLvsNOSQL
-- SuperCh-SE-NCSU/ProjectScraping
-- bighero4/MarkParser
 
 
-### Bad smells and results
+### 1. Collection
 
-#### 1. 
-- Feature description and detect method
+### 2. Anonymization
 
-  *why we choose this feature and method we used to extract this feature*
+### 3. Tables
 
-- Result
+### 4. Data
 
-  *show results here*
-  
+### 5. Data samples
 
-#### 2.
+### 6. Feature detection
 
-#### 3.
+### 7. Feature detection results
 
-#### 4.
+### 8. Bad smells detector
 
-#### 5.
+### 9. Bad smells results
 
-#### 6.
+### 10. Early warning
 
-#### 7.
+### 11. Early warning results
