@@ -78,6 +78,10 @@
 
 ### 4. Data
 
+[project1] (https://github.com/CSC510/BadSmells/tree/master/data/group1)
+[project2] (https://github.com/CSC510/BadSmells/tree/master/data/group2)
+[project3] (https://github.com/CSC510/BadSmells/tree/master/data/group3)
+
 ### 5. Data samples
 
 ### 6. Feature detection
