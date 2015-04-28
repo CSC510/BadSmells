@@ -209,8 +209,8 @@ If one issue last extremely short, nearly no time, then the issue might be creat
 
 
 
-####3. Milestone duration time
-In this part, we detected each milestone's duration time and aimed to find abnormal time schedule during the whole project. The code for collecting milestone duration time data can be found here (gittable).
+####3. Unusal duration 
+In this part, we amied to detect each milestone's duration time and find abnormal time schedule during the whole project. The code for collecting milestone duration time data can be found here (gittable).
 
 Data results:
 [project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/MileStone_1.txt)
