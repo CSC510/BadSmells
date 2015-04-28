@@ -59,7 +59,7 @@ def secs(d0):
   delta = d - epoch
   return delta.total_seconds()
 
-#token = "6594b5e3f613b71659a75264bc5ba5a8cda42517"
+token = "61d5e35fab66adeffcb641e5c3561843b0ce369a"
 
 
 def dump2(u, commits,time):
@@ -218,7 +218,9 @@ def dump1(u,issues):
     if not all_events: 
       all_events = []
       issue = event['issue']
-      issueObj = L( state = issue['state'],
+      issueObj = L(
+                    issue_id = issue_id,
+                    state = issue['state'],
                     user =  issue['user']['login'],
                     comments =issue['comments'],
                      #add more attributes here: attr_name = issue['attr'] , json response described here:https://developer.github.com/v3/issues/events/
@@ -245,7 +247,7 @@ def launchDump():
   page = 1
   issues = dict()
   while(True):
-    doNext = dump('https://api.github.com/repos/CSC510/SQLvsNOSQL/issues/events?page=' + str(page), issues)
+    doNext = dump('https://api.github.com/repos/'+project+'/issues/events?page=' + str(page), issues)
     #print("page "+ str(page))
     page += 1
     if not doNext : break
@@ -264,17 +266,24 @@ def dumpCommits():
     commits= dict()
     time=[];
     while(True):
-       doNext =  dumpC('https://api.github.com/repos/CSC510/SQLvsNOSQL/commits?page='+str(page), commits,time)
+       doNext =  dumpC('https://api.github.com/repos/'+project+'/commits?page='+str(page), commits,time)
        #print("page "+str(page))
        page += 1
        if not doNext : break
+    count = 0
     for author,commit in commits.iteritems():
+        user = ("person_%d" %(count))
+        for single_commit in commit[1:]:
+
+            print("%s,%s" %(user,single_commit.when))
+            pass
         #print("AUTHOR "+ author)
         # print(len(commits))
         #analyzePerweek(commit[0])
         #del commits[0]
         #for commit in commits:
           #  print(commit.show())
+        count += 1
         print('')
     return commits
     #print (time)
@@ -286,13 +295,15 @@ def analyzePerweek(weekly):
     for week in weeks:
         print("week: %s , number: %s" %(week, weekly[week]) )
 
-
+project = 'bighero4/MarkParser'
+#project = 'SuperCh-SE-NCSU/ProjectScraping'
+#project = 'CSC510/SQLvsNOSQL'
 def dumpCommitsNum():  # count each user's commits numbers
     page = 1
     commits= dict()
     userCount = 0
     while(True):
-       doNext =  dumpC('https://api.github.com/repos/CSC510/SQLvsNOSQL/commits?page='+str(page), commits)
+       doNext =  dumpC('https://api.github.com/repos/bighero4/MarkParser/commits?page='+str(page), commits)
        print("page "+str(page))
        page += 1
        if not doNext : break
@@ -327,7 +338,7 @@ def dumpPulls():
 # dumpMilestones();
 #dumpCommits()
 # dumpCommitsNum()
-launchDump()
+#launchDump()
 
   
    
