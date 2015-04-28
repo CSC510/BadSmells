@@ -1,20 +1,14 @@
 import gitable as gt
-import base
+import numpy as np
 
 def milestoneDurationDetector():
-    page = 1
-    dtime=[]
-    issues=[]
-    milestones=dict()
-    items = gt.dumpMilestones()
-    milestoneDurationDetect(items['duration'])
-    #print(issues)
 
-def milestoneDurationDetect(dtime):
-    avg_val = base.avg(dtime)
-    std_dev = base.stdDeviation(dtime)
+    items = gt.dumpMilestones()
+    avg_val = np.mean(items['duration'])
+    std_dev = np.std(items['duration'])
     val = std_dev
-    for x in dtime:
+    print(items['duration'])
+    for x in items['duration']:
         res = cmp(x,  avg_val + val)    # when isssues number is greater than avg + 2 * stand deviation or less than avg - 2 * stand deviation
         res2 = cmp(x,  avg_val - val)
         if res > 0:
@@ -23,5 +17,6 @@ def milestoneDurationDetect(dtime):
             print ('Badsmell: This milestone has Xsmall time.')
         else:
             print ('Milestone time is normal')
+
 
 milestoneDurationDetector()
