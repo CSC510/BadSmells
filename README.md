@@ -323,7 +323,8 @@ We group the commits number in a week order and generated the graph as follows:
 *Project 2*
     ![](./imgs/project_2_commits_per_week.png)  
 
-    1.extra large work during the week: week_5, commits:72
+    1.extra large work during the week: 
+        week_9, commits: 133, percentage: 26.1%
     2.small work during the week:NOne
         week_0, commits: 4, percentage: 0.7%
         week_10, commits: 4, percentage: 0.7%
@@ -358,9 +359,35 @@ We analyze the commits number commited by a single user and generate the graph a
     1.large commits by single user: person0, commits: 68, percentage: 37.3%
     2.small commits by single user: person3, commits: 22, percentage: 12.1%
 
-##  Bad smells detector
+##  Bad smells detector & Result
 
-##  Bad smells results
+###Issue per Person Smell Detector
+
+####Result
+
+###Issue Duration Smell Detector
+
+####Result
+
+
+###Commit per Person Smell Detector
+
+####Result
+
+
+###Label Usage Smell Detector
+
+####Result
+
+
+###Milestone Smell Detector
+
+####Result
+
+
+###Pull Request Smell Detector
+
+####Result
 
 ##  Early warning
 
