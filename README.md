@@ -247,10 +247,37 @@ We sorted issues by user and generated the graph as follows:
     ![](./imgs/project_3_issues_person.png)<br>
     
 In order to extract the extra large number of issues post by a single user,we used the criteria in 
+       
+      issues_perosn >= mean + delta*standard_deviation    delta = 1
+
+*project 1*
+      large_issues post by single user : person2, issues: 27, percentage: 56.2%
+
+*project 2*
+      large_issues post by single user : person0, issues: 46, percentage: 73%
+
+*project 3*
+      large_issues post by single user : person0, issues: 45, percentage:66.1%
+
+
 
 ####8. Small number of issues posted by a single user
 Using the above data collected, we also detected extra small number of issues by single user 
+       
+      issues_person <= mean - delta*standard_deviation    delta = 1
 
+
+*project 1*
+      small_issues post by single user : None
+
+*project 2*
+      small_issues post by single user : None
+
+*project 3*
+      small_issues post by single user : None 
+
+
+          
 ####9. Number of users involved in an issue
 We sorted the issues number according to the comments number. 
 We also sorted the issues number according to the events number in this issue:
@@ -259,13 +286,28 @@ We also sorted the issues number according to the events number in this issue:
     ![](./imgs/project_1_comments_issues.png)  
     ![](./imgs/project_1_events_issues.png) <br> 
 
+    1.large issues number  with same comments:
+        comments: 1, issues: 27 , percentage: 54.1%
+    2.large issues number with same events:
+        events: 2, issues: 11, percentage: 22.9%
+        events: 3, issues: 9 , percentage: 18.75
 *Project 2*
     ![](./imgs/project_2_comments_issues.png)  
-    ![](./imgs/project_2_events_issues.png) <br> 
+     ![](./imgs/project_2_events_issues.png) <br> 
+    1.large issues number  with same comments:
+        comments: 1, issues: 29 , percentage: 46.0%
+    2.large issues number with same events:
+        events: 1, issues: 25, percentage: 39.6%
+        events: 2, issues: 27 , percentage: 42.8%
 
 *Project 3*
     ![](./imgs/project_3_comments_issues.png)  
     ![](./imgs/project_3_events_issues.png) <br> 
+    1.large issues number  with same comments:
+        comments: 0, issues: 29 , percentage: 60.3%
+    2.large issues number with same events:
+        events: 1, issues: 25, percentage: 60.3%
+
 
 ####10. Unusual commits number in a specific time
 We group the commits number in a week order and generated the graph as follows:
@@ -273,24 +315,39 @@ We group the commits number in a week order and generated the graph as follows:
 *Project 1*
     ![](./imgs/project_1_commits_per_week.png)  
 
+    1.extra large work during the week: week_5, commits:72
+    2.small work during the week:NOne
 *Project 2*
     ![](./imgs/project_2_commits_per_week.png)  
 
+    1.extra large work during the week: week_5, commits:72
+    2.small work during the week:NOne
+        week_0, commits: 4, percentage: 0.7%
+        week_10, commits: 4, percentage: 0.7%
 *Project 3*
     ![](./imgs/project_3_commits_per_week.png)  
 
+    1.extra large work during the week:
+        week_2, commits: 42, percentage: 23.1%
+        week_9, commits: 62, percentage: 34.1%
+    2.small work during the week : None
 ####11. Commits by a single user
 We analyze the commits number commited by a single user and generate the graph as follows:
 
 *Project 1*
     ![](./imgs/project_1_commits_person.png)  
 
+    1.large commits by single user: None
+    2.small commits by single user: None
+    
 *Project 2*
     ![](./imgs/project_2_commits_person.png)  
-
+    1.large commits by single user: None
+    2.small commits by single user: person2, commits:92, percentage: 18.0%
 *Project 3*
     ![](./imgs/project_3_commits_person.png)  
-    
+    1.large commits by single user: person0, commits: 68, percentage: 37.3%
+    2.small commits by single user: person3, commits: 22, percentage: 12.1%
 ##  Bad smells detector
 
 ##  Bad smells results

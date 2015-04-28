@@ -59,7 +59,7 @@ def secs(d0):
   delta = d - epoch
   return delta.total_seconds()
 
-token = "61d5e35fab66adeffcb641e5c3561843b0ce369a"
+token = "810f6dc3e9d05d825c0af12db9a700c848db6d3c"
 
 
 def dump2(u, commits,time):
@@ -295,9 +295,9 @@ def analyzePerweek(weekly):
     for week in weeks:
         print("week: %s , number: %s" %(week, weekly[week]) )
 
-project = 'bighero4/MarkParser'
+#project = 'bighero4/MarkParser'
 #project = 'SuperCh-SE-NCSU/ProjectScraping'
-#project = 'CSC510/SQLvsNOSQL'
+project = 'CSC510/SQLvsNOSQL'
 def dumpCommitsNum():  # count each user's commits numbers
     page = 1
     commits= dict()
