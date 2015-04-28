@@ -1,13 +1,17 @@
 # Bad Smells Detector
 
 
-### 1. Collection
+##  Collection
 
-### 2. Anonymization
+##  Anonymization
 
-### 3. Tables
+##  Tables
 
+###Issue Info
 
+###Commit Info
+
+###Pull Request Info
 <table>
 <thead>
 <tr class="header">
@@ -35,6 +39,11 @@
 </tbody>
 </table>
 
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/Pull_1.txt)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/Pull_2.txt)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/Pull_3.txt)
+
+###Milestone Info
 <table>
 <thead>
 <tr class="header">
@@ -70,22 +79,30 @@
 </tbody>
 </table>
 
-### 4. Data
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/MileStone_1.txt)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/MileStone_2.txt)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/MileStone_3.txt)
+
+##  Data
 
 [project1] (https://github.com/CSC510/BadSmells/tree/master/data/group1)
+
 [project2] (https://github.com/CSC510/BadSmells/tree/master/data/group2)
+
 [project3] (https://github.com/CSC510/BadSmells/tree/master/data/group3)
 
-### 5. Data samples
+### Data samples
 
-### 6. Feature detection
 
-### 7. Feature detection results
 
-### 8. Bad smells detector
+##  Feature detection
 
-### 9. Bad smells results
+##  Feature detection results
 
-### 10. Early warning
+##  Bad smells detector
 
-### 11. Early warning results
+##  Bad smells results
+
+##  Early warning
+
+##  Early warning results
