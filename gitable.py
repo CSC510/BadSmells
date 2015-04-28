@@ -506,77 +506,15 @@ def milestoneIssuesDetect(issues):
             print ('Badsmell: This milestone has too less issues.')
         else:
             print ('Issue number in this milestone is normal')
-def median(l):
-    m={}
-    m['pos']=int(0.5*len(l))
-    m['value']=l[int(0.5*len(l))]
-    return m
-def high(l):
-    h={}
-    h['pos']=int(0.9*len(l))
-    h['value']=l[int(0.9*len(l))]
-    return h
-def low(l):
-    lw={}
-    lw['pos']=int(0.1*len(l))
-    lw['value']=l[int(0.1*len(l))]
-    return lw
-def labelUseDetector(labels):
-    values=labels.values()
-    values.sort()
-    print (values)
-    hv=high(values)['value']
-    hp=high(values)['pos']
-    mv=median(values)['value']
-    mp=median(values)['pos']
-    lv=low(values)['value']
-    lp=low(values)['pos']
-    print ('lv',lv,'mv',mv,'hv',hv)
-    print ('lp',lp,'mp',mp,'hp',hp)
-    k= float((hv-mv)*(mp-lp)/((hp-mp)*(mv-lv)))
-    if k>3:
-        print ('bad smells in label usage')
-    elif k==3:
-        print ('probably have smells in label usage')
-    else:
-        print ('no smells in label detected')
-    print ("k",k)
-    plt.plot(values)
-    plt.show()
-def issueDurationDetector(data):
-    values=data
-    values.sort()
-    print (values)
-    hv=high(values)['value']
-    hp=high(values)['pos']
-    mv=median(values)['value']
-    mp=median(values)['pos']
-    lv=low(values)['value']
-    lp=low(values)['pos']
-    print ('lv',lv,'mv',mv,'hv',hv)
-    print ('lp',lp,'mp',mp,'hp',hp)
-    # plt.plot(values)
-   #  plt.show()
-    k= float((hv-mv)*(mp-lp)/((hp-mp)*(mv-lv)))
-    if k>3:
-        print ('bad smells in issue length')
-    elif k==3:
-        print ('probably have smells in issue length')
-    else:
-        print ('no smells in issue length detected')
-    print ("k",k)
+
+
+
+
     
     
-def mileLateDetector(data):
-    print (data)
-    if sum(data)>0.2* len(data):
-        print ('bad smell in fullfilling milestones')
-    else:
-        print ('no smell detected')
+
         
-def pullTimeDetector(data):
-    data.sort()
-    print (data)
+
     
     
        
