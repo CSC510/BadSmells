@@ -2,8 +2,10 @@
 
 
 ##  Collection
+In the project, we got the data we needed by modifying gitable.py. With the help of APIs provided by Github, we extracted information from different projects. We collected data of issues, commits, milestones, and so on, with corresponding time information.
 
 ##  Anonymization
+After we extracted the data, we anonymized them as required. All the names of users were replaced by user0, user1, and so on, and all the names of issues and milestones were replaced by numbers, or deleted directly. From the data, information on the original project can never be found.
 
 ##  Tables
 
