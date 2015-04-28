@@ -209,7 +209,8 @@ If one issue last extremely short, nearly no time, then the issue might be creat
 
 
 
-####3. Unusal duration 
+####3. Unusal duration time of milestone
+
 In this part, we amied to detect each milestone's duration time and find abnormal time schedule during the whole project. The code for collecting milestone duration time data can be found here (gittable).
 
 Data results:
@@ -235,7 +236,7 @@ Milestone time is normal
 Milestone time is normal
 Badsmell: This milestone has Xsmall time.
 
-![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_2_MilestoneDuration.png)
+![Project2](https://github.com/CSC510/BadSmells/blob/master/imgs/project_2_MilestoneDuration.png)
 
 Project3:
 
@@ -243,18 +244,45 @@ Badsmell: This milestone has Xsmall time.
 Milestone time is normal
 Milestone time is normal
 
-![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_3_MilestoneDuration.png)
+![Project2](https://github.com/CSC510/BadSmells/blob/master/imgs/project_3_MilestoneDuration.png)
 
-####5. Large number of issues in a specific milestone
-If there are large number of issues created in a milestone, it might be the case that the milestone is too complex to achieve. It may probably be more efficient to divide the complex milestone into two or more small and relatively easy milestones.
+Analysis:
 
-#####Result
+Milestones are constructed to provide reference points along the road. This can be used to reassure developer that the proper path is being followed, and to indicate either distance travelled or the remaining distance to a destination. 
+
+According to above three projects' milestone duration time, we can see that some milestone duration time are extremely large, others are small. If one milestone exists extremely valude, we might regard it as problematic, because the tasks might be too complex, or the goal might be too high to meet. 
+
+We can calculate the mean value and standard deviation for each list of time we get for each group. Then the process time which are larger than the upper bound which is average plus standard deviation will be noticed as long process time. Then the process time which are smaller than the lower bound which is average minus standard deviation will be noticed as small process time. 
 
 
-####6. Small number of issues in a specific milestone
-If the number of issues opened in a milestone is too small, it can be replaced by some issues. Because when milestone is created, it should be a relatively long-term goal, not some goals which can be met in a short time.
+####4. Unusual number of issues in a specific milestone
 
-#####Result
+For unususual number of issue in a specific milestone, it means that there exists some extremely large or small issues in a milestone. We can see this kind of milestone as abnormal milestone.
+
+In this part, we have counted issues number for each milestone and found out the unusual number of issues in a specific milestone. 
+
+Data results:
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/MileStone_1.txt)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/MileStone_2.txt)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/MileStone_3.txt)
+
+Data Results:
+Project1: 
+
+![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_1_IssuePerMilestone.png)
+
+Project2: 
+
+![Project2](https://github.com/CSC510/BadSmells/blob/master/imgs/project_2_IssuePerMilestone.png)
+
+Project3: 
+
+![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_3_IssuePerMilestone.png)
+
+
+Analysis:
+
+According to above projects' data, we can see each different milestone has different issues number. Some of data are extremely small or big. We can use the method of analyzing mean and standard deviation of the data and find some abnormal data from the project.
 
 
 ####7. Large number of issues posted by a single user
