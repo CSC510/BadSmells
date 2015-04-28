@@ -1,0 +1,14 @@
+pull request
+changed_files : 8,	mergeable : True,	process_duration : 5829.0
+changed_files : 16,	mergeable : True,	process_duration : 49135.0
+changed_files : 1,	mergeable : True,	process_duration : 61902.0
+changed_files : 6,	mergeable : True,	process_duration : 49.0
+changed_files : 9,	mergeable : True,	process_duration : 64967.0
+changed_files : 4,	mergeable : True,	process_duration : 5.0
+changed_files : 3,	mergeable : True,	process_duration : 13.0
+changed_files : 19,	mergeable : True,	process_duration : 3218.0
+changed_files : 30,	mergeable : True,	process_duration : 250.0
+changed_files : 44,	mergeable : True,	process_duration : 355.0
+changed_files : 3117,	mergeable : False,	process_duration : 3418.0
+changed_files : 94,	mergeable : False,	process_duration : 233360.0
+changed_files : 1,	mergeable : True,	process_duration : 30.0
