@@ -236,7 +236,61 @@ Pull request and branches in Github help a team finish their tasks efficiently. 
 Different labels in a project reflect different small topics, or different stages during the process. If the times one label was used is unusually small or large, it indicates that a certain stage in the project is relatively easy or difficult to achieve, and it can be replaced by a more reasonable label.
 
 ##  Feature detection results
+#####7.Large number of issues posted by a single user
+We sorted issues by user and generated the graph as follows:
 
+*Project 1*
+    ![](./imgs/project_1_issues_person.png)<br>
+*Project 2*
+    ![](./imgs/project_2_issues_person.png)<br>
+*Project 3*
+    ![](./imgs/project_3_issues_person.png)<br>
+    
+In order to extract the extra large number of issues post by a single user,we used the criteria in 
+
+####8. Small number of issues posted by a single user
+Using the above data collected, we also detected extra small number of issues by single user 
+
+####9. Number of users involved in an issue
+We sorted the issues number according to the comments number. 
+We also sorted the issues number according to the events number in this issue:
+
+*Project 1*
+    ![](./imgs/project_1_comments_issues.png)  
+    ![](./imgs/project_1_events_issues.png) <br> 
+
+*Project 2*
+    ![](./imgs/project_2_comments_issues.png)  
+    ![](./imgs/project_2_events_issues.png) <br> 
+
+*Project 3*
+    ![](./imgs/project_3_comments_issues.png)  
+    ![](./imgs/project_3_events_issues.png) <br> 
+
+####10. Unusual commits number in a specific time
+We group the commits number in a week order and generated the graph as follows:
+
+*Project 1*
+    ![](./imgs/project_1_commits_per_week.png)  
+
+*Project 2*
+    ![](./imgs/project_2_commits_per_week.png)  
+
+*Project 3*
+    ![](./imgs/project_3_commits_per_week.png)  
+
+####11. Commits by a single user
+We analyze the commits number commited by a single user and generate the graph as follows:
+
+*Project 1*
+    ![](./imgs/project_1_commits_person.png)  
+
+*Project 2*
+    ![](./imgs/project_2_commits_person.png)  
+
+*Project 3*
+    ![](./imgs/project_3_commits_person.png)  
+    
 ##  Bad smells detector
 
 ##  Bad smells results
