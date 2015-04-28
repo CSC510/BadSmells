@@ -1,6 +1,4 @@
 milestone
-problem when dump milestones
-HTTP Error 404: Not Found
 late : True,	total_issues : 1,	closed_issues : 1,	due_on : 2015-02-19T05:00:00Z,	closed_at : 2015-02-21T22:18:31Z,	duration : 2.73,	open_issues : 0
 
 late : True,	total_issues : 13,	closed_issues : 13,	due_on : 2015-02-28T05:00:00Z,	closed_at : 2015-03-03T22:07:49Z,	duration : 12.71,	open_issues : 0
