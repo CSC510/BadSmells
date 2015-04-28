@@ -96,6 +96,7 @@
 
 
 ##  Feature detection
+* *
 
 ##  Feature detection results
 
