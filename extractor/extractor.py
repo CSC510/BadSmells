@@ -40,23 +40,26 @@ def  process_issues(features):
 
 
     draw_bar(author_issues.values(), "issues number posted by person","issues", range(len(author_issues.keys())),"person",0.35)
-    print(comments_issues)
+
     author_filter = filter.filter(author_issues)
     large_author = author_filter.large()
+    features['issues_person'] = author_filter
     if(len(large_author) >0 ):
         features['large issues post by single user'] = large_author
 
-    small_author = author_filter.small()
+    small_author = author_filter.small(delta=2)
     if(len(small_author) >0 ):
         features['small issues post by single user'] = small_author
 
     draw_bar(comments_issues.values(),"issues number with same comments number","issues",comments_issues.keys(),"comments number",0.35)
-    print(events_issues)
+
     events_filter= filter.filter(events_issues)
+    features['events_issues'] = events_filter
     if len(events_filter.large())>0:
         features['large issues with same events'] = events_filter.large()
 
     comments_filter = filter.filter(comments_issues)
+    features['comments_issues'] = comments_filter
     large_comments = comments_filter.large()
     if(len(large_comments)>0):
         features['large issues with same comments'] = large_comments
@@ -113,6 +116,7 @@ def process_commits(features):
     # Uneven work of weeks
     draw_bar(sorted_week_count,"commits per week","commits",range(len( sorted_week_count)),"week",0.35)
     week_filter = filter.filter(weekly_count)
+    features['commits_week']= week_filter
     small_weeks = week_filter.small()
     if len(small_weeks)>0:
         features['low commits during the gap time']= small_weeks
@@ -127,6 +131,7 @@ def process_commits(features):
     # Uneven contribute of workers
     draw_bar(all.values(), "commits number posted by person","issues", range(len(all.keys())),"person",0.35)
     contribution_filter =filter.filter(all)
+    features['commits_person'] = contribution_filter
     leader  = contribution_filter.large(delta=1)
     if len(leader)>0 :
         features['large commits by single user']  =  leader
@@ -143,9 +148,10 @@ def main():
     features = dict()
     process_issues(features)
     process_commits(features)
-    for feature , result in features.iteritems():
-        print('%s,%s' %(feature, result))
+    return features
 
+
+features = main()
 
 
 
