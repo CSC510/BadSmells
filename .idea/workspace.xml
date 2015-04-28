@@ -2,43 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d02c5200-5666-4e0c-b3a0-6b9ed3ea9b7f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_1_IssuePerMilestone.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_1_IssuePerWeek.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_1_MilestoneDuration.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_1_comments_issues.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_1_commits_per_week.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_1_commits_person.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_1_events_issues.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_1_issues_person.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_2_IssuePerMilestone.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_2_IssuePerWeek.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_2_MilestoneDuration.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_2_comments_issues.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_2_commits_per_week.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_2_commits_person.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_2_events_issues.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_2_issues_person.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_3_IssuePerMilestone.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_3_IssuePerWeek.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_3_MilestoneDuration.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_3_comments_issues.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_3_commits_per_week.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_3_commits_person.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_3_events_issues.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/project_3_issues_person.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/imgs/projects_3_comiits_person.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/group1/MileStone_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/group2/MileStone_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/group3/MileStone_3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/group1/Pull_1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/group2/Pull_2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/group3/Pull_3.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/detector/gitable.py" afterPath="$PROJECT_DIR$/detector/gitable.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/detector/issueDurationDetector.py" afterPath="$PROJECT_DIR$/detector/issueDurationDetector.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/detector/labelUseDetector.py" afterPath="$PROJECT_DIR$/detector/labelUseDetector.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/detector/pullFileDetector.py" afterPath="$PROJECT_DIR$/detector/pullFileDetector.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/detector/pullTimeDetector.py" afterPath="$PROJECT_DIR$/detector/pullTimeDetector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BadSmells.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,8 +39,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5406091" vertical-offset="1091" max-vertical-offset="1485">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.81869686" vertical-offset="1331" max-vertical-offset="2070">
+              <caret line="108" column="18" selection-start-line="108" selection-start-column="18" selection-end-line="108" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -120,10 +85,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="-4" />
-    <option name="width" value="1301" />
-    <option name="height" value="772" />
+    <option name="x" value="715" />
+    <option name="y" value="24" />
+    <option name="width" value="650" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -530,7 +495,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
+    <frame x="715" y="24" width="650" height="744" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -543,9 +508,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22521138" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45076925" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32884902" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34321374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -788,8 +753,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5406091" vertical-offset="1091" max-vertical-offset="1485">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.81869686" vertical-offset="1331" max-vertical-offset="2070">
+          <caret line="108" column="18" selection-start-line="108" selection-start-column="18" selection-end-line="108" selection-end-column="18" />
           <folding />
         </state>
       </provider>
