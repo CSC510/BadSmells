@@ -1,4 +1,4 @@
- # Bad Smells Detector
+#Bad Smells Detector
 
 
 ##  Collection
@@ -200,12 +200,14 @@
 The time each issue lasted can represent the efficiency of the team, and tell whether the issue was created reasonably or not. If the duration of one issue is unusually long, it might be a big problem which need to be divided into several sub-problems. If one issue last short, then the issue might be a small problem which need not open an issue.
 
 #####Result
+We have collected issue data from each group and we calculate the duration of each issue to get the duration in hours. We calculate the mean value and standard deviation of each group's data and we define that most of the data should be include in the range of [mean-std,mean+std]. The data which is not in the range will be noticed as **unusual duration of issue**.
 
 
 ####2. None issue time
 If one issue last extremely short, nearly no time, then the issue might be created by mistake, or the bug was too small to report.
 
 #####Result
+According to the data we collected in feature 1, we will be able to get the duration of time. We define that the extremely small duration is within 6 minutes which is 0.1 hour. For a project like ours, taking almost 9 weeks, an issue lasting for only 6 minutes can hardly be called an issue. If the the duration is less than that, we name it None issue time.
 
 
 
@@ -263,16 +265,42 @@ If a large amount of commits were created by a single user, it reflects that the
 #####Result
 
 
-####12. Number of pull request/branches
-Pull request and branches in Github help a team finish their tasks efficiently. If the number of pull request and branches is unusually large or small, it is likely that the working process was not clear enough, or there were some communication problems between different teammates.
+####12. Small Number of Pull Request
+Pull request and branches in Github help a team finish their tasks efficiently. If the number of pull request and branches is unusually large or small, it is likely that the working process was not clear enough, or there were some communication problems between different teammates. A small pull request number also means that maybe they are using a hard way to do the merge rather than using pull request to do the merge. 
 
 #####Result
+We collected the pull requests number and compared to the issue (number-requests number) to see how many percentage the pull request counts for.
+
+####13. Long Process Tme of Pull Request
+The process time of a pull request usually means whether the owner of the repo has an active involvement of a repo. 
+
+#####Result
+We collected the process time for each pull request of a specific repo. In case there are some extreme values, we have removed the largest and smallest one. Then we calculate the mean value and standard deviation for each list of time we get for each group. Then the process time which are larger than the upper bound which is average plus standard deviation will be noticed as long process time.
+
+####14. Large number of Files changed in a single Pull Request
+The file changed for each pull request is also a feature we should monitor. If many files are changed in a single pull request, it will probably lead to more conflicts and increase the complexity of merge, thus giving more burden the repo manager. It could also means that it should be divided into two pull requests which only takes care of a specific issue or bug fixed.
+
+#####Result
+We collected the number of *file_changed* for each pull request of a specific repo. In case there are some extreme values, we have removed the largest and smallest one. Then we calculate the mean value and standard deviation for each list we get for each group. Then the number which are larger than the upper bound which is average plus standard deviation will be noticed as unusual large number of *file_changed*.
 
 
-####13. Number of time each label is used
+####15. Large number of Pull Request which can not be Auto-merged
+The auto-mergeable attribute of a pull request is a blessing for repo manager, which means (s)he don't have to fix the conflicts caused by different developer. A large number of requests which can not be auto-mergeable is a disaster for a repo manager.
+
+#####Result
+We collect the data for each pull request and count the number of the pull request which cannot be auto-merged. Then we calcuate the non auto-mergeable percentage for each repo.
+
+####16. Unusual Number of time each label is used
 Different labels in a project reflect different small topics, or different stages during the process. If the times one label was used is unusually small or large, it indicates that a certain stage in the project is relatively easy or difficult to achieve, and it can be replaced by a more reasonable label.
 
 #####Result
+We collected the number of *label used* a specific repo. In case there are some extreme values, we have removed the largest and smallest one. Then we calculate the mean value and standard deviation for the times one specific label is used. Then the number which are larger than the upper bound which is average plus standard deviation or smaller than the lower bound which is average minus standard deviation will be noticed as unusual number of *label used*.
+
+####17. Number of Late Milestone
+Whether a milestone is late or not can determine the team's schedule ability and whether everything is on the right track. A on-time milestone usually means a efficient feature delivery.
+
+#####Result
+We collect the data for each Milestone and count the number of the milestone which are late. Then we calcuate the late milestone percentage for each repo.
 
 
 
