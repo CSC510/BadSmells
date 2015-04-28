@@ -33,14 +33,17 @@ import sys
 import math
 from datetime import timedelta
 from datetime import date
-
-token="5f1dcfbcc9c3b7a61f49a7225990bc7f2eccf029"
-#project="SuperCh-SE-NCSU/ProjectScraping"
-#project="CSC510/SQLvsNOSQL"
-project ="bighero4/MarkParser"
+import matplotlib.pyplot as plt
 
 
-token = "f80e828f0442e7a2c52f112bcd7b3b301f15be69" 
+# project="SuperCh-SE-NCSU/ProjectScraping"
+project="CSC510/SQLvsNOSQL"
+# project ="bighero4/MarkParser"
+# project="CSC510-2015-Axitron/maze"
+# project ="UniHousing/UnivHousing"
+
+
+
 class L():
   "Anonymous container"
   def __init__(i,**fields) : 
@@ -100,7 +103,7 @@ def weekCount(weekly_count,date):
    return weekly_count 
 
 
-def dump3(u, milestones,  dtime,  issues):  # add dtime and issues
+def dump3(u, milestones,  dtime,  issues,lateItem):  # add dtime and issues
     request = urllib2.Request(u, headers={"Authorization" : "token "+token})
     v = urllib2.urlopen(request).read()
     milestone = json.loads(v)
@@ -121,16 +124,18 @@ def dump3(u, milestones,  dtime,  issues):  # add dtime and issues
     
     due_on = milestone['due_on']
     if due_on>closed_at:
-        late=True
-    else:
         late=False
+        lateItem.append(0)
+    else:
+        late=True
+        lateItem.append(1)
     milestoneObj = L( # what = title,
                    open_issues= open_issues,
                    closed_issues =closed_issues,
                    # created_at = secs(created_at),
-                   # closed_at = secs(closed_at),
+                   closed_at = (closed_at),
                    duration = duration/3600,
-                   # due_on = secs(due_on),
+                   due_on = (due_on),
                    late= late,
                    total_issues= int(closed_issues)+int(open_issues)
                       )
@@ -141,7 +146,8 @@ def dump3(u, milestones,  dtime,  issues):  # add dtime and issues
     milestones[title] = all_milestones
     return True
     
-def dump4(u, pulls):
+def dump4(u, pulls,processTime):
+  print (u)
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
@@ -158,6 +164,7 @@ def dump4(u, pulls):
         process_duration=secs(closed_at)-secs(created_at)
     else:
         process_duration=inf
+    processTime.append(process_duration)
     request2 = urllib2.Request('https://api.github.com/repos/'+project+'/pulls/'+str(number), headers={"Authorization" : "token "+token})
     v2= urllib2.urlopen(request2).read()
     w2 = json.loads(v2)
@@ -188,16 +195,16 @@ def dumpC(u,commits,time):
         print(e)
         return False
 
-def dumpM(u,milestones,  dtime,  issues):
+def dumpM(u,milestones,  dtime,  issues,late):
     try:
-        return dump3(u,milestones,  dtime,  issues)
+        return dump3(u,milestones,  dtime,  issues,late)
     except Exception as e:
         print("problem when dump milestones")
         print(e)
         return False;
-def dumpP(u,pulls):
+def dumpP(u,pulls,processTime):
     try:
-        return dump4(u,pulls)
+        return dump4(u,pulls,processTime)
     except Exception as e:
         print("problem when dump pull requests")
         print(e)
@@ -278,7 +285,9 @@ def launchDump():
     page += 1
     if not doNext : break
   print ("labels used Times",labels)
+  labelUseDetector(labels)
   print ("duration in hours",duration)
+  issueDurationDetector(duration)
   print ("Issue created by weeks",divideByTime(create))
   weekly = issues.get('week')  
   del issues['week']
@@ -360,8 +369,9 @@ def dumpMilestones():
     dtime=[]
     issues=[]
     milestones=dict()
+    late=[]
     while(True):
-        doNext=dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page),  milestones,  dtime,  issues)
+        doNext=dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page),  milestones,  dtime,  issues,late)
         # print("page "+str(page))
         page+=1
         if not doNext :break
@@ -369,16 +379,20 @@ def dumpMilestones():
         for item in milestone:
             print (item.show())
         print('')
+    mileLateDetector(late)
         
 def dumpPulls():
     page=1
     pulls=dict()
-    doNext=dumpP('https://api.github.com/repos/'+project+'/pulls?state=closed', pulls)
+    processTime=[]
+    doNext=dumpP('https://api.github.com/repos/'+project+'/pulls?state=closed', pulls,processTime)
+    pullTimeDetector(processTime)
     # for author, pulls in pulls.iteritems():
     #     print("AUTHOR "+ author)
     #     # print(len(commits))
     #     # for commit in commits: print(commit.show())
     #     print('')
+
 
 #avg  threshold
 #g1[19, 9, 6, 4, 6, 1, 5, 13]=7, 5.41987084717
@@ -438,9 +452,10 @@ def milestoneDurationDetector():
     page = 1
     dtime=[]
     issues=[]
+    late=[]
     milestones=dict()
     while(True):
-        doNext=dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page), milestones,  dtime,  issues)
+        doNext=dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page), milestones,  dtime,  issues,late)
         page += 1
         if not doNext :break
     milestoneDurationDetect(dtime)
@@ -467,9 +482,10 @@ def milestoneIssuesDetector():
     page = 1
     dtime=[]
     issues=[]
+    late=[]
     milestones=dict()
     while(True):
-        doNext=dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page), milestones,  dtime,  issues)
+        doNext=dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page), milestones,  dtime,  issues,late)
         page += 1
         if not doNext :break
     milestoneIssuesDetect(issues)
@@ -490,7 +506,80 @@ def milestoneIssuesDetect(issues):
             print ('Badsmell: This milestone has too less issues.')
         else:
             print ('Issue number in this milestone is normal')
+def median(l):
+    m={}
+    m['pos']=int(0.5*len(l))
+    m['value']=l[int(0.5*len(l))]
+    return m
+def high(l):
+    h={}
+    h['pos']=int(0.9*len(l))
+    h['value']=l[int(0.9*len(l))]
+    return h
+def low(l):
+    lw={}
+    lw['pos']=int(0.1*len(l))
+    lw['value']=l[int(0.1*len(l))]
+    return lw
+def labelUseDetector(labels):
+    values=labels.values()
+    values.sort()
+    print (values)
+    hv=high(values)['value']
+    hp=high(values)['pos']
+    mv=median(values)['value']
+    mp=median(values)['pos']
+    lv=low(values)['value']
+    lp=low(values)['pos']
+    print ('lv',lv,'mv',mv,'hv',hv)
+    print ('lp',lp,'mp',mp,'hp',hp)
+    k= float((hv-mv)*(mp-lp)/((hp-mp)*(mv-lv)))
+    if k>3:
+        print ('bad smells in label usage')
+    elif k==3:
+        print ('probably have smells in label usage')
+    else:
+        print ('no smells in label detected')
+    print ("k",k)
+    plt.plot(values)
+    plt.show()
+def issueDurationDetector(data):
+    values=data
+    values.sort()
+    print (values)
+    hv=high(values)['value']
+    hp=high(values)['pos']
+    mv=median(values)['value']
+    mp=median(values)['pos']
+    lv=low(values)['value']
+    lp=low(values)['pos']
+    print ('lv',lv,'mv',mv,'hv',hv)
+    print ('lp',lp,'mp',mp,'hp',hp)
+    # plt.plot(values)
+   #  plt.show()
+    k= float((hv-mv)*(mp-lp)/((hp-mp)*(mv-lv)))
+    if k>3:
+        print ('bad smells in issue length')
+    elif k==3:
+        print ('probably have smells in issue length')
+    else:
+        print ('no smells in issue length detected')
+    print ("k",k)
     
+    
+def mileLateDetector(data):
+    print (data)
+    if sum(data)>0.2* len(data):
+        print ('bad smell in fullfilling milestones')
+    else:
+        print ('no smell detected')
+        
+def pullTimeDetector(data):
+    data.sort()
+    print (data)
+    
+    
+       
 print ("pull request")
 dumpPulls()
 print ("milestone")
@@ -506,7 +595,8 @@ issuesByWeekDetector()
 milestoneDurationDetector()
 milestoneIssuesDetector()
 
-  
+
+
    
  
 
