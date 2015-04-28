@@ -213,36 +213,37 @@ If one issue last extremely short, nearly no time, then the issue might be creat
 In this part, we detected each milestone's duration time and aimed to find abnormal time schedule during the whole project. The code for collecting milestone duration time data can be found here (gittable).
 
 Data results:
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/MileStone_1.txt)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/MileStone_2.txt)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/MileStone_3.txt)
+
 Project1:
 
-[65.42333333333333, 1069.7225, 1310.9583333333333, 304.98833333333334, 1310.2811111111112]
 Badsmell: This milestone has Xsmall time.
 Milestone time is normal
 Milestone time is normal
 Milestone time is normal
 Milestone time is normal
 
-![Alt text](http://full/path/to/img.jpg "Optional title")
+![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_1_MilestoneDuration.png)
 
 Project2:
 
-[186.93472222222223, 596.8102777777777, 652.6475, 620.1069444444445, 264.0052777777778]
 Badsmell: This milestone has Xsmall time.
 Milestone time is normal
 Milestone time is normal
 Milestone time is normal
 Badsmell: This milestone has Xsmall time.
 
-![Alt text](http://full/path/to/img.jpg "Optional title")
+![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_2_MilestoneDuration.png)
 
 Project3:
 
-[876.8580555555556, 987.67, 987.4355555555555]
 Badsmell: This milestone has Xsmall time.
 Milestone time is normal
 Milestone time is normal
 
-![Alt text](http://full/path/to/img.jpg "Optional title")
+![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_3_MilestoneDuration.png)
 
 ####5. Large number of issues in a specific milestone
 If there are large number of issues created in a milestone, it might be the case that the milestone is too complex to achieve. It may probably be more efficient to divide the complex milestone into two or more small and relatively easy milestones.
