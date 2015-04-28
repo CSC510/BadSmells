@@ -35,10 +35,11 @@ from datetime import timedelta
 from datetime import date
 import matplotlib.pyplot as plt
 
-token = "9db738a01537490769aac0521b6fbe4a7a4137c2"
+token = "4d8fdbdd4cba43b1ad0a44fd639da147b1bb4562"
+
 #project="SuperCh-SE-NCSU/ProjectScraping"
-project="CSC510/SQLvsNOSQL"
-#project ="bighero4/MarkParser"
+#project="CSC510/SQLvsNOSQL"
+project ="bighero4/MarkParser"
 # project="CSC510-2015-Axitron/maze"
 # project ="UniHousing/UnivHousing"
 
@@ -368,8 +369,6 @@ def dumpPulls():
 
 
 
-
-
 # print ("pull request")
 # dumpPulls()
 # print ("milestone")
@@ -378,7 +377,6 @@ def dumpPulls():
 # dumpCommits()
 # dumpCommitsNum()
 # print ("issues")
-# launchDump()
 
 
    

@@ -9,7 +9,10 @@ The projects we choose:
 
 ### Bad smells and results
 
-#### 1. 
+#### Data Collection
+
+
+#### 1.
 - Feature description and detect method
 
   *why we choose this feature and method we used to extract this feature*
