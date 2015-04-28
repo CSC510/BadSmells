@@ -1,0 +1,23 @@
+pull request
+changed_files : 1,	mergeable : True,	process_duration : 0.91
+changed_files : 1,	mergeable : True,	process_duration : 0.0
+changed_files : 2,	mergeable : True,	process_duration : 0.02
+changed_files : 1,	mergeable : True,	process_duration : 0.04
+changed_files : 21,	mergeable : True,	process_duration : 2.34
+changed_files : 12,	mergeable : True,	process_duration : 38.81
+changed_files : 1,	mergeable : True,	process_duration : 4.39
+changed_files : 10,	mergeable : True,	process_duration : 0.8
+changed_files : 15,	mergeable : True,	process_duration : 3.99
+changed_files : 1,	mergeable : True,	process_duration : 0.62
+changed_files : 5,	mergeable : True,	process_duration : 13.69
+changed_files : 1,	mergeable : True,	process_duration : 8.96
+changed_files : 15,	mergeable : True,	process_duration : 1.31
+changed_files : 5,	mergeable : True,	process_duration : 15.88
+changed_files : 1,	mergeable : True,	process_duration : 3.08
+changed_files : 4,	mergeable : True,	process_duration : 21.5
+changed_files : 3,	mergeable : True,	process_duration : 0.02
+changed_files : 11,	mergeable : True,	process_duration : 0.02
+changed_files : 3,	mergeable : True,	process_duration : 17.28
+changed_files : 4,	mergeable : True,	process_duration : 12.71
+changed_files : 2,	mergeable : True,	process_duration : 0.0
+changed_files : 1,	mergeable : True,	process_duration : 5.35

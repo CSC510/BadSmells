@@ -1,11 +1,13 @@
 milestone
-late : True,	total_issues : 1,	closed_issues : 1,	due_on : 2015-02-19T05:00:00Z,	closed_at : 2015-02-21T22:18:31Z,	duration : 65.4233333333,	open_issues : 0
+problem when dump milestones
+HTTP Error 404: Not Found
+late : True,	total_issues : 1,	closed_issues : 1,	due_on : 2015-02-19T05:00:00Z,	closed_at : 2015-02-21T22:18:31Z,	duration : 2.73,	open_issues : 0
 
-late : True,	total_issues : 13,	closed_issues : 13,	due_on : 2015-02-28T05:00:00Z,	closed_at : 2015-03-03T22:07:49Z,	duration : 304.988333333,	open_issues : 0
+late : True,	total_issues : 13,	closed_issues : 13,	due_on : 2015-02-28T05:00:00Z,	closed_at : 2015-03-03T22:07:49Z,	duration : 12.71,	open_issues : 0
 
-late : True,	total_issues : 6,	closed_issues : 6,	due_on : 2015-04-06T04:00:00Z,	closed_at : 2015-04-14T19:59:19Z,	duration : 1310.28111111,	open_issues : 0
+late : True,	total_issues : 6,	closed_issues : 6,	due_on : 2015-04-06T04:00:00Z,	closed_at : 2015-04-14T19:59:19Z,	duration : 54.6,	open_issues : 0
 
-late : True,	total_issues : 6,	closed_issues : 6,	due_on : 2015-04-04T04:00:00Z,	closed_at : 2015-04-14T19:59:16Z,	duration : 1310.95833333,	open_issues : 0
+late : True,	total_issues : 6,	closed_issues : 6,	due_on : 2015-04-04T04:00:00Z,	closed_at : 2015-04-14T19:59:16Z,	duration : 54.62,	open_issues : 0
 
-late : True,	total_issues : 13,	closed_issues : 13,	due_on : 2015-04-02T04:00:00Z,	closed_at : 2015-04-04T18:37:46Z,	duration : 1069.7225,	open_issues : 0
+late : True,	total_issues : 13,	closed_issues : 13,	due_on : 2015-04-02T04:00:00Z,	closed_at : 2015-04-04T18:37:46Z,	duration : 44.57,	open_issues : 0
 
