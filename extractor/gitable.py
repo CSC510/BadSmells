@@ -11,7 +11,8 @@
 You will need to add your authorization token in the code.
 Here is how you do it.
 
-1) In terminal run the following command
+1) In terminal run the follow
+ing command
 
 curl -i -u <your_username> -d '{"scopes": ["repo", "user"], "note": "OpenSciences"}' https://api.github.com/authorizations
 
@@ -30,16 +31,7 @@ import urllib2
 import json
 import re,datetime
 import sys
-from datetime import timedelta
-from datetime import date
-
-
-# project="SuperCh-SE-NCSU/ProjectScraping"
-# project="CSC510/SQLvsNOSQL"
-project ="bighero4/MarkParser"
-
-
-token = "f80e828f0442e7a2c52f112bcd7b3b301f15be69" 
+ 
 class L():
   "Anonymous container"
   def __init__(i,**fields) : 
@@ -50,6 +42,10 @@ class L():
     name = i.__class__.__name__
     return name+'{'+' '.join([':%s %s' % (k,pretty(d[k])) 
                      for k in i.show()])+ '}'
+
+  def  __getattr__(i, item):
+      return  i.__dict__.get(item)
+
   def show(i):
     lst = [str(k)+" : "+str(v) for k,v in i.__dict__.iteritems() if v != None]
     return ',\t'.join(map(str,lst))
@@ -63,7 +59,7 @@ def secs(d0):
   delta = d - epoch
   return delta.total_seconds()
 
-
+token = "6594b5e3f613b71659a75264bc5ba5a8cda42517"
 
 
 def dump2(u, commits,time):
@@ -100,6 +96,7 @@ def weekCount(weekly_count,date):
 
 
 def dump3(u, milestones):
+    token = "INSERT TOKEN HERE" # <===
     request = urllib2.Request(u, headers={"Authorization" : "token "+token})
     v = urllib2.urlopen(request).read()
     milestone = json.loads(v)
@@ -113,20 +110,15 @@ def dump3(u, milestones):
     if closed_at != None:
         duration=secs(closed_at)-secs(created_at)
     else:
-         duration = float("inf")
+         duration = inf
     due_on = milestone['due_on']
-    if due_on>closed_at:
-        late=True
-    else:
-        late=False
-    milestoneObj = L( # what = title,
+    milestoneObj = L( what = title,
                    open_issues= open_issues,
                    closed_issues =closed_issues,
-                   # created_at = secs(created_at),
-                   # closed_at = secs(closed_at),
+                   created_at = secs(created_at),
+                   closed_at = secs(closed_at),
                    duration = duration/3600,
-                   # due_on = secs(due_on),
-                   late= late,
+                   due_on = secs(due_on),
                    total_issues= int(closed_issues)+int(open_issues)
                       )
     all_milestones =  milestones.get(title)
@@ -137,6 +129,7 @@ def dump3(u, milestones):
     return True
     
 def dump4(u, pulls):
+  token = "INSERT TOKEN HERE" # <===
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
@@ -153,15 +146,15 @@ def dump4(u, pulls):
         process_duration=secs(closed_at)-secs(created_at)
     else:
         process_duration=inf
-    request2 = urllib2.Request('https://api.github.com/repos/'+project+'/pulls/'+str(number), headers={"Authorization" : "token "+token})
+    request2 = urllib2.Request('https://api.github.com/repos/CSC510/SQLvsNOSQL/pulls/'+str(number), headers={"Authorization" : "token "+token})
     v2= urllib2.urlopen(request2).read()
     w2 = json.loads(v2)
     mergeable = w2['mergeable']
     changed_files= w2['changed_files']
-    pullObj = L( # what = title,
-                 # created_at = secs(created_at),
-                 # closed_at = secs(closed_at),
-                 # merged_at =secs(merged_at),
+    pullObj = L( what = title,
+                 created_at = secs(created_at),
+                 closed_at = secs(closed_at),
+                 merged_at =secs(merged_at),
                  mergeable =mergeable,
                  process_duration = process_duration,
                  changed_files=changed_files
@@ -199,7 +192,7 @@ def dumpP(u,pulls):
         print(e)
         return False;
 
-def dump1(u,issues,labels,dur,create):
+def dump1(u,issues):
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
@@ -221,32 +214,18 @@ def dump1(u,issues,labels,dur,create):
                  what = label_name,
                  user = user,
                  milestone = milestone)
-    if labels.has_key(label_name) and action==("labeled"):
-        labels[label_name]+=1
-    else:
-        labels[label_name]=1
     all_events = issues.get(issue_id)
     if not all_events: 
       all_events = []
       issue = event['issue']
-      created_at = secs(issue['created_at'])
-      closed_at = secs(issue['closed_at'])
-      if closed_at!=None:
-          duration = secs(issue['closed_at'])-secs(issue['created_at'])
-      else:
-          duration = float("inf")
       issueObj = L( state = issue['state'],
                     user =  issue['user']['login'],
                     comments =issue['comments'],
                      #add more attributes here: attr_name = issue['attr'] , json response described here:https://developer.github.com/v3/issues/events/
                     created_at = secs(issue['created_at']),
                     closed_at = secs(issue['closed_at']),
-                    duration =duration
                     #duration = closed_at- created_at
                    )
-
-      dur.append(int(duration/3600))        
-      create.append(created_at)
       all_events.append(issueObj)  
       date = datetime.datetime(*map(int, re.split('[^\d]', issue['created_at'])[:3])) 
       issues['week'] = weekCount(issues.get('week'), date)
@@ -254,9 +233,9 @@ def dump1(u,issues,labels,dur,create):
     issues[issue_id] = all_events
   return True
 
-def dump(u,issues,labels,duration,create):
+def dump(u,issues):
   try:
-    return dump1(u, issues,labels,duration,create)
+    return dump1(u, issues)
   except Exception as e: 
     print(e)
     print("Contact TA")
@@ -265,24 +244,18 @@ def dump(u,issues,labels,duration,create):
 def launchDump():
   page = 1
   issues = dict()
-  labels={}
-  duration=[]
-  create=[]
   while(True):
-    doNext = dump('https://api.github.com/repos/'+project+'/issues/events?page=' + str(page), issues,labels,duration,create)
-    # print("page "+ str(page))
+    doNext = dump('https://api.github.com/repos/CSC510/SQLvsNOSQL/issues/events?page=' + str(page), issues)
+    #print("page "+ str(page))
     page += 1
     if not doNext : break
-  print ("labels used Times",labels)
-  print ("duration in hours",duration)
-  print ("Issue created by weeks",divideByTime(create))
   weekly = issues.get('week')  
-  del issues['week']
-  # for issue, events in issues.iteritems():
- #    print("ISSUE " + str(issue))
- #    print(events[0].show())
- #    print('')
-
+  return issues
+ # del issues['week']
+#for issue, events in issues.iteritems():
+ #   print("ISSUE " + str(issue))
+  #  print(events[0].show())
+# print('')
 
   analyzePerweek(weekly)
 
@@ -291,56 +264,35 @@ def dumpCommits():
     commits= dict()
     time=[];
     while(True):
-       doNext =  dumpC('https://api.github.com/repos/'+project+'/commits?page='+str(page), commits,time)
-       # print("page "+str(page))
+       doNext =  dumpC('https://api.github.com/repos/CSC510/SQLvsNOSQL/commits?page='+str(page), commits,time)
+       #print("page "+str(page))
        page += 1
        if not doNext : break
-    # for author,commits in commits.iteritems():
-#         print("AUTHOR "+ author)
-#         # print(len(commits))
-#         for commit in commits:
-#             print(commit.show())
-#         print('')
-    print (divideByTime(time))
-    for author,commits in commits.iteritems():
-        print("AUTHOR "+ author)
+    for author,commit in commits.iteritems():
+        #print("AUTHOR "+ author)
         # print(len(commits))
-        analyzePerweek(commits[0])
-        del commits[0]
+        #analyzePerweek(commit[0])
+        #del commits[0]
         #for commit in commits:
           #  print(commit.show())
         print('')
+    return commits
     #print (time)
-def divideByTime(time):
-    time.sort();
-    newDate= datetime.datetime.utcfromtimestamp(0)+timedelta(seconds=time[0])
-    weekday=newDate.weekday()
-    start=newDate-datetime.timedelta(days=weekday,weeks=0)
-    print ("start week",start)
-    std=secs(str(start))
-    count=0;
-    countTime=[]
-    for i in time:
-        if i <= std+604800:
-            count+=1
-        else:
-            countTime.append(count)
-            count=1
-            std+=604800
-    countTime.append(count)
-    print ("total Num",sum(countTime))
-    return countTime
+
 def analyzePerweek(weekly):
     weeks = weekly.keys()
     weeks.sort()
+    sum = 0
     for week in weeks:
-        print("week: %s , number: %d" %(week, weekly[week]) )
+        print("week: %s , number: %s" %(week, weekly[week]) )
+
+
 def dumpCommitsNum():  # count each user's commits numbers
     page = 1
     commits= dict()
     userCount = 0
     while(True):
-       doNext =  dumpC('https://api.github.com/repos/'+project+'/commits?page='+str(page), commits)
+       doNext =  dumpC('https://api.github.com/repos/CSC510/SQLvsNOSQL/commits?page='+str(page), commits)
        print("page "+str(page))
        page += 1
        if not doNext : break
@@ -348,14 +300,13 @@ def dumpCommitsNum():  # count each user's commits numbers
         print("user"+ str(userCount) + ": " + str(len(commits)))
 	userCount += 1
         print('')
-
     
 def dumpMilestones():
     page=1
     milestones=dict()
     while(True):
-        doNext=dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page), milestones)
-        # print("page "+str(page))
+        doNext=dumpM('https://api.github.com/repos/CSC510/SQLvsNOSQL/milestones/'+str(page), milestones)
+        print("page "+str(page))
         page+=1
         if not doNext :break
     for title,milestone in milestones.iteritems():
@@ -366,25 +317,17 @@ def dumpMilestones():
 def dumpPulls():
     page=1
     pulls=dict()
-    doNext=dumpP('https://api.github.com/repos/'+project+'/pulls?state=closed', pulls)
+    doNext=dumpP('https://api.github.com/repos/CSC510/SQLvsNOSQL/pulls?state=all', pulls)
     # for author, pulls in pulls.iteritems():
     #     print("AUTHOR "+ author)
     #     # print(len(commits))
     #     # for commit in commits: print(commit.show())
     #     print('')
-print ("pull request")
-dumpPulls()
-print ("milestone")
-dumpMilestones();
-print ("commit")
-dumpCommits()
-# dumpCommitsNum()
-print ("issues")
 # dumpPulls()
 # dumpMilestones();
 #dumpCommits()
 # dumpCommitsNum()
-launchDump()
+#launchDump()
 
   
    
