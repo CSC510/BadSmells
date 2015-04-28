@@ -43,7 +43,6 @@ project="CSC510/SQLvsNOSQL"
 # project ="UniHousing/UnivHousing"
 
 
-
 class L():
   "Anonymous container"
   def __init__(i,**fields) : 
@@ -159,8 +158,11 @@ def dump4(u, pulls,processTime,changed):
     merged_at = pull['merged_at']
     if merged_at != None:
         process_duration=secs(merged_at)-secs(created_at)
+        process_duration=round(process_duration/3600,2)
+        
     elif closed_at != None:
         process_duration=secs(closed_at)-secs(created_at)
+        process_duration=round(process_duration/3600,2)
     else:
         process_duration=inf
     processTime.append(process_duration)

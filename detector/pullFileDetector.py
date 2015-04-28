@@ -1,10 +1,9 @@
-import base
 import gitable as gt
-import matplotlib.pyplot as plt
+import base
 from numpy import *
 
-def labelUseDetector():
-    data=gt.launchDump()['labels'].values()
+def pullFileDetector():
+    data= gt.dumpPulls()['changedfiles']
     print (data)
     data.sort()
     data=data[1:len(data)-1]
@@ -23,8 +22,8 @@ def labelUseDetector():
         if i>high:
             highCount+=1
     if lowCount/len(data) > 0.1 or highCount/len(data)>0.1:
-        print ("BadSmell found in Label Use")
+        print ("BadSmell found in Pull Request Files")
     else:
-        print ("Label Use Detector Passed")
-
-labelUseDetector()
+        print ("Pull Request Files Detector Passed")
+    
+pullFileDetector()
