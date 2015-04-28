@@ -35,7 +35,7 @@ from datetime import timedelta
 from datetime import date
 import matplotlib.pyplot as plt
 
-token = "9db738a01537490769aac0521b6fbe4a7a4137c2"
+
 #project="SuperCh-SE-NCSU/ProjectScraping"
 project="CSC510/SQLvsNOSQL"
 #project ="bighero4/MarkParser"
