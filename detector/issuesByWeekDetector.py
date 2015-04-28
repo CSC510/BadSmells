@@ -1,6 +1,6 @@
 __author__ = 'fred'
 import math
-import gitable
+import gitable as gt
 import base
 
 def issuesDetect(issues):

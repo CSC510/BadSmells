@@ -1,19 +1,13 @@
-import gitable
+import gitable as gt
 import base
 
-# g1[1, 13, 6, 13, 6] avg=7, std=4.69041575982
-# g6 [14, 19, 8, 7, 8] avg=11, std=4.62601340249
-# g8 [23, 4, 14, 23, 0] avg=12, std=9.52890339966
 def milestoneIssuesDetector():
     page = 1
     dtime=[]
     issues=[]
     milestones=dict()
-    while(True):
-        doNext=gitable.dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page), milestones,  dtime,  issues)
-        page += 1
-        if not doNext :break
-    milestoneIssuesDetect(issues)
+    items = gt.dumpMilestones()
+    milestoneIssuesDetect(items['issueNum'])
     #print(issues)
 
 def milestoneIssuesDetect(issues):
@@ -31,3 +25,5 @@ def milestoneIssuesDetect(issues):
             print ('Badsmell: This milestone has too less issues.')
         else:
             print ('Issue number in this milestone is normal')
+
+milestoneIssuesDetector()

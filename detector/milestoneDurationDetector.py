@@ -1,5 +1,4 @@
-__author__ = 'fred'
-import gitable
+import gitable as gt
 import base
 
 def milestoneDurationDetector():
@@ -7,11 +6,8 @@ def milestoneDurationDetector():
     dtime=[]
     issues=[]
     milestones=dict()
-    while(True):
-        doNext=gitable.dumpM('https://api.github.com/repos/'+project+'/milestones/'+str(page), milestones,  dtime,  issues)
-        page += 1
-        if not doNext :break
-    milestoneDurationDetect(dtime)
+    items = gt.dumpMilestones()
+    milestoneDurationDetect(items['duration'])
     #print(issues)
 
 def milestoneDurationDetect(dtime):
@@ -27,3 +23,5 @@ def milestoneDurationDetect(dtime):
             print ('Badsmell: This milestone has Xsmall time.')
         else:
             print ('Milestone time is normal')
+
+milestoneDurationDetector()
