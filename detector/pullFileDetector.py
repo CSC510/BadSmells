@@ -21,7 +21,7 @@ def pullFileDetector():
             lowCount+=1
         if i>high:
             highCount+=1
-    if lowCount/len(data) > 0.1 or highCount/len(data)>0.1:
+    if 8*lowCount/len(data) > 1 or 8*highCount/len(data)>1:
         print ("BadSmell found in Pull Request Files")
     else:
         print ("Pull Request Files Detector Passed")
