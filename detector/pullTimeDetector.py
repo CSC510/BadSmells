@@ -21,7 +21,7 @@ def pullTimeDetector():
             lowCount+=1
         if i>high:
             highCount+=1
-    if lowCount/len(data) > 0.1 or highCount/len(data)>0.1:
+    if 10*lowCount/len(data) > 1 or 10*highCount/len(data)>1 and data[len(data)-1]>72:
         print ("BadSmell found in Pull Request Time")
     else:
         print ("Pull Request Time Detector Passed")
