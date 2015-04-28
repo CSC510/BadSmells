@@ -47,9 +47,9 @@
 </tbody>
 </table>
 
-[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/issuesData_1.txt)
-[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/issuesData_2.txt)
-[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/issuesData_3.txt)
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/issuesData_1.csv)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/issuesData_2.csv)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/issuesData_3.csv)
 
 
 ###Commit Info
@@ -79,7 +79,7 @@
 [project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/project3_commits.csv)
 
 
-###Commit Per Week
+####Commit Per Week
 
 <table>
 <thead>
