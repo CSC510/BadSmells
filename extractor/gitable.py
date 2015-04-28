@@ -59,7 +59,7 @@ def secs(d0):
   delta = d - epoch
   return delta.total_seconds()
 
-token = "6594b5e3f613b71659a75264bc5ba5a8cda42517"
+#token = "6594b5e3f613b71659a75264bc5ba5a8cda42517"
 
 
 def dump2(u, commits,time):
@@ -327,7 +327,7 @@ def dumpPulls():
 # dumpMilestones();
 #dumpCommits()
 # dumpCommitsNum()
-#launchDump()
+launchDump()
 
   
    
