@@ -294,6 +294,7 @@ We also sorted the issues number according to the events number in this issue:
 *Project 2*
     ![](./imgs/project_2_comments_issues.png)  
      ![](./imgs/project_2_events_issues.png) <br> 
+    
     1.large issues number  with same comments:
         comments: 1, issues: 29 , percentage: 46.0%
     2.large issues number with same events:
@@ -303,6 +304,7 @@ We also sorted the issues number according to the events number in this issue:
 *Project 3*
     ![](./imgs/project_3_comments_issues.png)  
     ![](./imgs/project_3_events_issues.png) <br> 
+    
     1.large issues number  with same comments:
         comments: 0, issues: 29 , percentage: 60.3%
     2.large issues number with same events:
@@ -317,6 +319,7 @@ We group the commits number in a week order and generated the graph as follows:
 
     1.extra large work during the week: week_5, commits:72
     2.small work during the week:NOne
+
 *Project 2*
     ![](./imgs/project_2_commits_per_week.png)  
 
@@ -324,6 +327,7 @@ We group the commits number in a week order and generated the graph as follows:
     2.small work during the week:NOne
         week_0, commits: 4, percentage: 0.7%
         week_10, commits: 4, percentage: 0.7%
+
 *Project 3*
     ![](./imgs/project_3_commits_per_week.png)  
 
@@ -331,6 +335,8 @@ We group the commits number in a week order and generated the graph as follows:
         week_2, commits: 42, percentage: 23.1%
         week_9, commits: 62, percentage: 34.1%
     2.small work during the week : None
+
+
 ####11. Commits by a single user
 We analyze the commits number commited by a single user and generate the graph as follows:
 
@@ -342,12 +348,16 @@ We analyze the commits number commited by a single user and generate the graph a
     
 *Project 2*
     ![](./imgs/project_2_commits_person.png)  
+    
     1.large commits by single user: None
     2.small commits by single user: person2, commits:92, percentage: 18.0%
+
 *Project 3*
     ![](./imgs/project_3_commits_person.png)  
+    
     1.large commits by single user: person0, commits: 68, percentage: 37.3%
     2.small commits by single user: person3, commits: 22, percentage: 12.1%
+
 ##  Bad smells detector
 
 ##  Bad smells results
