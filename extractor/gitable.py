@@ -59,9 +59,6 @@ def secs(d0):
   delta = d - epoch
   return delta.total_seconds()
 
-token = "4625298f185c8e931c7f8511a3e62446e3c26ebb"
-
-
 def dump2(u, commits,time):
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
@@ -94,9 +91,6 @@ def weekCount(weekly_count,date):
    weekly_count[start] += 1
    return weekly_count 
 
-def start_week(date):
-    weekday = date.weekday()
-    return date - datetime.timedelta(days=weekday, weeks = 0)
 
 def dump3(u, milestones):
     token = "INSERT TOKEN HERE" # <===
@@ -200,7 +194,8 @@ def dump1(u,issues):
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
   if not w: return False
-
+  if not issues.get('week'):
+     issues['week']= dict()
      
   for event in w:
     issue_id = event['issue']['number']
@@ -220,14 +215,10 @@ def dump1(u,issues):
     if not all_events: 
       all_events = []
       issue = event['issue']
-      date = datetime.datetime(*map(int, re.split('[^\d]', issue['created_at'])[:3]))
-
       issueObj = L(
                     issue_id = issue_id,
                     state = issue['state'],
-
                     user =  issue['user']['login'],
-                    week = start_week(date),
                     comments =issue['comments'],
                      #add more attributes here: attr_name = issue['attr'] , json response described here:https://developer.github.com/v3/issues/events/
                     created_at = secs(issue['created_at']),
@@ -235,6 +226,8 @@ def dump1(u,issues):
                     #duration = closed_at- created_at
                    )
       all_events.append(issueObj)  
+      date = datetime.datetime(*map(int, re.split('[^\d]', issue['created_at'])[:3])) 
+      issues['week'] = weekCount(issues.get('week'), date)
     all_events.append(eventObj)
     issues[issue_id] = all_events
   return True
@@ -255,6 +248,7 @@ def launchDump():
     #print("page "+ str(page))
     page += 1
     if not doNext : break
+  weekly = issues.get('week')  
   return issues
  # del issues['week']
 #for issue, events in issues.iteritems():
@@ -262,6 +256,7 @@ def launchDump():
   #  print(events[0].show())
 # print('')
 
+  analyzePerweek(weekly)
 
 def dumpCommits():
     page = 1
@@ -277,7 +272,7 @@ def dumpCommits():
         user = ("person_%d" %(count))
         for single_commit in commit[1:]:
 
-            #print("%s,%s" %(user,single_commit.when))
+            print("%s,%s" %(user,single_commit.when))
             pass
         #print("AUTHOR "+ author)
         # print(len(commits))
@@ -297,9 +292,9 @@ def analyzePerweek(weekly):
     for week in weeks:
         print("week: %s , number: %s" %(week, weekly[week]) )
 
-#project = 'bighero4/MarkParser'
+project = 'bighero4/MarkParser'
 #project = 'SuperCh-SE-NCSU/ProjectScraping'
-project = 'CSC510/SQLvsNOSQL'
+#project = 'CSC510/SQLvsNOSQL'
 def dumpCommitsNum():  # count each user's commits numbers
     page = 1
     commits= dict()

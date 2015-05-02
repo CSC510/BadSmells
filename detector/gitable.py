@@ -36,14 +36,11 @@ from datetime import date
 import matplotlib.pyplot as plt
 
 
-token = "88fbc075240ac6b8e14effa09692dabe77ee6710"
-
-
+#project ="bighero4/MarkParser"
 #project="SuperCh-SE-NCSU/ProjectScraping"
 project="CSC510/SQLvsNOSQL"
-#project ="bighero4/MarkParser"
 # project="CSC510-2015-Axitron/maze"
-# project ="UniHousing/UnivHousing"
+
 
 
 class L():
@@ -288,7 +285,7 @@ def launchDump():
     # print("page "+ str(page))
     page += 1
     if not doNext : break
-  #print(issues['week'])
+  # print(issues['week'])
   # for x in issues['week'].keys():
   #     print(x,issues['week'][x])
   issue={}
