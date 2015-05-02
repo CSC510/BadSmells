@@ -565,7 +565,7 @@ Project3:
 
 
 ###Pull Request Smell Detector
-We have collected the details for each pull request of a specific repo such as **number of pull request,process time, file_changed, automergable**. We denote that for a normal project, its pull request should reach at least 10% of the commit number. And the process time shouldn't be too long, in case there are some extreme values, we have removed the largest and smallest one. Then we calculate the mean value and standard deviation for each list of time we get for each group. Same methods are used in define the unusual large number of file-changed in a single pull request. Whether automergeable pull request number is also a factor in define if there exists bad smell in a repo.
+We have collected the details for each pull request of a specific repo such as **number of pull request,process time, file_changed, automergable**. We denote that for a normal project, its pull request should reach at least 5% of the commit number. And the process time shouldn't be too long, in case there are some extreme values, we have removed the largest and smallest one. Then we calculate the mean value and standard deviation for each list of time we get for each group. Same methods are used in define the unusual large number of file-changed in a single pull request. Whether automergeable pull request number is also a factor in define if there exists bad smell in a repo(Not added feature).
 
 		normal number for pull request >= 5& of its commits number (a very very low requirements!! Should be higher!)
 		mean - std <= normal process time of a pull request <= Min(mean + std, 72 hrs)
@@ -614,6 +614,7 @@ Project 3:
 
 ##  Early warning & Result
 ### Issue number per week Early Warning
+In the last section of the bad smell detector, we have used 9 weeks to detect the bad smell. However, in early smell detector, we have only used the four weeks' data to do the estimation. Same method and detector techniques are used to do the early warning. As we can see from the results below, similar bad smells could be detected by the detector, which could be used as early warning. We could see that in project 1 and project 3, there exists only one issue in week 4, which is ** far less ** than the average issue per week.
 
 [earlyIssuesDetectorByWeek](./detector/earlyIssuesDetectorByWeek.py)
 
