@@ -209,7 +209,7 @@ We have collected issue data from each group and we calculate the duration of ea
 ####2. None issue time
 If one issue last extremely short, nearly no time, then the issue might be created by mistake, or the bug was too small to report.
 
-#####Result<a name="issue"></a>
+#####Result{#issue}
 According to the data we collected in feature 1, we will be able to get the duration of time,as shown [above](#issue). 
 
 
@@ -404,7 +404,7 @@ We collected the pull requests number and compared to the issue (number-requests
 ####11. Long Process Tme of Pull Request
 The process time of a pull request usually means whether the owner of the repo has an active involvement of a repo. 
 
-#####Result<a name="pull"></a>
+#####Result{#pull}
 We collected the process time for each pull request of a specific repo, as shown below.
 		
 		pull request
