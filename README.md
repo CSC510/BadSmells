@@ -217,26 +217,7 @@ If the number of issues opened in a milestone is too small, it can be replaced b
 ####7. Large number of issues posted by a single user
 If a large percentage of issues were opened by one person, it is possible that the person was assigned tasks which were not suitable for him or her. It is also possible that the person is too busy while others are quite idle, which means that the work is not evenly distributed.
 
-####8. Small number of issues posted by a single user
-When the number of issues opened by one user is extremely low, we may say that he or she might be a passenger who did not contribute much to the project.
-
-####9. Number of users involved in an issue
-We found that sometimes one issue have no comment and feedback on it. It means that there is only one person got involved in this issue. In this case, we can say that other people may not totally understand this issue, or it is a relatively small problem which is not necessary to open an issue to deal with.
-
-####10. Unusual commits number in a specific time
-Usually we think that the number of commits should be distributed evenly during one project. If during a certain period, there are too many commits, or just one or two commits, it could indicate that the period of time is too busy, or the period of time was not used efficiently.
-
-####11. Commits by a single user
-If a large amount of commits were created by a single user, it reflects that the person undertook too much work. Or if a person gave commits which is unusually less, the person might be a passenger who need to be assigned more work.
-
-####12. Number of pull request/branches
-Pull request and branches in Github help a team finish their tasks efficiently. If the number of pull request and branches is unusually large or small, it is likely that the working process was not clear enough, or there were some communication problems between different teammates.
-
-####13. Number of time each label is used
-Different labels in a project reflect different small topics, or different stages during the process. If the times one label was used is unusually small or large, it indicates that a certain stage in the project is relatively easy or difficult to achieve, and it can be replaced by a more reasonable label.
-
-##  Feature detection results
-#####7.Large number of issues posted by a single user
+#####Result
 We sorted issues by user and generated the graph as follows:
 
 *Project 1*
@@ -260,8 +241,10 @@ In order to extract the extra large number of issues post by a single user,we us
       large_issues post by single user : person0, issues: 45, percentage:66.1%
 
 
-
 ####8. Small number of issues posted by a single user
+When the number of issues opened by one user is extremely low, we may say that he or she might be a passenger who did not contribute much to the project.
+
+####Result
 Using the above data collected, we also detected extra small number of issues by single user[issuesPersondector](/detector/issuesPersonDetector.py)
        
       issues_person <= mean - delta*standard_deviation    delta = 1
@@ -277,8 +260,10 @@ Using the above data collected, we also detected extra small number of issues by
       small_issues post by single user : None 
 
 
-          
 ####9. Number of users involved in an issue
+We found that sometimes one issue have no comment and feedback on it. It means that there is only one person got involved in this issue. In this case, we can say that other people may not totally understand this issue, or it is a relatively small problem which is not necessary to open an issue to deal with.
+
+####Result
 We sorted the issues number according to the comments number. 
 We also sorted the issues number according to the events number in this issue [issuesCommentsAndEventsDetector](/detector/issuesCommentsAndEventsDetector.py):
 
@@ -310,8 +295,10 @@ We also sorted the issues number according to the events number in this issue [i
     2.large issues number with same events:
         events: 1, issues: 41, percentage: 60.3%
 
-
 ####10. Unusual commits number in a specific time
+Usually we think that the number of commits should be distributed evenly during one project. If during a certain period, there are too many commits, or just one or two commits, it could indicate that the period of time is too busy, or the period of time was not used efficiently.
+
+####Result
 We group the commits number in a week order and generated the graph as follows :[commitsPersondector](/detector/commitsPersonDetector.py)
 
 *Project 1*
@@ -339,6 +326,9 @@ We group the commits number in a week order and generated the graph as follows :
 
 
 ####11. Commits by a single user
+If a large amount of commits were created by a single user, it reflects that the person undertook too much work. Or if a person gave commits which is unusually less, the person might be a passenger who need to be assigned more work.
+
+#####Result
 We analyze the commits number commited by a single user and generate the graph as follows:[commitsWeekdector](/detector/commitsWeekDetector.py)
 
 *Project 1*
@@ -358,6 +348,16 @@ We analyze the commits number commited by a single user and generate the graph a
     
     1.large commits by single user: person0, commits: 68, percentage: 37.3%
     2.small commits by single user: person3, commits: 22, percentage: 12.1%
+    
+####12. Number of pull request/branches
+Pull request and branches in Github help a team finish their tasks efficiently. If the number of pull request and branches is unusually large or small, it is likely that the working process was not clear enough, or there were some communication problems between different teammates.
+
+####13. Number of time each label is used
+Different labels in a project reflect different small topics, or different stages during the process. If the times one label was used is unusually small or large, it indicates that a certain stage in the project is relatively easy or difficult to achieve, and it can be replaced by a more reasonable label.
+
+##  Feature detection results
+
+
 
 ##  Bad smells detector & Result
 
