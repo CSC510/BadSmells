@@ -614,9 +614,7 @@ Project 3:
 
 ##  Early warning & Result
 ### Issue number per week Early Warning
-In the last section of the bad smell detector, we have used 9 weeks to detect the bad smell. However, in early smell detector, we have only used the four weeks' data to do the estimation. Same method and detector techniques are used to do the early warning. As we can see from the results below, similar bad smells could be detected by the detector, which could be used as early warning. We could see that in project 1 and project 3, there exists only one issue in week 4, which is ** far less ** than the average issue per week.
-
-[earlyIssuesDetectorByWeek](./detector/earlyIssuesDetectorByWeek.py)
+In the last section of the bad smell detector, we have used 9 weeks to detect the bad smell. However, in early smell detector, we have only used the **four** weeks' data to do the estimation. Same method and detector techniques are used to do the early warning. As we can see from the results below, similar bad smells could be detected by the detector, which could be used as early warning. We could see that in project 1 and project 3, there exists only one issue in week 4, which is **far less** than the average issue per week. The early detector source code can be found [here](./detector/earlyIssuesDetectorByWeek.py)
 
 Result:
 Project1: 
