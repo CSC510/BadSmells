@@ -623,6 +623,9 @@ In case there are some extreme values, we have removed the largest and smallest 
 
 
 ##  Early warning & Result
+### Issue number per week Early Warning
+
+
 ###Issue per Person Early Warning
 
 ####Result
