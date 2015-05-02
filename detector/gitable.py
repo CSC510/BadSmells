@@ -39,7 +39,6 @@ import matplotlib.pyplot as plt
 project ="bighero4/MarkParser"
 #project="SuperCh-SE-NCSU/ProjectScraping"
 #project="CSC510/SQLvsNOSQL"
-# project="CSC510-2015-Axitron/maze"
 
 
 
@@ -340,6 +339,8 @@ def dumpCommitsNum():  # count each user's commits numbers
     #     print('')
     commitnum={}
     commitnum['times']=times;
+    commitnum['length']=len(times);
+    return commitnum
 
     
 def dumpMilestones():
@@ -380,9 +381,9 @@ def dumpPulls():
 # dumpCommitsNum()
 # print ("issues")
 
-
-   
-launchDump()
+#
+#
+# launchDump()
 
 
   

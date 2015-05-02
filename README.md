@@ -91,7 +91,7 @@ We have collected issue data from each group and we calculate the duration of ea
 ####2. None issue time
 If one issue last extremely short, nearly no time, then the issue might be created by mistake, or the bug was too small to report.
 
-#####Result{#issue}
+#####<a name="issue">Result</a>
 According to the data we collected in feature 1, we will be able to get the duration of time,as shown [above](#issue). 
 
 
@@ -286,7 +286,7 @@ We collected the pull requests number and compared to the issue (number-requests
 ####11. Long Process Tme of Pull Request
 The process time of a pull request usually means whether the owner of the repo has an active involvement of a repo. 
 
-#####Result{#pull}
+#####<a name="pull">Result</a>
 We collected the process time for each pull request of a specific repo, as shown below.
 		
 		pull request
@@ -394,11 +394,55 @@ It may reflect on the issues and commits numbers by user. We conbine the commits
 
 
 ###Issue Duration Smell Detector
-We calculate the mean value and standard deviation of each group's data and we define that most of the data should be include in the range of [mean-std,mean+std]. The data which is not in the range will be noticed as **unusual duration of issue**.
+Method 1: To define the unusual length of the issue duration, we calculate the mean value and standard deviation of each group's data and we define that most of the data should be include in the range of [mean-std,mean+std]. The data which is not in the range will be noticed as **unusual duration of issue**.
+We have also defined that the extremely small duration is within 6 minutes which is 0.1 hour. For a project like ours, taking almost 9 weeks, an issue lasting for only 6 minutes can hardly be called an issue. If the the duration is less than that, we name it None issue time.
 
-~~We define that the extremely small duration is within 6 minutes which is 0.1 hour. For a project like ours, taking almost 9 weeks, an issue lasting for only 6 minutes can hardly be called an issue. If the the duration is less than that, we name it None issue time.~~
+		mean - std <= normal duration time of an issue <= mean + std
+		amount of none issue < 5% of the total issue number
+		
+Method 2: We have sort the duration and pick the data at 10% (10% of the data is smaller this point, name it as A) and 90% (10% of the data is larger this point, name it as B). We have also picked out the medium value(name it as C) and then we calculate the slope of (A,C),k1 and (B,C),k2. If it varies a lot, for example, k2 is 8 times larger than k1. We denote it as badsmell as in this case the time spent on some issues increase expontienally compares to the small one, or it has only got very small numbers of issues which have medium length. Either way, it should be reported as a badsmell.
+
+		k2<8* k1 =>normal issue duration
+		
+Detector code can be found [here](https://github.com/CSC510/BadSmells/blob/master/detector/issueDurationDetector.py) 
 
 ####Result
+
+project 1:
+		
+	[12, 0, 241, 241, 1025, 1068, 1069, 1069, 241, 19, 1044, 4, 1026, 26, 0, 13, 1023, 25, 740, 724, 8, 1309, 20, 1, 21, 3, 15, 1, 0, 17, 4, 24, 0, 790, 1160, 280, 479, 912, 1310, 1309, 974, 260, 13, 304, 304, 13, 13, 479]
+	Method 1
+	('low val', 1, 'median val', 241, 'high val', 1069)
+	('low pos', 4, 'median pos', 24, 'high pos', 43)
+	BadSmell found in issue Duration
+	Method 2
+	('avg', 398.32608695652175, 'std', 456.46844047048609)
+	('strange small count=', 0, 'strange large count=', 12, 'none issue count', 4)
+	BadSmell found in issue Duration
+		
+project 2:
+
+	[26, 26, 28, 34, 1, 46, 49, 47, 29, 74, 103, 122, 109, 73, 73, 5, 65, 65, 32, 268, 232, 183, 288, 303, 220, 459, 474, 501, 838, 231, 126, 220, 281, 243, 340, 242, 76, 12, 357, 363, 364, 114, 19, 18, 144, 46, 67, 52, 121, 0, 554, 554, 554, 554, 554, 1, 22, 221, 0, 557, 575, 579, 646]
+	Method 1
+	('low val', 18, 'median val', 122, 'high val', 554)
+	('low pos', 6, 'median pos', 31, 'high pos', 56)
+	Issue Duration Detector Passed
+	Method 2
+	('avg', 208.88524590163934, 'std', 196.02810925574465)
+	('strange small count=', 5, 'strange large count=', 12, 'none issue count', 2)
+	BadSmell found in issue Duration
+		
+project 3:
+
+	[0, 122, 279, 16, 268, 6, 1, 1, 277, 16, 16, 17, 17, 18, 18, 18, 18, 17, 17, 280, 3, 0, 18, 26, 48, 26, 29, 47, 11, 39, 49, 41, 41, 41, 41, 41, 3, 83, 12, 65, 358, 740, 934, 156, 158, 937, 169, 0, 182, 202, 0, 235, 61, 263, 54, 1058, 1110, 72, 0, 32, 192, 400, 372, 1, 91, 372, 0, 125]
+	Method 1
+	('low val', 1, 'median val', 41, 'high val', 372)
+	('low pos', 6, 'median pos', 34, 'high pos', 61)
+	BadSmell found in issue Duration
+	Method 2
+	('avg', 140.15151515151516, 'std', 226.61235372622713)
+	('strange small count=', 0, 'strange large count=', 7, 'none issue count', 6)
+	BadSmell found in issue Duration
 
 ###Issue By Week Smell Detector
 We have counted the number of issues per week, and analyzed the mean and standard deviation of issue numbers for each group. We consider the detectign result as a bad smell if the number of issue is less than mean minus standard deviation or the number of issue is greater than mean plus standard deviation. The issue duration smell detector will automatically report the detecting result when it analyze the project. Issue By Week Smell Detector can be found [issuesByWeekDetector](./detector/issuesByWeekDetector.py)
@@ -448,13 +492,37 @@ Project3:
 
 
 ###Label Usage Smell Detector
-~~In case there are some extreme values, we have removed the largest and smallest one. Then we calculate the mean value and standard deviation for the times one specific label is used. Then the number which are larger than the upper bound which is average plus standard deviation or smaller than the lower bound which is average minus standard deviation will be noticed as unusual number of *label used*.~~
-
-As said in the feature dectection, we have get the unusual use of labels whether it is tiny used or massively used. We define that the number of time used should be at the two standard deviation range of the mean value. Therefore:
+To find out the bad smell in the label usage, we have removed the largest one, in case there are some extreme values. As we have observed in the pattern that there exists a label which stands for **finish**. A large majority of issues will be labelled as this when it comes to the final stage. Then we calculate the mean value and standard deviation for the times one specific label is used. We define the unusual use is the labels whether it is tiny used or massively used. We define that the number of time used should be at the two standard deviation range of the mean value. Detector source code can be checked [here](https://github.com/CSC510/BadSmells/blob/master/detector/labelUseDetector.py):
 	
-	if number < mean + 
+	 mean - std <= normal label used time <= mean + std 
+	 
+If labels which are denoted to have unusual usage exceeds 10% of the total number of labels, it will lead to badsmell.
 
 ####Result
+	
+project 1: 
+	
+	('avg', 4.1818181818181817)
+	('std', 3.142615639535201)
+	('number of strange low data', 5)
+	('number of strange high data', 3)
+	BadSmell found in Label Use
+	
+project 2:
+	
+	('avg', 4.333333333333333)
+	('std', 4.0551750201988126)
+	('number of strange low data', 0)
+	('number of strange high data', 1)
+	Label Use Detector Passed
+	
+project 3: 
+	
+	('avg', 8.6666666666666661)
+	('std', 7.1336448530108996)
+	('number of strange low data', 1)
+	('number of strange high data', 1)
+	BadSmell found in Label Use
 
 
 ###Milestone Smell Detector
@@ -497,14 +565,52 @@ Project3:
 
 
 ###Pull Request Smell Detector
-We collected the process time for each pull request of a specific repo.~~In case there are some extreme values, we have removed the largest and smallest one. Then we calculate the mean value and standard deviation for each list of time we get for each group. Then the process time which are larger than the upper bound which is average plus standard deviation will be noticed as long process time.
+We have collected the details for each pull request of a specific repo such as **number of pull request,process time, file_changed, automergable**. We denote that for a normal project, its pull request should reach at least 10% of the commit number. And the process time shouldn't be too long, in case there are some extreme values, we have removed the largest and smallest one. Then we calculate the mean value and standard deviation for each list of time we get for each group. Same methods are used in define the unusual large number of file-changed in a single pull request. Whether automergeable pull request number is also a factor in define if there exists bad smell in a repo.
 
-In case there are some extreme values, we have removed the largest and smallest one. Then we calculate the mean value and standard deviation for each list we get for each group. Then the number which are larger than the upper bound which is average plus standard deviation will be noticed as unusual large number of *file_changed*.
+		normal number for pull request >= 5& of its commits number (a very very low requirements!! Should be higher!)
+		mean - std <= normal process time of a pull request <= Min(mean + std, 72 hrs)
+		mean - std <= normal file changed in a pull request <= mean + std
 
-~~Then we calcuate the non auto-mergeable percentage for each repo.~~
-
+Detector Source Code can be found [here](https://github.com/CSC510/BadSmells/blob/master/detector/pullRequestDetector.py).
 ####Result
 
+Project 1: 
+
+	('Process Time', [0.91, 0.0, 0.02, 0.04, 2.34, 38.81, 4.39, 0.8, 3.99, 0.62, 13.69, 8.96, 1.31, 15.88, 3.08, 21.5, 0.02, 0.02, 17.28, 12.71, 0.0, 5.35])
+	('Changed Files', [1, 1, 2, 1, 21, 12, 1, 10, 15, 1, 5, 1, 15, 5, 1, 4, 3, 11, 3, 4, 2, 1])
+	('Pull request Number', 22, 'Commits number', 121)
+
+	Process Time
+	('avg', 5.6455000000000002, 'std', 6.6602526040684076)
+	('number of strange small time', 0, 'number of strange large time', 5)
+
+	 File Changed
+	('avg', 4.9000000000000004, 'std', 4.7423622805517507)
+	('number of strange large file changed', 5)
+	Pull Request Detector Passed
+	
+Project 2:
+	
+	('Process Time', [0.14])
+	('Changed Files', [20])
+	('Pull request Number', 1, 'Commits number', 510)
+	Too few pull request! BadSmell Detected
+
+Project 3:
+	
+	('Process Time', [1.62, 13.65, 17.2, 0.01, 18.05, 0.0, 0.0, 0.89, 0.07, 0.1, 0.95, 64.82, 0.01])
+	('Changed Files', [8, 16, 1, 6, 9, 4, 3, 19, 30, 44, 3117, 94, 1])
+	('Pull request Number', 13, 'Commits number', 182)
+
+	Process Time
+	('avg', 4.7772727272727273, 'std', 7.1430412302134254)
+	('number of strange small time', 0, 'number of strange large time', 3)
+
+	 File Changed
+	('avg', 21.272727272727273, 'std', 26.143279717360734)
+	('number of strange large file changed', 1)
+	Pull Request Detector Passed
+	
 
 ##  Early warning & Result
 ### Issue number per week Early Warning
