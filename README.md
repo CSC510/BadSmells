@@ -519,7 +519,7 @@ We calculate the mean value and standard deviation of each group's data and we d
 ####Result
 
 ###Issue By Week Smell Detector
-We have counted the number of issues per week, and analyzed the mean and standard deviation of issue numbers for each group. We consider the detectign result as a bad smell if the number of issue is less than mean minus standard deviation or the number of issue is greater than mean plus standard deviation. The issue duration smell detector will automatically report the detecting result when it analyze the project. Issue By Week Smell Detector can be found here.
+We have counted the number of issues per week, and analyzed the mean and standard deviation of issue numbers for each group. We consider the detectign result as a bad smell if the number of issue is less than mean minus standard deviation or the number of issue is greater than mean plus standard deviation. The issue duration smell detector will automatically report the detecting result when it analyze the project. Issue By Week Smell Detector can be found [issuesByWeekDetector](./detector/issuesByWeekDetector.py)
 
 	issue number > mean + standard deviation or issue number < mean - standard deviation 
 	or issueNum1 + issueNum2 < mean
@@ -577,8 +577,7 @@ As said in the feature dectection, we have get the unusual use of labels whether
 
 ###Milestone Smell Detector
 
-According to milestone features memtioned above, we have collected milestone's duration time and issue number in each projects, and then analyzed the mean and standard deviation of duration time and issue numbers in each milestone. If duration time is short and issues number is large, we consider it as a bad smell. If duration time is long and issue number is small, we consider it as a bad smell too.
-Duration Time Bad Smell Detector: 
+According to milestone features memtioned above, we have collected milestone's duration time and issue number in each projects, and then analyzed the mean and standard deviation of duration time and issue numbers in each milestone. If duration time is short and issues number is large, we consider it as a bad smell. If duration time is long and issue number is small, we consider it as a bad smell too. [Milestone Smell Detector](./detector/milestoneDetector.py)
 
         duration time > mean + standard deviation and issues number < mean - standard deviation
         or
@@ -627,6 +626,8 @@ In case there are some extreme values, we have removed the largest and smallest 
 
 ##  Early warning & Result
 ### Issue number per week Early Warning
+
+[earlyIssuesDetectorByWeek](./detector/earlyIssuesDetectorByWeek.py)
 
 Result:
 Project1: 
