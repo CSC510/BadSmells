@@ -590,9 +590,7 @@ Project1:
 	
 	Issue number in each milestone:  [1, 13, 6, 13, 6]
 	Duration time in each milestone: [65.42, 1069.72, 1310.95, 304.98, 1310.28]
-	
 	Milestone duration time and issues number are normal
-	
 	Milestone duration time and issues number are normal
 	Milestone duration time and issues number are normal
 	Milestone duration time and issues number are normal
