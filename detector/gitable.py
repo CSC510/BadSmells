@@ -36,9 +36,9 @@ from datetime import date
 import matplotlib.pyplot as plt
 
 
-#project ="bighero4/MarkParser"
+project ="bighero4/MarkParser"
 #project="SuperCh-SE-NCSU/ProjectScraping"
-project="CSC510/SQLvsNOSQL"
+#project="CSC510/SQLvsNOSQL"
 # project="CSC510-2015-Axitron/maze"
 
 
