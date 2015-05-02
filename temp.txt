@@ -1,0 +1,140 @@
+From week 0-0
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+Uneven degree : 3
+From week 0-1
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+Uneven degree : 2
+From week 0-2
+Project might have passenger
+Project might be unevenly contributed
+Uneven degree : 1
+From week 0-3
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+Uneven degree : 3
+From week 0-4
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+Uneven degree : 3
+From week 0-5
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+Uneven degree : 2
+From week 0-6
+Project might be leading by someone
+Project might be unevenly contributed
+Uneven degree : 1
+From week 0-7
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+Uneven degree : 2
+
+
+From week 0-0
+Project might be leading by someone
+Project might be unevenly contributed
+Uneven degree : 1
+From week 0-1
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+Uneven degree : 3
+From week 0-2
+Project has passenger
+Project is leading by someone
+Project is unevenly contributed
+Uneven degree : 4
+From week 0-3
+Project has passenger
+Project might be leading by someone
+Project is unevenly contributed
+Uneven degree : 3
+From week 0-4
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+Uneven degree : 2
+From week 0-5
+Project might have passenger
+Project might be unevenly contributed
+Uneven degree : 1
+From week 0-6
+Project might have passenger
+Project might be unevenly contributed
+Uneven degree : 1
+From week 0-7
+Project might have passenger
+Project might be unevenly contributed
+Uneven degree : 1
+From week 0-8
+Project might have passenger
+Project might be unevenly contributed
+Uneven degree : 1
+From week 0-9
+Project might have passenger
+Project might be unevenly contributed
+Uneven degree : 1
+From week 0-10
+Project might have passenger
+Project might be unevenly contributed
+Uneven degree : 1
+
+
+
+From week 0-0
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+Uneven degree : 2
+From week 0-1
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+Uneven degree : 2
+From week 0-2
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+Uneven degree : 2
+From week 0-3
+Project might have passenger
+Project might be unevenly contributed
+Uneven degree : 1
+From week 0-4
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+Uneven degree : 3
+From week 0-5
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+Uneven degree : 3
+From week 0-6
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+Uneven degree : 3
+From week 0-7
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+Uneven degree : 3
+From week 0-8
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+Uneven degree : 3
+From week 0-9
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+Uneven degree : 3

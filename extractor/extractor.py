@@ -19,11 +19,35 @@ if __name__ == "__main__":
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+def  weekly_issues_by_person():
+    issues = gitable.launchDump()
+    weekly_issues = dict()
+    weekly_issues['authors'] = []
+    for events in issues.values():
+        author  = events[0].user
+        if not author in weekly_issues['authors']:
+            weekly_issues['authors'].append(author)
+
+    for issue , events in issues.iteritems():
+        issue = events[0]
+        week_count(weekly_issues, issue.week, issue.user)
+    del weekly_issues['authors']
+    return weekly_issues
+
+def week_count(weekly, start_week, author):
+    authors = weekly.get(start_week)
+    if not authors:
+        authors = dict()
+        for author in weekly.get('authors'):
+            authors[author] = 0
+
+    authors[author] = authors[author] + 1
+    weekly[start_week] = authors
+
+weekly_issues = weekly_issues_by_person()
 
 def  process_issues(features):
     issues = gitable.launchDump()
-    weekly_issues = issues['week']
-    del issues['week']
 
     author_issues = dict()
     events_issues =dict()
@@ -51,7 +75,7 @@ def  process_issues(features):
     if(len(small_author) >0 ):
         features['small issues post by single user'] = small_author
 
-    draw_bar(comments_issues.values(),"issues number with same comments number","issues",comments_issues.keys(),"comments number",0.35)
+    #draw_bar(comments_issues.values(),"issues number with same comments number","issues",comments_issues.keys(),"comments number",0.35)
 
     events_filter= filter.filter(events_issues)
     features['events_issues'] = events_filter
@@ -63,7 +87,7 @@ def  process_issues(features):
     large_comments = comments_filter.large()
     if(len(large_comments)>0):
         features['large issues with same comments'] = large_comments
-    draw_bar(events_issues.values(),"issues number with same events number", "issues",events_issues.keys(),"events number",0.35)
+    #draw_bar(events_issues.values(),"issues number with same events number", "issues",events_issues.keys(),"events number",0.35)
     single_user = filter.filter(author_issues)
     single_user.large(5)
 
@@ -82,6 +106,29 @@ def dict_add(dict, item):
     if not dict.get(item):
         dict[item]  = 0
     dict[item] += 1
+
+def weekly_commits_by_person():
+    commits_dict = gitable.dumpCommits()
+    weeks = dict()
+    authors = commits_dict.keys()
+    for author, commits in commits_dict.iteritems():
+        for week in commits[0].keys():
+            if not weeks.get(week):
+                weeks[week] = dict()
+            week_count = weeks.get(week)
+
+            num= commits[0].get(week)
+            week_count[author]  = num
+            weeks[week]  = week_count
+
+    for week, week_count in weeks.iteritems():
+        for author in authors:
+            if not week_count.get(author):
+                week_count[author] = 0
+
+    return weeks
+
+weekly_commits = weekly_commits_by_person()
 
 def process_commits(features):
     commits_dict = gitable.dumpCommits()
@@ -142,6 +189,8 @@ def process_commits(features):
         features['small commits by single user']= passenger
         #logger.info("Project has passenger %s" %(passenger))
     #logger.info(all)
+
+
 
 
 def main():
