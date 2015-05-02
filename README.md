@@ -521,6 +521,9 @@ We calculate the mean value and standard deviation of each group's data and we d
 ###Issue By Week Smell Detector
 We have counted the number of issues per week, and analyzed the mean and standard deviation of issue numbers for each group. We consider the detectign result as a bad smell if the number of issue is less than mean minus standard deviation or the number of issue is greater than mean plus standard deviation. The issue duration smell detector will automatically report the detecting result when it analyze the project. Issue By Week Smell Detector can be found here.
 
+	issue number > mean + standard deviation or issue number < mean - standard deviation 
+	or issueNum1 + issueNum2 < mean
+
 ####Result
 The numbers of issues per week have been post in the feature and result part. Our smell detector reports the detecting results based on these sample data.
 
@@ -528,38 +531,38 @@ Project1:
 
         [3, 19, 4, 5, 1, 1, 1, 14]
         Issues numbers are normal
-        Badsmells: This week has too many issues.
-        Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
-        Badsmells: This week has too many issues.
+	Badsmells: This week has too many issues.
+	Issues numbers are normal
+	Issues numbers are normal
+	Issues numbers are normal
+	Badsmells: This week has too less issues.
+	Badsmells: This week has too less issues.
+	Badsmells: This week has too many issues.
 
 Project2: 
 
         [19, 9, 6, 4, 6, 1, 5, 13]
         Badsmells: This week has too many issues.
-        Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
-        Badsmells: This week has too less issues.
-        Issues numbers are normal
-        Issues numbers are normal
+	Issues numbers are normal
+	Issues numbers are normal
+	Issues numbers are normal
+	Issues numbers are normal
+	Badsmells: This week has too less issues.
+	Issues numbers are normal
+	Issues numbers are normal
 
 Project3:
 
         [10, 9, 7, 1, 1, 1, 1, 18, 20]
         Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
-        Badsmells: This week has too many issues.
-        Badsmells: This week has too many issues.
+	Issues numbers are normal
+	Issues numbers are normal
+	Issues numbers are normal
+	Badsmells: This week has too less issues.
+	Badsmells: This week has too less issues.
+	Badsmells: This week has too less issues.
+	Badsmells: This week has too many issues.
+	Badsmells: This week has too many issues.
 
 
 ###Label Usage Smell Detector
@@ -625,6 +628,30 @@ In case there are some extreme values, we have removed the largest and smallest 
 ##  Early warning & Result
 ### Issue number per week Early Warning
 
+Result:
+Project1: 
+
+	[8, 2, 4, 1]
+	Badsmells: This week has too many issues.
+	Issues numbers are normal
+	Issues numbers are normal
+	Badsmells: This week has too less issues.
+
+Project2:
+
+	[19, 9, 6, 4]
+	Badsmells: This week has too many issues.
+	Issues numbers are normal
+	Issues numbers are normal
+	Issues numbers are normal
+
+Project3:
+
+	[10, 9, 7, 1]
+	Issues numbers are normal
+	Issues numbers are normal
+	Issues numbers are normal
+	Badsmells: This week has too less issues.
 
 ###Issue per Person Early Warning
 
