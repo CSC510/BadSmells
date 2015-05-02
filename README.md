@@ -408,5 +408,161 @@ It may reflect on the issues and commits numbers by user. We conbine the commits
 ####Result
 
 ##  Early warning
+####Uneven Contribution Early Detector
+we reapply the uneven contribution bad smell detector over the whole development process. Based on a time unit of week, we might find the badsmell to some degree in the first few weeks. If the degree is above 2, the  badsmell must exist.[unevenContributionEarlyDetector](detector/unevenContributionEarly.py)
 
+   If any leader or passenger found: degree + 2
+   If any possible leader or passenger found: degree + 1
+   
+#####Result
+*Project 1*
+    ![](./imgs/project_1_uneven_early.png)  
+
+
+From week 0-0:
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+
+From week 0-1:
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+
+From week 0-2:
+Project might have passenger
+Project might be unevenly contributed
+
+From week 0-3:
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+
+From week 0-4:
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+
+From week 0-5:
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+
+From week 0-6:
+Project might be leading by someone
+Project might be unevenly contributed
+
+From week 0-7:
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+
+    Project has uneven contribution bad smell since week 0 and reappeared since week 3 
+    
+*Project 2*
+    ![](./imgs/project_2_uneven_early.png)  
+    
+From week 0-0:
+Project might be leading by someone
+Project might be unevenly contributed
+
+From week 0-1:
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+
+From week 0-2:
+Project has passenger
+Project is leading by someone
+Project is unevenly contributed
+
+From week 0-3:
+Project has passenger
+Project might be leading by someone
+Project is unevenly contributed
+
+From week 0-4:
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+
+From week 0-5:
+Project might have passenger
+Project might be unevenly contributed
+
+From week 0-6:
+Project might have passenger
+Project might be unevenly contributed
+
+From week 0-7:
+Project might have passenger
+Project might be unevenly contributed
+
+From week 0-8:
+Project might have passenger
+Project might be unevenly contributed
+
+From week 0-9:
+Project might have passenger
+Project might be unevenly contributed
+
+From week 0-10:
+Project might have passenger
+Project might be unevenly contributed
+
+     Project has uneven contribution bad smell since week 2.
+
+*Project 3*
+    ![](./imgs/project_3_uneven_early.png)  
+    
+ From week 0-0:
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+
+From week 0-1:
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+
+From week 0-2:
+Project might have passenger
+Project might be leading by someone
+Project might be unevenly contributed
+
+From week 0-3:
+Project might have passenger
+Project might be unevenly contributed
+
+From week 0-4:
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+
+From week 0-5:
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+
+From week 0-6:
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+
+From week 0-7:
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+
+From week 0-8:
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+
+From week 0-9:
+Project might have passenger
+Project is leading by someone
+Project is unevenly contributed
+     
+      Project has uneven contribution since week 4
 ##  Early warning results
