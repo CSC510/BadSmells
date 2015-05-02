@@ -209,28 +209,80 @@ If one issue last extremely short, nearly no time, then the issue might be creat
 
 
 
-####3. Unusually long time spent in a specific milestone
-When open a milestone, it means that the team is facing a difficult subject, or having a relatively high goal. If one milestone consumed too much time, then we might regard it as problematic, because the tasks might be too complex, or the goal might be too high to meet.
+####3. Unusal duration time of milestone
 
-#####Result
+In this part, we amied to detect each milestone's duration time and find abnormal time schedule during the whole project. The code for collecting milestone duration time data can be found here (gittable).
+
+Data results:
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/MileStone_1.txt)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/MileStone_2.txt)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/MileStone_3.txt)
+
+Project1:
+
+Badsmell: This milestone has Xsmall time.
+Milestone time is normal
+Milestone time is normal
+Milestone time is normal
+Milestone time is normal
+
+![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_1_MilestoneDuration.png)
+
+Project2:
+
+Badsmell: This milestone has Xsmall time.
+Milestone time is normal
+Milestone time is normal
+Milestone time is normal
+Badsmell: This milestone has Xsmall time.
+
+![Project2](https://github.com/CSC510/BadSmells/blob/master/imgs/project_2_MilestoneDuration.png)
+
+Project3:
+
+Badsmell: This milestone has Xsmall time.
+Milestone time is normal
+Milestone time is normal
+
+![Project2](https://github.com/CSC510/BadSmells/blob/master/imgs/project_3_MilestoneDuration.png)
+
+Analysis:
+
+Milestones are constructed to provide reference points along the road. This can be used to reassure developer that the proper path is being followed, and to indicate either distance travelled or the remaining distance to a destination. 
+
+According to above three projects' milestone duration time, we can see that some milestone duration time are extremely large, others are small. If one milestone exists extremely valude, we might regard it as problematic, because the tasks might be too complex, or the goal might be too high to meet. 
+
+We can calculate the mean value and standard deviation for each list of time we get for each group. Then the process time which are larger than the upper bound which is average plus standard deviation will be noticed as long process time. Then the process time which are smaller than the lower bound which is average minus standard deviation will be noticed as small process time. 
 
 
-####4. Time spent in a milestone is unusually short
-When a milestone lasted extremely short, we can also say that it is not reasonable, because it might probably be reduced into one or two issues.
+####4. Unusual number of issues in a specific milestone
 
-#####Result
+For unususual number of issue in a specific milestone, it means that there exists some extremely large or small issues in a milestone. We can see this kind of milestone as abnormal milestone.
+
+In this part, we have counted issues number for each milestone and found out the unusual number of issues in a specific milestone. 
+
+Data results:
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/MileStone_1.txt)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/MileStone_2.txt)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/MileStone_3.txt)
+
+Data Results:
+Project1: 
+
+![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_1_IssuePerMilestone.png)
+
+Project2: 
+
+![Project2](https://github.com/CSC510/BadSmells/blob/master/imgs/project_2_IssuePerMilestone.png)
+
+Project3: 
+
+![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_3_IssuePerMilestone.png)
 
 
-####5. Large number of issues in a specific milestone
-If there are large number of issues created in a milestone, it might be the case that the milestone is too complex to achieve. It may probably be more efficient to divide the complex milestone into two or more small and relatively easy milestones.
+Analysis:
 
-#####Result
-
-
-####6. Small number of issues in a specific milestone
-If the number of issues opened in a milestone is too small, it can be replaced by some issues. Because when milestone is created, it should be a relatively long-term goal, not some goals which can be met in a short time.
-
-#####Result
+According to above projects' data, we can see each different milestone has different issues number. Some of data are extremely small or big. We can use the method of analyzing mean and standard deviation of the data and find some abnormal data from the project.
 
 
 ####7. Large number of issues posted by a single user
@@ -286,6 +338,48 @@ Different labels in a project reflect different small topics, or different stage
 
 ####Result
 
+###Issue By Week Smell Detector
+We have counted the number of issues per week, and analyzed the mean and standard deviation of issue numbers for each group. We consider the detectign result as a bad smell if the number of issue is less than mean minus standard deviation or the number of issue is greater than mean plus standard deviation. The issue duration smell detector will automatically report the detecting result when it analyze the project. Issue By Week Smell Detector can be found here.
+
+####Result
+The numbers of issues per week have been post in the feature and result part. Our smell detector reports the detecting results based on these sample data.
+
+Project1: 
+
+        [3, 19, 4, 5, 1, 1, 1, 14]
+        Issues numbers are normal
+        Badsmells: This week has too many issues.
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Badsmells: This week has too many issues.
+
+Project2: 
+
+        [19, 9, 6, 4, 6, 1, 5, 13]
+        Badsmells: This week has too many issues.
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Badsmells: This week has too less issues.
+        Issues numbers are normal
+        Issues numbers are normal
+
+Project3:
+
+        [10, 9, 7, 1, 1, 1, 1, 18, 20]
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Badsmells: This week has too many issues.
+        Badsmells: This week has too many issues.
 
 ###Commit per Person Smell Detector
 
@@ -298,8 +392,17 @@ Different labels in a project reflect different small topics, or different stage
 
 
 ###Milestone Smell Detector
-
+According to milestone features memtioned above, we collected milestone's duration time and issue number in each projects, and then used the method of analyzing the mean and standard deviation of duration time and issue numbers in each milestone. 
+Bad Smell Detector of Duration Time:
+        duration time < mean - standard deviation or duration > duration time > mean + standard deviation
+Bad Semll Detector of issue numbers:
+        issue numbers < mean - standard deviation or duration > issue numbers > mean + standard deviation
+        
 ####Result
+Duration Time Bad Smell:
+
+Issue Number Bad Smell:
+
 
 
 ###Pull Request Smell Detector
