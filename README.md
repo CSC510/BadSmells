@@ -1,5 +1,7 @@
 # Bad Smells Detector #
 
+
+
 ##  Collection
 In the project, we got the data we needed by modifying gitable.py. With the help of APIs provided by Github, we extracted information from different projects. We collected data of issues, commits, milestones, and so on, with corresponding time information.
 
@@ -70,6 +72,7 @@ week 1 | week 2 | week 3 | week 4 | week 5 | week 6 | week 7 | week 8 | week 9 |
 [project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/project1_cimmits_week.csv)
 [project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/project2_cimmits_week.csv)
 [project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/project3_cimmits_week.csv)
+
 
 
 ##  Feature detection & Result
