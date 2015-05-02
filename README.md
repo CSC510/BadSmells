@@ -380,20 +380,24 @@ It may reflect on the issues and commits numbers by user. We conbine the commits
        
 
 ####Result
+
 *Project1*
+
 	Badsmells: 
 	Project might have passenger
  	Project might be leading by someone
 	Project might be unevenly contributed   
     
 *Project2*
-    	Badsmells:
-       	Project might have passenger
+
+	Badsmells:
+	Project might have passenger
 	Project might be unevenly contributed
     
 *Project3*
-    	Badsmells:
-        Project might have passenger
+
+	Badsmells:
+	Project might have passenger
 	Project is leading by someone
 	Project is unevenly contributed
 
