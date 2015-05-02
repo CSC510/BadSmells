@@ -531,38 +531,38 @@ Project1:
 
         [3, 19, 4, 5, 1, 1, 1, 14]
         Issues numbers are normal
-	Badsmells: This week has too many issues.
-	Issues numbers are normal
-	Issues numbers are normal
-	Issues numbers are normal
-	Badsmells: This week has too less issues.
-	Badsmells: This week has too less issues.
-	Badsmells: This week has too many issues.
+        Badsmells: This week has too many issues.
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Badsmells: This week has too less issues.
+        Badsmells: This week has too less issues.
+        Badsmells: This week has too many issues.
 
 Project2: 
 
         [19, 9, 6, 4, 6, 1, 5, 13]
         Badsmells: This week has too many issues.
-	Issues numbers are normal
-	Issues numbers are normal
-	Issues numbers are normal
-	Issues numbers are normal
-	Badsmells: This week has too less issues.
-	Issues numbers are normal
-	Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Badsmells: This week has too less issues.
+        Issues numbers are normal
+        Issues numbers are normal
 
 Project3:
 
         [10, 9, 7, 1, 1, 1, 1, 18, 20]
         Issues numbers are normal
-	Issues numbers are normal
-	Issues numbers are normal
-	Issues numbers are normal
-	Badsmells: This week has too less issues.
-	Badsmells: This week has too less issues.
-	Badsmells: This week has too less issues.
-	Badsmells: This week has too many issues.
-	Badsmells: This week has too many issues.
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Badsmells: This week has too less issues.
+        Badsmells: This week has too less issues.
+        Badsmells: This week has too less issues.
+        Badsmells: This week has too many issues.
+        Badsmells: This week has too many issues.
 
 
 ###Label Usage Smell Detector
@@ -587,10 +587,12 @@ Duration Time Bad Smell Detector:
 Results
 
 Project1: 
-
+	
 	Issue number in each milestone:  [1, 13, 6, 13, 6]
 	Duration time in each milestone: [65.42, 1069.72, 1310.95, 304.98, 1310.28]
+	
 	Milestone duration time and issues number are normal
+	
 	Milestone duration time and issues number are normal
 	Milestone duration time and issues number are normal
 	Milestone duration time and issues number are normal
