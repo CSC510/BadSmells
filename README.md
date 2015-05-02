@@ -1,195 +1,77 @@
-#Bad Smells Detector
+# Bad Smells Detector #
+
 
 
 ##  Collection
+In the project, we got the data we needed by modifying gitable.py. With the help of APIs provided by Github, we extracted information from different projects. We collected data of issues, commits, milestones, and so on, with corresponding time information.
 
 ##  Anonymization
-
+After we extracted the data, we anonymized them as required. All the names of users were replaced by user0, user1, and so on, and all the names of issues and milestones were replaced by numbers, or deleted directly. From the data, information on the original project can never be found.
 
 ##  Tables
+After extracting data from github repositories using Github APIs, we applied anonymization process, and store the anonymized data into csv files or txt files. When analyzing data, we choose one or more parts in the data files, implemented with statistical methods like mean and standard deviation, and find characteristics of different projects. At last, we check the data and combine them to find if there is bad smell in projects.
 
+## Data samples
 
-###Issue Info
-
-
-<table>
-<thead>
-<tr class="header">
-<th align="left">issue Id</th>
-<th align="left">State</th>
-<th align="left">User</th>
-<th align="left">Duration Time</th>
-<th align="left">Closed Time</th>
-<th align="left">Created Time</th>
-<th align="left">Comments Num</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th align="left">1 # </th>
-<th align="left">closed</th>
-<th align="left">user0</th>
-<th align="left">14143</th>
-<th align="left">1428367982</th>
-<th align="left">1428353839</th>
-<th align="left">2</th>
-
-</tr>
-<tr class="even">
-<th align="left">2 #</th>
-<th align="left">closed</th>
-<th align="left">user0</th>
-<th align="left">452566</th>
-<th align="left">1424060565</th>
-<th align="left">1423607999</th>
-<th align="left">0</th>
-</tr>
-</tbody>
-</table>
-
-[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/issuesData_1.csv)
-[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/issuesData_2.csv)
-[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/issuesData_3.csv)
-
-
-###Commit Info
-
-#### Commit By Person
-<table>
-<thead>
-<tr>
-<th>Commiter</th>
-<th>Created Time</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>user_0</td>
-<td>1474778.0</td>
-</tr>
-<tr>
-<td>user_1</td>
-<td>1423456.0</td>
-</tr>
-</tbody>
-</table>
-
-[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/project1_commits.csv)
-[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/project2_commits.csv)
-[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/project3_commits.csv)
-
-
-####Commit Per Week
-
-<table>
-<thead>
-<tr>
-<th>Start week</th>
-<th>Commit Number</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2015-04-03 00:00:00</td>
-<td>12</td>
-</tr>
-</tbody>
-</table>
-
-[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/project1_commits_week.csv)
-[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/project2_commits_week.csv)
-[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/project3_commits_week.csv)
-
-
-
-###Pull Request Info
-
-<table>
-<thead>
-<tr class="header">
-<th align="left">Pull Request</th>
-<th align="left">changed_files</th>
-<th align="left">mergeable(T/F)</th>
-<th align="left">process_duration(hours)</th>
-
-</tr>     
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Request # </td>
-<td align="left">10</td>
-<td align="left">True</td>
-<td align="left">1</td>
-   
-</tr>
-<tr class="even">
-<td align="left">Request #</td>
-<td align="left">40</td>
-<td align="left">False</td>
-<td align="left">10</td>  
-</tr>
-</tbody>
-</table>
-
-[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/Pull_1.txt)
-[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/Pull_2.txt)
-[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/Pull_3.txt)
-
-###Milestone Info
-<table>
-<thead>
-<tr class="header">
-<th align="left">MileStone</th>
-<th align="left">Late Milestone(T/F)</th>
-<th align="left">Total Issues</th>
-<th align="left">Closed Issues</th>
-<th align="left">Open Issues</th>
-<th align="left">Due on(datetime)</th>
-<th align="left">Duration(days)</th>
-</tr>     
-</thead>
-<tbody>
-<tr class="odd">
-<th align="left">MileStone # </th>
-<th align="left">False</th>
-<th align="left">20</th>
-<th align="left">20</th>
-<th align="left">0</th>
-<th align="left">2015-04-14T19:59:29Z</th>
-<th align="left">20</th>
-   
-</tr>
-<tr class="even">
-<th align="left">MileStone #</th>
-<th align="left">True</th>
-<th align="left">21</th>
-<th align="left">19</th>
-<th align="left">2</th>
-<th align="left">2015-04-01T19:29:29Z</th>
-<th align="left">inf</th> 
-</tr>
-</tbody>
-</table>
-
+####1. Milestone info
+late | total issues | closed issues | due time | close time | duration time | open issues
+---- | ---- | ---- | ---- | ---- | ---- | ----
+True | 19 | 19 | 2015-03-10T04:00:00Z | 2015-03-22T19:57:55Z | 24.87 | 0
+False | 14 | 14 | 2015-02-28T05:00:00Z | 2015-02-26T17:09:17Z | 7.79 | 0
 
 [project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/MileStone_1.txt)
 [project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/MileStone_2.txt)
 [project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/MileStone_3.txt)
 
+####2. Pull request info
+changed files | mergeable | duration time
+---- | ---- | ----
+1 | True | 0.91
+21 | True | 2034
 
-##  Data
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/Pull_1.txt)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/Pull_2.txt)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/Pull_3.txt)
 
+####3. Issue number per week
+week 1 | week 2 | week 3 | week 4 | week 5 | week 6 | week 7 | week 8 
+---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
+7 | 2 | 6 | 4 | 6 | 11 | 21 | 6
+8 | 23 | 1 | 2 | 16 | 13 | 5 | 
 
-[project1] (https://github.com/CSC510/BadSmells/tree/master/data/group1)
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/issuesByWeek_1.txt)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/issuesByWeek_2.txt)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/issuesByWeek_3.txt)
 
-[project2] (https://github.com/CSC510/BadSmells/tree/master/data/group2)
+####4. Issue info
+issue_id | state | user | duration time | closed time | create time | comments number
+---- | ---- | ---- | ---- | ---- | ---- | ----
+23 | closed | user1 | 2937 | 1424300731 | 1424297794 | 1
+41 | closed | user0 | 1037100 | 1427248965 | 1426211865 | 12
 
-[project3] (https://github.com/CSC510/BadSmells/tree/master/data/group3)
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/issuesData_1.csv)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/issuesData_2.csv)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/issuesData_3.csv)
 
+####5. Commit info
+user | commit time
+---- | ----
+person_0 | 1428613428.0
+person_2 | 1423220949.0
 
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/project1_commits.csv)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/project2_commits.csv)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/project3_commits.csv)
 
+####6. Commit number per week
+week 1 | week 2 | week 3 | week 4 | week 5 | week 6 | week 7 | week 8 | week 9 | week 10 | week 11
+---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
+2 | 9 | 16 | 6 | 7 | 72 | 7 | 2 |  |  | 
+4 | 13 | 45 | 56 | 56 | 56 | 27 | 56 | 59 | 133 | 4
 
-### Data samples
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/project1_cimmits_week.csv)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/project2_cimmits_week.csv)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/project3_cimmits_week.csv)
 
 
 
@@ -215,7 +97,7 @@ According to the data we collected in feature 1, we will be able to get the dura
 
 ####3. Unusal duration time of milestone
 
-In this part, we amied to detect each milestone's duration time and find abnormal time schedule during the whole project. Milestones are constructed to provide reference points along the road. This can be used to reassure developer that the proper path is being followed, and to indicate either distance travelled or the remaining distance to a destination. If one milestone lasts extremely long, we might regard it as problematic, because the tasks might be too complex, or the goal might be too high to meet.
+In this part, we aimed to detect each milestone's duration time and find abnormal time schedule during the whole project. Milestones are constructed to provide reference points along the road. This can be used to reassure developer that the proper path is being followed, and to indicate either distance travelled or the remaining distance to a destination. If one milestone lasts extremely long, we might regard it as problematic, because the tasks might be too complex, or the goal might be too high to meet.
 
 #####Result
 
@@ -519,7 +401,10 @@ We calculate the mean value and standard deviation of each group's data and we d
 ####Result
 
 ###Issue By Week Smell Detector
-We have counted the number of issues per week, and analyzed the mean and standard deviation of issue numbers for each group. We consider the detectign result as a bad smell if the number of issue is less than mean minus standard deviation or the number of issue is greater than mean plus standard deviation. The issue duration smell detector will automatically report the detecting result when it analyze the project. Issue By Week Smell Detector can be found here.
+We have counted the number of issues per week, and analyzed the mean and standard deviation of issue numbers for each group. We consider the detectign result as a bad smell if the number of issue is less than mean minus standard deviation or the number of issue is greater than mean plus standard deviation. The issue duration smell detector will automatically report the detecting result when it analyze the project. Issue By Week Smell Detector can be found [issuesByWeekDetector](./detector/issuesByWeekDetector.py)
+
+	issue number > mean + standard deviation or issue number < mean - standard deviation 
+	or issueNum1 + issueNum2 < mean
 
 ####Result
 The numbers of issues per week have been post in the feature and result part. Our smell detector reports the detecting results based on these sample data.
@@ -532,8 +417,8 @@ Project1:
         Issues numbers are normal
         Issues numbers are normal
         Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
+        Badsmells: This week has too less issues.
+        Badsmells: This week has too less issues.
         Badsmells: This week has too many issues.
 
 Project2: 
@@ -555,9 +440,9 @@ Project3:
         Issues numbers are normal
         Issues numbers are normal
         Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
-        Issues numbers are normal
+        Badsmells: This week has too less issues.
+        Badsmells: This week has too less issues.
+        Badsmells: This week has too less issues.
         Badsmells: This week has too many issues.
         Badsmells: This week has too many issues.
 
@@ -574,19 +459,41 @@ As said in the feature dectection, we have get the unusual use of labels whether
 
 ###Milestone Smell Detector
 
-According to milestone features memtioned above, we collected milestone's duration time and issue number in each projects, and then used the method of analyzing the mean and standard deviation of duration time and issue numbers in each milestone. 
-Bad Smell Detector of Duration Time:
-        duration time < mean - standard deviation or duration > duration time > mean + standard deviation
-Bad Semll Detector of issue numbers:
-        issue numbers < mean - standard deviation or duration > issue numbers > mean + standard deviation
-        
-Then we calcuate the late milestone percentage for each repo.
+According to milestone features memtioned above, we have collected milestone's duration time and issue number in each projects, and then analyzed the mean and standard deviation of duration time and issue numbers in each milestone. If duration time is short and issues number is large, we consider it as a bad smell. If duration time is long and issue number is small, we consider it as a bad smell too. [Milestone Smell Detector](./detector/milestoneDetector.py)
 
-####Result
-Duration Time Bad Smell:
+        duration time > mean + standard deviation and issues number < mean - standard deviation
+        or
+        duration time < mean - standard deviation and issues number > mean + standard deviation
 
-Issue Number Bad Smell:
+Results
 
+Project1: 
+	
+	Issue number in each milestone:  [1, 13, 6, 13, 6]
+	Duration time in each milestone: [65.42, 1069.72, 1310.95, 304.98, 1310.28]
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+
+Project2:
+
+	Issue number in each milestone:  [14, 19, 8, 7, 8]
+	Duration time in each milestone: [186.93, 596.81, 652.64, 620.10, 264.00]
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+
+Project3:
+
+	Issue number in each milestone:  [23, 4, 14, 23, 0]
+	Duration time in each milestone: [876.85, 987.67, 987.43]
+	**Badsmell: Milestone has too many issues in short time!**
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
 
 
 ###Pull Request Smell Detector
@@ -600,6 +507,35 @@ In case there are some extreme values, we have removed the largest and smallest 
 
 
 ##  Early warning & Result
+### Issue number per week Early Warning
+
+[earlyIssuesDetectorByWeek](./detector/earlyIssuesDetectorByWeek.py)
+
+Result:
+Project1: 
+
+	[8, 2, 4, 1]
+	Badsmells: This week has too many issues.
+	Issues numbers are normal
+	Issues numbers are normal
+	Badsmells: This week has too less issues.
+
+Project2:
+
+	[19, 9, 6, 4]
+	Badsmells: This week has too many issues.
+	Issues numbers are normal
+	Issues numbers are normal
+	Issues numbers are normal
+
+Project3:
+
+	[10, 9, 7, 1]
+	Issues numbers are normal
+	Issues numbers are normal
+	Issues numbers are normal
+	Badsmells: This week has too less issues.
+
 ###Issue per Person Early Warning
 
 ####Result
