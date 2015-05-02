@@ -363,7 +363,7 @@ Different labels in a project reflect different small topics, or different stage
 
 ###Uneven Contribution Smell Detector
 In a project, someone may leading the project and someone could be a passenger with much less contribution to the group.
-It may reflect on the issues and commits numbers by user. We conbine the commits and issues detector [unevenContributionDetector](./detector/unevenContributionDetectro.py)
+It may reflect on the issues and commits numbers by user. We conbine the commits and issues detector [unevenContributionDetector](./detector/unevenContributionDetector.py)
          
          leader: made both extra large issues and commits
          passenger: made both extra small large issues and commits 
