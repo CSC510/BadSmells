@@ -6,7 +6,7 @@
 In the project, we got the data we needed by modifying gitable.py. With the help of APIs provided by Github, we extracted information from different projects. We collected data of issues, commits, milestones, and so on, with corresponding time information.
 
 ##  Anonymization
-After we extracted the data, we anonymized them as required. All the names of users were replaced by user0, user1, and so on, and all the names of issues and milestones were replaced by numbers, or deleted directly. From the data, information on the original project can never be found.
+After we extracted the data, we anonymized them as required. All the names of users were replaced by user0, user1, and so on, and all the names of issues and milestones were replaced by numbers, or deleted directly. From the data, information on the original project can never be found. Program which do the trick on User can be found [here](https://github.com/CSC510/BadSmells/blob/master/userAnonymize.py), on Milestone can be found [here](https://github.com/CSC510/BadSmells/blob/master/milestoneAnonymize.py).
 
 ##  Tables
 After extracting data from github repositories using Github APIs, we applied anonymization process, and store the anonymized data into csv files or txt files. When analyzing data, we choose one or more parts in the data files, implemented with statistical methods like mean and standard deviation, and find characteristics of different projects. At last, we check the data and combine them to find if there is bad smell in projects.
@@ -533,7 +533,7 @@ According to milestone features memtioned above, we have collected milestone's d
         or
         duration time < mean - standard deviation and issues number > mean + standard deviation
 
-Results
+####Result
 
 Project1: 
 	
@@ -616,7 +616,8 @@ Project 3:
 ### Issue number per week Early Warning
 In the last section of the bad smell detector, we have used 9 weeks to detect the bad smell. However, in early smell detector, we have only used the **four** weeks' data to do the estimation. Same method and detector techniques are used to do the early warning. As we can see from the results below, similar bad smells could be detected by the detector, which could be used as early warning. We could see that in project 1 and project 3, there exists only one issue in week 4, which is **far less** than the average issue per week. The early detector source code can be found [here](./detector/earlyIssuesDetectorByWeek.py)
 
-Result:
+####Result
+
 Project1: 
 
 	[8, 2, 4, 1]
