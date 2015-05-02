@@ -215,7 +215,7 @@ According to the data we collected in feature 1, we will be able to get the dura
 
 ####3. Unusal duration time of milestone
 
-In this part, we amied to detect each milestone's duration time and find abnormal time schedule during the whole project. Milestones are constructed to provide reference points along the road. This can be used to reassure developer that the proper path is being followed, and to indicate either distance travelled or the remaining distance to a destination. If one milestone lasts extremely long, we might regard it as problematic, because the tasks might be too complex, or the goal might be too high to meet.
+In this part, we aimed to detect each milestone's duration time and find abnormal time schedule during the whole project. Milestones are constructed to provide reference points along the road. This can be used to reassure developer that the proper path is being followed, and to indicate either distance travelled or the remaining distance to a destination. If one milestone lasts extremely long, we might regard it as problematic, because the tasks might be too complex, or the goal might be too high to meet.
 
 #####Result
 
@@ -574,19 +574,42 @@ As said in the feature dectection, we have get the unusual use of labels whether
 
 ###Milestone Smell Detector
 
-According to milestone features memtioned above, we collected milestone's duration time and issue number in each projects, and then used the method of analyzing the mean and standard deviation of duration time and issue numbers in each milestone. 
-Bad Smell Detector of Duration Time:
-        duration time < mean - standard deviation or duration > duration time > mean + standard deviation
-Bad Semll Detector of issue numbers:
-        issue numbers < mean - standard deviation or duration > issue numbers > mean + standard deviation
-        
-Then we calcuate the late milestone percentage for each repo.
+According to milestone features memtioned above, we have collected milestone's duration time and issue number in each projects, and then analyzed the mean and standard deviation of duration time and issue numbers in each milestone. If duration time is short and issues number is large, we consider it as a bad smell. If duration time is long and issue number is small, we consider it as a bad smell too.
+Duration Time Bad Smell Detector: 
 
-####Result
-Duration Time Bad Smell:
+        duration time > mean + standard deviation and issues number < mean - standard deviation
+        or
+        duration time < mean - standard deviation and issues number > mean + standard deviation
 
-Issue Number Bad Smell:
+Results
 
+Project1: 
+
+	Issue number in each milestone:  [1, 13, 6, 13, 6]
+	Duration time in each milestone: [65.42, 1069.72, 1310.95, 304.98, 1310.28]
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+
+Project2:
+
+	Issue number in each milestone:  [14, 19, 8, 7, 8]
+	Duration time in each milestone: [186.93, 596.81, 652.64, 620.10, 264.00]
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
+
+Project3:
+
+	Issue number in each milestone:  [23, 4, 14, 23, 0]
+	Duration time in each milestone: [876.85, 987.67, 987.43]
+	**Badsmell: Milestone has too many issues in short time!**
+	Milestone duration time and issues number are normal
+	Milestone duration time and issues number are normal
 
 
 ###Pull Request Smell Detector
