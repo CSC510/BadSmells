@@ -1,4 +1,4 @@
-# Bad Smells Detector
+# Bad Smells Detector #
 
 
 ##  Collection
