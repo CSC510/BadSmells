@@ -339,9 +339,47 @@ Different labels in a project reflect different small topics, or different stage
 ####Result
 
 ###Issue By Week Smell Detector
+We have counted the number of issues per week, and analyzed the mean and standard deviation of issue numbers for each group. We consider the detectign result as a bad smell if the number of issue is less than mean minus standard deviation or the number of issue is greater than mean plus standard deviation. The issue duration smell detector will automatically report the detecting result when it analyze the project. Issue By Week Smell Detector can be found here.
 
 ####Result
+The numbers of issues per week have been post in the feature and result part. Our smell detector reports the detecting results based on these sample data.
 
+Project1: 
+
+        [3, 19, 4, 5, 1, 1, 1, 14]
+        Issues numbers are normal
+        Badsmells: This week has too many issues.
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Badsmells: This week has too many issues.
+
+Project2: 
+
+        [19, 9, 6, 4, 6, 1, 5, 13]
+        Badsmells: This week has too many issues.
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Badsmells: This week has too less issues.
+        Issues numbers are normal
+        Issues numbers are normal
+
+Project3:
+
+        [10, 9, 7, 1, 1, 1, 1, 18, 20]
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Issues numbers are normal
+        Badsmells: This week has too many issues.
+        Badsmells: This week has too many issues.
 
 ###Commit per Person Smell Detector
 
@@ -354,8 +392,17 @@ Different labels in a project reflect different small topics, or different stage
 
 
 ###Milestone Smell Detector
-According to milestone features memtioned above, we have collected milestone duration time and issues number in each milestone from three projects. We can see lots of projects' milestone duration time and issues number exist some extremely values. We have used the method of analyzing the mean and standard 
+According to milestone features memtioned above, we collected milestone's duration time and issue number in each projects, and then used the method of analyzing the mean and standard deviation of duration time and issue numbers in each milestone. 
+Bad Smell Detector of Duration Time:
+        duration time < mean - standard deviation or duration > duration time > mean + standard deviation
+Bad Semll Detector of issue numbers:
+        issue numbers < mean - standard deviation or duration > issue numbers > mean + standard deviation
+        
 ####Result
+Duration Time Bad Smell:
+
+Issue Number Bad Smell:
+
 
 
 ###Pull Request Smell Detector
