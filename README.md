@@ -8,93 +8,69 @@ In the project, we got the data we needed by modifying gitable.py. With the help
 After we extracted the data, we anonymized them as required. All the names of users were replaced by user0, user1, and so on, and all the names of issues and milestones were replaced by numbers, or deleted directly. From the data, information on the original project can never be found.
 
 ##  Tables
+After extracting data from github repositories using Github APIs, we applied anonymization process, and store the anonymized data into csv files or txt files. When analyzing data, we choose one or more parts in the data files, implemented with statistical methods like mean and standard deviation, and find characteristics of different projects. At last, we check the data and combine them to find if there is bad smell in projects.
 
-###Issue Info
+## Data samples
 
-###Commit Info
-
-###Pull Request Info
-<table>
-<thead>
-<tr class="header">
-<th align="left">Pull Request</th>
-<th align="left">changed_files</th>
-<th align="left">mergeable(T/F)</th>
-<th align="left">process_duration(hours)</th>
-
-</tr>     
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Request # </td>
-<td align="left">10</td>
-<td align="left">True</td>
-<td align="left">1</td>
-   
-</tr>
-<tr class="even">
-<td align="left">Request #</td>
-<td align="left">40</td>
-<td align="left">False</td>
-<td align="left">10</td>  
-</tr>
-</tbody>
-</table>
-
-[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/Pull_1.txt)
-[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/Pull_2.txt)
-[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/Pull_3.txt)
-
-###Milestone Info
-<table>
-<thead>
-<tr class="header">
-<th align="left">MileStone</th>
-<th align="left">Late Milestone(T/F)</th>
-<th align="left">Total Issues</th>
-<th align="left">Closed Issues</th>
-<th align="left">Open Issues</th>
-<th align="left">Due on(datetime)</th>
-<th align="left">Duration(days)</th>
-</tr>     
-</thead>
-<tbody>
-<tr class="odd">
-<th align="left">MileStone # </th>
-<th align="left">False</th>
-<th align="left">20</th>
-<th align="left">20</th>
-<th align="left">0</th>
-<th align="left">2015-04-14T19:59:29Z</th>
-<th align="left">20</th>
-   
-</tr>
-<tr class="even">
-<th align="left">MileStone #</th>
-<th align="left">True</th>
-<th align="left">21</th>
-<th align="left">19</th>
-<th align="left">2</th>
-<th align="left">2015-04-01T19:29:29Z</th>
-<th align="left">inf</th> 
-</tr>
-</tbody>
-</table>
+####1. Milestone info
+late | total issues | closed issues | due time | close time | duration time | open issues
+---- | ---- | ---- | ---- | ---- | ---- | ----
+True | 19 | 19 | 2015-03-10T04:00:00Z | 2015-03-22T19:57:55Z | 24.87 | 0
+False | 14 | 14 | 2015-02-28T05:00:00Z | 2015-02-26T17:09:17Z | 7.79 | 0
 
 [project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/MileStone_1.txt)
 [project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/MileStone_2.txt)
 [project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/MileStone_3.txt)
 
-##  Data
+####2. Pull request info
+changed files | mergeable | duration time
+---- | ---- | ----
+1 | True | 0.91
+21 | True | 2034
 
-[project1] (https://github.com/CSC510/BadSmells/tree/master/data/group1)
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/Pull_1.txt)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/Pull_2.txt)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/Pull_3.txt)
 
-[project2] (https://github.com/CSC510/BadSmells/tree/master/data/group2)
+####3. Issue number per week
+week 1 | week 2 | week 3 | week 4 | week 5 | week 6 | week 7 | week 8 
+---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
+7 | 2 | 6 | 4 | 6 | 11 | 21 | 6
+8 | 23 | 1 | 2 | 16 | 13 | 5 | 
 
-[project3] (https://github.com/CSC510/BadSmells/tree/master/data/group3)
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/issuesByWeek_1.txt)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/issuesByWeek_2.txt)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/issuesByWeek_3.txt)
 
-### Data samples
+####4. Issue info
+issue_id | state | user | duration time | closed time | create time | comments number
+---- | ---- | ---- | ---- | ---- | ---- | ----
+23 | closed | user1 | 2937 | 1424300731 | 1424297794 | 1
+41 | closed | user0 | 1037100 | 1427248965 | 1426211865 | 12
 
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/issuesData_1.csv)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/issuesData_2.csv)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/issuesData_3.csv)
+
+####5. Commit info
+user | commit time
+---- | ----
+person_0 | 1428613428.0
+person_2 | 1423220949.0
+
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/project1_commits.csv)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/project2_commits.csv)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/project3_commits.csv)
+
+####6. Commit number per week
+week 1 | week 2 | week 3 | week 4 | week 5 | week 6 | week 7 | week 8 | week 9 | week 10 | week 11
+---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
+2 | 9 | 16 | 6 | 7 | 72 | 7 | 2 |  |  | 
+4 | 13 | 45 | 56 | 56 | 56 | 27 | 56 | 59 | 133 | 4
+
+[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/project1_cimmits_week.csv)
+[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/project2_cimmits_week.csv)
+[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/project3_cimmits_week.csv)
 
 
 ##  Feature detection
