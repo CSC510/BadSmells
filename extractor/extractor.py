@@ -30,7 +30,7 @@ def  process_issues(features):
     comments_issues = dict()
     for issue, events in issues.iteritems():
         #print("ISSUE " + str(issue))
-        print(events[0])
+
 
         dict_add(author_issues, events[0].user)
 
@@ -40,11 +40,29 @@ def  process_issues(features):
 
 
     draw_bar(author_issues.values(), "issues number posted by person","issues", range(len(author_issues.keys())),"person",0.35)
-    print(comments_issues)
+
+    author_filter = filter.filter(author_issues)
+    large_author = author_filter.large()
+    features['issues_person'] = author_filter
+    if(len(large_author) >0 ):
+        features['large issues post by single user'] = large_author
+
+    small_author = author_filter.small(delta=2)
+    if(len(small_author) >0 ):
+        features['small issues post by single user'] = small_author
 
     draw_bar(comments_issues.values(),"issues number with same comments number","issues",comments_issues.keys(),"comments number",0.35)
-    print(events_issues)
 
+    events_filter= filter.filter(events_issues)
+    features['events_issues'] = events_filter
+    if len(events_filter.large())>0:
+        features['large issues with same events'] = events_filter.large()
+
+    comments_filter = filter.filter(comments_issues)
+    features['comments_issues'] = comments_filter
+    large_comments = comments_filter.large()
+    if(len(large_comments)>0):
+        features['large issues with same comments'] = large_comments
     draw_bar(events_issues.values(),"issues number with same events number", "issues",events_issues.keys(),"events number",0.35)
     single_user = filter.filter(author_issues)
     single_user.large(5)
@@ -58,7 +76,7 @@ def draw_bar(data, title, ylabel, xaix, xlabel, width=0.35):
     ax.set_xlabel(xlabel)
     ax.set_xticks(ind+width)
     ax.set_xticklabels(xaix)
-    plt.show()
+    #plt.show()
 
 def dict_add(dict, item):
     if not dict.get(item):
@@ -98,13 +116,14 @@ def process_commits(features):
     # Uneven work of weeks
     draw_bar(sorted_week_count,"commits per week","commits",range(len( sorted_week_count)),"week",0.35)
     week_filter = filter.filter(weekly_count)
+    features['commits_week']= week_filter
     small_weeks = week_filter.small()
     if len(small_weeks)>0:
         features['low commits during the gap time']= small_weeks
         logger.info(small_weeks)
     large_weeks  =week_filter.large()
     if len(large_weeks)>0:
-        features['extra work during the week'] = large_weeks
+        features['extra large work during the week'] = large_weeks
         #logger.info(large_weeks)
     #logger.info(large_weeks)
 
@@ -112,12 +131,13 @@ def process_commits(features):
     # Uneven contribute of workers
     draw_bar(all.values(), "commits number posted by person","issues", range(len(all.keys())),"person",0.35)
     contribution_filter =filter.filter(all)
-    leader  = contribution_filter.large()
+    features['commits_person'] = contribution_filter
+    leader  = contribution_filter.large(delta=1)
     if len(leader)>0 :
         features['large commits by single user']  =  leader
 
         #logger.info("Project has leader %s" %(leader))
-    passenger  = contribution_filter.small()
+    passenger  = contribution_filter.small(delta=1)
     if len(passenger)>0 :
         features['small commits by single user']= passenger
         #logger.info("Project has passenger %s" %(passenger))
@@ -126,9 +146,12 @@ def process_commits(features):
 
 def main():
     features = dict()
-    #process_issues(features)
+    process_issues(features)
     process_commits(features)
+    return features
 
+
+features = main()
 
 
 

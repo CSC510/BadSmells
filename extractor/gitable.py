@@ -59,7 +59,7 @@ def secs(d0):
   delta = d - epoch
   return delta.total_seconds()
 
-token = "61d5e35fab66adeffcb641e5c3561843b0ce369a"
+token = "43ff68778d35e37384ac10031d270e3bcc6004dc"
 
 
 def dump2(u, commits,time):
