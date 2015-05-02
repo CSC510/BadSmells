@@ -172,8 +172,6 @@
 </table>
 
 
-
-
 [project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/MileStone_1.txt)
 [project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/MileStone_2.txt)
 [project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/MileStone_3.txt)
@@ -204,9 +202,9 @@ We have collected issue data from each group and we calculate the duration of ea
 
 		duration in hours 
 		
-		group1: [12, 0, 241, 241, 1025, 1068, 1069, 1069, 241, 19, 1044, 4, 1026, 26, 0, 13, 1023, 25, 740, 724, 8, 1309, 20, 1, 21, 3, 15, 1, 0, 17, 4, 24, 0, 790, 1160, 280, 479, 912, 1310, 1309, 974, 260, 13, 304, 304, 13, 13, 479]
-		group2: [26, 26, 28, 34, 1, 46, 49, 47, 29, 74, 103, 122, 109, 73, 73, 5, 65, 65, 32, 268, 232, 183, 288, 303, 220, 459, 474, 501, 838, 231, 126, 220, 281, 243, 340, 242, 76, 12, 357, 363, 364, 114, 19, 18, 144, 46, 67, 52, 121, 0, 554, 554, 554, 554, 554, 1, 22, 221, 0, 557, 575, 579, 646]
-		group3: [0, 122, 279, 16, 268, 6, 1, 1, 277, 16, 16, 17, 17, 18, 18, 18, 18, 17, 17, 280, 3, 0, 18, 26, 48, 26, 29, 47, 11, 39, 49, 41, 41, 41, 41, 41, 3, 83, 12, 65, 358, 740, 934, 156, 158, 937, 169, 0, 182, 202, 0, 235, 61, 263, 54, 1058, 1110, 72, 0, 32, 192, 400, 372, 1, 91, 372, 0, 125]
+		Project1: [12, 0, 241, 241, 1025, 1068, 1069, 1069, 241, 19, 1044, 4, 1026, 26, 0, 13, 1023, 25, 740, 724, 8, 1309, 20, 1, 21, 3, 15, 1, 0, 17, 4, 24, 0, 790, 1160, 280, 479, 912, 1310, 1309, 974, 260, 13, 304, 304, 13, 13, 479]
+		Project2: [26, 26, 28, 34, 1, 46, 49, 47, 29, 74, 103, 122, 109, 73, 73, 5, 65, 65, 32, 268, 232, 183, 288, 303, 220, 459, 474, 501, 838, 231, 126, 220, 281, 243, 340, 242, 76, 12, 357, 363, 364, 114, 19, 18, 144, 46, 67, 52, 121, 0, 554, 554, 554, 554, 554, 1, 22, 221, 0, 557, 575, 579, 646]
+		Project3: [0, 122, 279, 16, 268, 6, 1, 1, 277, 16, 16, 17, 17, 18, 18, 18, 18, 17, 17, 280, 3, 0, 18, 26, 48, 26, 29, 47, 11, 39, 49, 41, 41, 41, 41, 41, 3, 83, 12, 65, 358, 740, 934, 156, 158, 937, 169, 0, 182, 202, 0, 235, 61, 263, 54, 1058, 1110, 72, 0, 32, 192, 400, 372, 1, 91, 372, 0, 125]
 		
 ####2. None issue time
 If one issue last extremely short, nearly no time, then the issue might be created by mistake, or the bug was too small to report.
@@ -217,62 +215,29 @@ According to the data we collected in feature 1, we will be able to get the dura
 
 ####3. Unusal duration time of milestone
 
-In this part, we amied to detect each milestone's duration time and find abnormal time schedule during the whole project. The code for collecting milestone duration time data can be found here (gittable).
+In this part, we amied to detect each milestone's duration time and find abnormal time schedule during the whole project. Milestones are constructed to provide reference points along the road. This can be used to reassure developer that the proper path is being followed, and to indicate either distance travelled or the remaining distance to a destination. If one milestone lasts extremely long, we might regard it as problematic, because the tasks might be too complex, or the goal might be too high to meet.
 
-Data results:
-[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/MileStone_1.txt)
-[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/MileStone_2.txt)
-[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/MileStone_3.txt)
+#####Result
 
 Project1:
-
-Badsmell: This milestone has Xsmall time.
-Milestone time is normal
-Milestone time is normal
-Milestone time is normal
-Milestone time is normal
 
 ![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_1_MilestoneDuration.png)
 
 Project2:
 
-Badsmell: This milestone has Xsmall time.
-Milestone time is normal
-Milestone time is normal
-Milestone time is normal
-Badsmell: This milestone has Xsmall time.
-
 ![Project2](https://github.com/CSC510/BadSmells/blob/master/imgs/project_2_MilestoneDuration.png)
 
 Project3:
 
-Badsmell: This milestone has Xsmall time.
-Milestone time is normal
-Milestone time is normal
-
-![Project2](https://github.com/CSC510/BadSmells/blob/master/imgs/project_3_MilestoneDuration.png)
-
-Analysis:
-
-Milestones are constructed to provide reference points along the road. This can be used to reassure developer that the proper path is being followed, and to indicate either distance travelled or the remaining distance to a destination. 
-
-According to above three projects' milestone duration time, we can see that some milestone duration time are extremely large, others are small. If one milestone exists extremely valude, we might regard it as problematic, because the tasks might be too complex, or the goal might be too high to meet. 
-
-We can calculate the mean value and standard deviation for each list of time we get for each group. Then the process time which are larger than the upper bound which is average plus standard deviation will be noticed as long process time. Then the process time which are smaller than the lower bound which is average minus standard deviation will be noticed as small process time. 
+![Project3](https://github.com/CSC510/BadSmells/blob/master/imgs/project_3_MilestoneDuration.png)
 
 
 ####4. Unusual number of issues in a specific milestone
 
-For unususual number of issue in a specific milestone, it means that there exists some extremely large or small issues in a milestone. We can see this kind of milestone as abnormal milestone.
+For unususual number of issue in a specific milestone, it means that there exists some extremely large or small issues in a milestone. We can see this kind of milestone as abnormal milestone. In this part, we have counted issues number for each milestone and found out the unusual number of issues in a specific milestone. 
 
-In this part, we have counted issues number for each milestone and found out the unusual number of issues in a specific milestone. 
+#####Result
 
-Data results:
-[project1] (https://github.com/CSC510/BadSmells/blob/master/data/group1/MileStone_1.txt)
-[project2] (https://github.com/CSC510/BadSmells/blob/master/data/group2/MileStone_2.txt)
-[project3] (https://github.com/CSC510/BadSmells/blob/master/data/group3/MileStone_3.txt)
-
-Data Results:
 Project1: 
 
 ![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_1_IssuePerMilestone.png)
@@ -283,15 +248,11 @@ Project2:
 
 Project3: 
 
-![Project1](https://github.com/CSC510/BadSmells/blob/master/imgs/project_3_IssuePerMilestone.png)
+![Project3](https://github.com/CSC510/BadSmells/blob/master/imgs/project_3_IssuePerMilestone.png)
 
 
-Analysis:
 
-According to above projects' data, we can see each different milestone has different issues number. Some of data are extremely small or big. We can use the method of analyzing mean and standard deviation of the data and find some abnormal data from the project.
-
-
-####7. Large number of issues posted by a single user
+####5. Large number of issues posted by a single user
 If a large percentage of issues were opened by one person, it is possible that the person was assigned tasks which were not suitable for him or her. It is also possible that the person is too busy while others are quite idle, which means that the work is not evenly distributed.
 
 #####Result
@@ -319,7 +280,7 @@ In order to extract the extra large number of issues post by a single user,we us
 
 
 
-####8. Small number of issues posted by a single user
+####6. Small number of issues posted by a single user
 When the number of issues opened by one user is extremely low, we may say that he or she might be a passenger who did not contribute much to the project.
 
 #####Result
@@ -340,7 +301,7 @@ Using the above data collected, we also detected extra small number of issues by
 >>>>>>> develop
 
 
-####9. Number of users involved in an issue
+####7. Number of users involved in an issue
 We found that sometimes one issue have no comment and feedback on it. It means that there is only one person got involved in this issue. In this case, we can say that other people may not totally understand this issue, or it is a relatively small problem which is not necessary to open an issue to deal with.
 
 #####Result
@@ -376,7 +337,7 @@ We also sorted the issues number according to the events number in this issue [i
     2.large issues number with same events:
         events: 1, issues: 41, percentage: 60.3%
 
-####10. Unusual commits number in a specific time
+####8. Unusual commits number in a specific time
 Usually we think that the number of commits should be distributed evenly during one project. If during a certain period, there are too many commits, or just one or two commits, it could indicate that the period of time is too busy, or the period of time was not used efficiently.
 
 #####Result
@@ -407,7 +368,7 @@ We group the commits number in a week order and generated the graph as follows :
     2.small work during the week : None
 
 
-####11. Commits by a single user
+####9. Commits by a single user
 If a large amount of commits were created by a single user, it reflects that the person undertook too much work. Or if a person gave commits which is unusually less, the person might be a passenger who need to be assigned more work.
 
 #####Result
@@ -433,21 +394,21 @@ We analyze the commits number commited by a single user and generate the graph a
     2.small commits by single user: person3, commits: 22, percentage: 12.1%
     
 
-####12. Small Number of Pull Request
+####10. Small Number of Pull Request
 Pull request and branches in Github help a team finish their tasks efficiently. If the number of pull request and branches is unusually small, it is likely that the working process was not clear enough, or there were some communication problems between different teammates. A small pull request number also means that maybe they are using a hard way to do the merge rather than using pull request to do the merge.
 
 
 #####Result
 We collected the pull requests number and compared to the issue (number-requests number) to see how many percentage the pull request counts for.
 
-####13. Long Process Tme of Pull Request
+####11. Long Process Tme of Pull Request
 The process time of a pull request usually means whether the owner of the repo has an active involvement of a repo. 
 
 #####Result<a name="pull"></a>
 We collected the process time for each pull request of a specific repo, as shown below.
 		
 		pull request
-		group1:
+		Project1:
 		changed_files : 1,	mergeable : True,	process_duration : 0.91
 		changed_files : 1,	mergeable : True,	process_duration : 0.0
 		changed_files : 2,	mergeable : True,	process_duration : 0.02
@@ -471,11 +432,11 @@ We collected the process time for each pull request of a specific repo, as shown
 		changed_files : 2,	mergeable : True,	process_duration : 0.0
 		changed_files : 1,	mergeable : True,	process_duration : 5.35
 		
-		group2:
+		Project2:
 		pull request
 		changed_files : 20,	mergeable : True,	process_duration : 0.14
 		
-		group3:
+		Project3:
 		pull request
 		changed_files : 8,	mergeable : True,	process_duration : 1.62
 		changed_files : 16,	mergeable : True,	process_duration : 13.65
@@ -492,32 +453,32 @@ We collected the process time for each pull request of a specific repo, as shown
 		changed_files : 1,	mergeable : True,	process_duration : 0.01
 		
 
-####14. Large number of Files changed in a single Pull Request
+####12. Large number of Files changed in a single Pull Request
 The file changed for each pull request is also a feature we should monitor. If many files are changed in a single pull request, it will probably lead to more conflicts and increase the complexity of merge, thus giving more burden the repo manager. It could also means that it should be divided into two pull requests which only takes care of a specific issue or bug fixed.
 
 #####Result
 We collected the number of *file_changed* for each pull request of a specific repo, as shown [above](#pull). 
 
 
-####15. Large number of Pull Request which can not be Auto-merged
+####13. Large number of Pull Request which can not be Auto-merged
 The auto-mergeable attribute of a pull request is a blessing for repo manager, which means (s)he don't have to fix the conflicts caused by different developer. A large number of requests which can not be auto-mergeable is a disaster for a repo manager.
 
 #####Result
 We collect the data for each pull request and count the number of the pull request which cannot be auto-merged, as shown [above](#pull). 
 
-####16. Unusual Number of time each label is used
+####14. Unusual Number of time each label is used
 Different labels in a project reflect different small topics, or different stages during the process. If the times one label was used is unusually small or large, it indicates that a certain stage in the project is relatively easy or difficult to achieve, and it can be replaced by a more reasonable label.
 
 #####Result
 We collected the number of *label used* a specific repo, as shown below.
 
 		Label used each for label:
-		group1: [12, 3, 6, 1, 19, 6, 5, 6, 4, 1, 3, 2, 1, 6, 1, 2, 9, 4, 11, 1, 4, 2, 2]
-		group2: [15, 5, 1, 2, 2, 21, 5, 5, 2, 2]
-		group3: [23, 33, 3, 9, 1, 6, 10]
+		Project1: [12, 3, 6, 1, 19, 6, 5, 6, 4, 1, 3, 2, 1, 6, 1, 2, 9, 4, 11, 1, 4, 2, 2]
+		Project2: [15, 5, 1, 2, 2, 21, 5, 5, 2, 2]
+		Project3: [23, 33, 3, 9, 1, 6, 10]
  
 
-####17. Number of Late Milestone
+####15. Number of Late Milestone
 Whether a milestone is late or not can determine the team's schedule ability and whether everything is on the right track. A on-time milestone usually means a efficient feature delivery.
 
 #####Result
