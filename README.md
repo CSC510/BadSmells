@@ -3,7 +3,7 @@
 
 
 ##  Collection
-In the project, we got the data we needed by modifying gitable.py. With the help of APIs provided by Github, we extracted information from different projects. We collected data of issues, commits, milestones, and so on, with corresponding time information.
+In the project, we got the data we needed by modifying [**gitable.py**](https://github.com/CSC510/BadSmells/blob/master/detector/gitable.py). With the help of APIs provided by Github, we extracted information from different projects. We collected data of issues, commits, milestones, and so on, with corresponding time information.
 
 ##  Anonymization
 After we extracted the data, we anonymized them as required. All the names of users were replaced by user0, user1, and so on, and all the names of issues and milestones were replaced by numbers, or deleted directly. From the data, information on the original project can never be found. Program which do the trick on User can be found [here](https://github.com/CSC510/BadSmells/blob/master/userAnonymize.py), on Milestone can be found [here](https://github.com/CSC510/BadSmells/blob/master/milestoneAnonymize.py).
@@ -76,6 +76,7 @@ week 1 | week 2 | week 3 | week 4 | week 5 | week 6 | week 7 | week 8 | week 9 |
 
 
 ##  Feature detection & Result
+All the feature detection code is integrated with data collection, which is in [**gitable.py**](https://github.com/CSC510/BadSmells/blob/master/detector/gitable.py). We have implemented three more function to get the issue, commit, milestone and pull request information on a specfic repo.
 ####1. Unusual duration of issues
 The time each issue lasted can represent the efficiency of the team, and tell whether the issue was created reasonably or not. If the duration of one issue is unusually long, it might be a big problem which need to be divided into several sub-problems. If one issue last short, then the issue might be a small problem which need not open an issue.
 
@@ -180,7 +181,6 @@ Using the above data collected, we also detected extra small number of issues by
 
 *project 3*
       small_issues post by single user : None 
->>>>>>> develop
 
 
 ####7. Number of users involved in an issue
